@@ -440,6 +440,9 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
         Route::post('category/store', [CatController::class, 'store']);
         Route::post('category2/update', [CatController::class, 'update']);
         Route::get('category2/{cat}/edit', [CatController::class, 'edit']);
+        Route::get('category/{cat}/activate', [CatController::class, 'catActivate']);
+        Route::get('category/{cat}/deactivate', [CatController::class, 'catDeactivate']);
+
 
         Route::get('subcategory', [SubController::class, 'index']);
         Route::get('subcategory/create', [SubController::class, 'create']);
@@ -447,6 +450,8 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
         Route::post('subcategory/store', [SubController::class, 'store']);
         Route::post('subcategory/update', [SubController::class, 'update']);
         Route::get('/get-subcategories', [SubController::class, 'getSubcategories']);
+        Route::get('subcategory/{sub}/activate', [SubController::class, 'subActivate']);
+        Route::get('subcategory/{sub}/deactivate', [SubController::class, 'subDeactivate']);
     });
     Route::get('sections/{cat_id}', [SectionController::class, 'index']);
     Route::get('section/{id}', [SectionController::class, 'show']);

@@ -38,11 +38,15 @@
                                                 class="btn btn-primary btn-sm"><i class="fa fa-edit"
                                                     aria-hidden="true"></i></a>
 
-                                            @can('delete',$cat)
-                                            <a href="javascript:;" data-toggle="modal" data-target="#deleteModal"
-                                                class="btn btn-danger btn-sm" onclick="deleteData({{ $cat->id }})"><i
-                                                    class="fa fa-trash" aria-hidden="true"></i></a>
-                                            @endcan
+                                          @if ($cat->status === 1)
+                                            <a href="/admin/category/{{ $cat->id }}/deactivate" class="btn btn-success btn-sm">
+                                                <i class="fa fa-check" aria-hidden="true"></i> <!-- Check icon for active -->
+                                            </a>
+                                            @else
+                                            <a href="/admin/category/{{ $cat->id }}/activate" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-times" aria-hidden="true"></i> <!-- Times icon for inactive -->
+                                            </a>
+                                            @endif
                                         </td>
 
                                     </tr>

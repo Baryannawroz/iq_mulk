@@ -2471,7 +2471,7 @@ pre {
   width: 250px;
   background-color: #fff;
   z-index: 880;
-  left: 0; }
+  right: 0; }
 
 .main-sidebar,
 .navbar,
@@ -2860,8 +2860,8 @@ body.layout-3 .main-footer {
         padding-left: 10px; }
 
 .main-content {
-  padding-left: 280px;
-  padding-right: 30px;
+  padding-right: 280px;
+  padding-left: 30px;
   padding-top: 80px;
   width: 100%;
   position: relative; }

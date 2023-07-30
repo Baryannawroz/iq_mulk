@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\PropertySlider;
 use App\Models\Section;
 use App\Models\Section_image;
+use App\Models\SeoSetting;
 use App\Models\Sub;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -21,12 +22,14 @@ class SectionController extends Controller
      */
     public function index($cat_id)
     {
-        $sections = Section::where('cat_id', $cat_id)->get();
-        $subs = Sub::where('cat_id', $cat_id)->get();
+        $seo_setting = SeoSetting::where('id', 5)->first();
+
+
+        $subs = Sub::where('cat_id', $cat_id)->where('status', 1)->get();
         $cities = City::all();
 
 
-        return view("sections", compact("sections", "subs", 'cities'));
+        return view("sections", compact("cat_id", "subs", 'cities','seo_setting'));
     }
 
     /**
@@ -37,8 +40,8 @@ class SectionController extends Controller
     public function create()
     {
         $cities = City::select('id', 'name')->get();
-        $cats = Cat::select('id', 'name')->get();
-        $subs = Sub::select('id', 'name')->get();
+        $cats = Cat::select('id', 'name')->where('status',1)->get();
+        $subs = Sub::select('id', 'name')->where('status', 1)->get();
 
         return view("admin.section_create", compact("cities", 'cats', 'subs'));
     }
@@ -162,11 +165,24 @@ class SectionController extends Controller
     public function sections_with_ajax(Request $request)
     {
 
-        $sections = Section::select('id', 'name', 'city_id', "image","phone");
-        $sections = $sections->orderBy('id', 'desc');
+        $sections = Section::select('id', 'name', 'city_id', "image","phone",'sub_id')->where('status', '1')->latest("id");
+        if ($request->location) {
+
+            $sections = $sections->where('city_id', $request->location);
+        }
+        if ($request->sub) {
+
+            $sections = $sections->where('sub_id', $request->sub);
+        }
+        if ($request->cat_id) {
+
+            $sections = $sections->where('cat_id', $request->cat_id);
+        }
+
+
         $sections = $sections->paginate(20);
         $sections = $sections->appends($request->all());
-        $subs = Sub::all();
+        $subs = Sub::where('status',1)->get();
         return view('sections_with_ajax')->with(['sections' => $sections, 'subs' => $subs]);
     }
 }

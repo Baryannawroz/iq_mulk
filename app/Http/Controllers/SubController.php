@@ -31,7 +31,7 @@ class SubController extends Controller
         $cats = Cat::select('name', 'id')->get();
 
 
-        return view("admin.subcategory_create",compact("cats"));
+        return view("admin.subcategory_create", compact("cats"));
     }
 
     /**
@@ -83,9 +83,9 @@ class SubController extends Controller
     public function edit($sub)
     {
 
-        $sub=Sub::find($sub);
+        $sub = Sub::find($sub);
         $cats = Cat::all();
-        return view('admin.subcategory_edit', compact('cats','sub'));
+        return view('admin.subcategory_edit', compact('cats', 'sub'));
     }
 
     /**
@@ -115,7 +115,7 @@ class SubController extends Controller
         $record = Sub::find($validatedData['id']);
         $record->name = $validatedData['name'];
         $record->description = $validatedData['description'];
-        $record->cat_id= $validatedData['cat_id'];
+        $record->cat_id = $validatedData['cat_id'];
         $record->save();
         return redirect("/admin/subcategory")->with('success', 'Cat inserted successfully!');
     }
@@ -130,13 +130,19 @@ class SubController extends Controller
     {
         //
     }
-    public function getSubcategories(Request $request)
+
+    public function subActivate(Sub $sub)
     {
-        dd($request->input('category_id'));
-        $categoryId = $request->input('category_id');
-        $subcategories = Cat::findOrFail($categoryId)->subcategories;
-        return response()->json($subcategories);
+        $sub->status = 1;
+        $sub->save();
+        return redirect()->back();
     }
+    public function subDeactivate(Sub $sub)
+    {
+        $sub->status = 0;
+        $sub->save();
 
+        return redirect()->back();
 
+    }
 }

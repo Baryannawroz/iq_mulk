@@ -1,11 +1,13 @@
 @extends('layout')
 
 @section('title')
-<title>{{ "sections" }}</title>
+<title>{{ $seo_setting->seo_title }}</title>
 @endsection
 
 @section('meta')
-
+<meta name="description" content="{{ $seo_setting->seo_description }}">
+<meta name="title" content="{{ $seo_setting->seo_title }}">
+<meta name="keywords" content="{{ $seo_setting->seo_title }}">
 @endsection
 
 @section('frontend-content')
@@ -23,7 +25,15 @@
                         <li class="active"><a
                                 href="{{ route('properties',['purpose' => 'any']) }}">{{__('user.Properties')}}</a></li>
                     </ul>
-
+                    @if (request()->has('top_property'))
+                    <h2 class="breadcrumb__title m-0">{{__('user.Top Properties')}}</h2>
+                    @elseif (request()->has('urgent_property'))
+                    <h2 class="breadcrumb__title m-0">{{__('user.Urgent Properties')}}</h2>
+                    @elseif (request()->has('featured_property'))
+                    <h2 class="breadcrumb__title m-0">{{__('user.Featured Properties')}}</h2>
+                    @else
+                    <h2 class="breadcrumb__title m-0">{{__('user.Properties')}}</h2>
+                    @endif
 
                 </div>
             </div>
@@ -88,6 +98,8 @@
         </div>
 
         <form id="propertySearchForm">
+
+            <input type="number" hidden value="{{$cat_id}}" name="cat_id">
             <input type="hidden" name="search" value="{{ request()->get('search') }}" id="search_id">
 
             @if (request()->has('top_property'))
@@ -101,12 +113,26 @@
             @if (request()->has('urgent_property'))
             <input type="hidden" name="urgent_property" value="enable">
             @endif
-
             <div class="row">
                 <div class="col-lg-4 col-12 mg-top-30">
                     <div class="property-sidebar">
                         <!-- Single Sidebar -->
 
+                        <div class="property-sidebar__single">
+                            <div class="property-sidebar__filters">
+                                <h4 class="property-sidebar__title">{{__('user.subs')}}</h4>
+                                <div class="form-group">
+                                    <select class="property-sidebar__group homec-border select2noSearch" name="sub">
+                                        <option value="">{{__('user.Select')}}</option>
+                                        @foreach ($subs as $sub)
+                                        <option {{ request()->get('sub') == $sub->id ? 'selected' :
+                                            '' }} value="{{ $sub->id }}">{{ $sub->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <!-- End Single Sidebar -->
                         <!-- Single Sidebar -->
                         <div class="property-sidebar__single mg-top-20">
@@ -126,25 +152,13 @@
                         </div>
                         <!-- End Single Sidebar -->
                         <!-- Single Sidebar -->
-                        <div class="property-sidebar__single mg-top-20">
-                            <div class="property-sidebar__filters">
-                                <h4 class="property-sidebar__title">{{__('user.Property Type')}}</h4>
-                                <div class="form-group">
-                                    <select class="property-sidebar__group homec-border select2" name="type">
-                                        <option value="" data-display="">{{__('user.Select')}}</option>
-                                        @foreach ($subs as $sub)
-                                        <option {{ request()->get('type') == $sub->id ? 'selected' : '' }}
-                                            value="{{ $sub->id }}">{{ $sub->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+
                         <!-- End Single Sidebar -->
                         <!-- Single Sidebar -->
 
                         <!-- End Single Sidebar -->
                         <!-- Single Sidebar -->
+
 
                         <!-- End Single Sidebar -->
                         <!-- Single Sidebar -->
@@ -158,73 +172,10 @@
 
                         <!-- End Single Sidebar -->
 
-                        <button type="submit" class="homec-btn mg-top-20">
-                            <span class="homec-btn__inside">
-                                <span>{{__('user.Search')}}</span>
-                            </span>
-                        </button>
+
                     </div>
+
                 </div>
-                {{-- agint --}}
-                {{-- <div class="mg-top-30">
-                    <div class="homec-agent-card homec-bg-cover homec-agent-vector-bg">
-                        <h4 class="homec-agent-card__title mg-btm-20 text-white">{{__('user.Our Agents')}}</h4>
-                        <div class="swiper mySwiper homec-slider-agent__card loading">
-                            <div class="swiper-wrapper">
-                                @foreach ($slider_agents as $slider_agent)
-                                <div class="swiper-slide">
-                                    <!-- Single agent-->
-                                    <div class="homec-agent">
-                                        <!-- Agent Head-->
-                                        <div class="homec-agent__head">
-                                            @if ($slider_agent->image)
-                                            <img src="{{ $slider_agent->image }}" alt="agent">
-                                            @else
-                                            <img src="{{ $default_user_avatar }}" alt="agent">
-                                            @endif
-
-                                            <ul class="homec-agent__social list-none">
-                                                @if ($slider_agent->linkedin)
-                                                <li><a href="{{ $slider_agent->linkedin }}"><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                @endif
-
-                                                @if ($slider_agent->twitter)
-                                                <li><a href="{{ html_decode($slider_agent->twitter) }}"><i
-                                                            class="fab fa-twitter"></i></a></li>
-                                                @endif
-
-                                                @if ($slider_agent->instagram)
-                                                <li><a href="{{ html_decode($slider_agent->instagram) }}"><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                                @endif
-
-                                                @if ($slider_agent->facebook)
-                                                <li><a href="{{ html_decode($slider_agent->facebook) }}"><i
-                                                            class="fab fa-facebook-f"></i></a></li>
-                                                @endif
-                                            </ul>
-                                        </div>
-                                        <!-- Agent Body -->
-                                        <div class="homec-agent__body">
-                                            <h4 class="homec-agent__title"><a
-                                                    href="{{ route('agent', ['agent_type' => 'agent', 'user_name' => html_decode($slider_agent->user_name)]) }}">{{
-                                                    html_decode($slider_agent->name) }}</a><span>{{
-                                                    html_decode($slider_agent->designation) }}</span></h4>
-                                        </div>
-                                        <!-- End Agent Body -->
-                                    </div>
-                                    <!-- End Single agent-->
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <!-- Slider Pagination -->
-                        <div
-                            class="swiper-pagination swiper-pagination--white swiper-pagination__slider--agent mg-top-40">
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="col-lg-8 col-12">
                     <div class="spinner_hidden_box d-none">
                         <div class="tab-pane fade show active" id="homec-grid" role="tabpanel">
@@ -235,26 +186,36 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="tab-pane fade" id="homec-list" role="tabpanel">
-                        <div class="row">
-                            <img class="spinner-element" src="{{ asset('uploads/website-images/Spinner.gif') }}" alt="">
+                        <div class="tab-pane fade" id="homec-list" role="tabpanel">
+                            <div class="row">
+                                <img class="spinner-element" src="{{ asset('uploads/website-images/Spinner.gif') }}"
+                                    alt="">
+                            </div>
                         </div>
                     </div>
 
                     <div class="tab-content" id="nav-tabContent">
+
                     </div>
                 </div>
-
             </div>
-
         </form>
     </div>
 </section>
 <!-- End Property -->
 
+@php
+$price_min_value = 0;
+$price_max_value = 2000;
 
+if(request()->has('min_price')){
+$price_min_value = request()->get('min_price');
+}
+if(request()->has('max_price')){
+$price_max_value = request()->get('max_price');
+}
+@endphp
 
 <script>
     let grid_view = true;
@@ -264,6 +225,10 @@
 
             loadPropertyWithAjax();
 
+            let max_area = 4000;
+            let max_price = 4000;
+            let price_min_value = 4000;
+            let price_max_value = 4000;
 
 			$("#slider-range").slider({
 				range: true,
@@ -359,21 +324,19 @@
         let currentURL = window.location.href
         let index = currentURL.indexOf("?");
         currentURL = currentURL.substr(index+1)
+        let url = "{{ url('sections-with-ajax') }}" + "?" + currentURL;
 
-
-        let url ="{{ route('sections-with-ajax') }}";
-
-        $.ajax({
-            type: 'get',
-            url: url,
-
-            success: function (response) {
-
-                $('#nav-tabContent').html(response);
-            },
-            error: function(err) {
-            }
-        });
+       $.ajax({
+    type: 'GET',
+    data: { cat_id: "{{ $cat_id }}" }, // Corrected data option
+    url: url,
+    success: function (response) {
+    $('#nav-tabContent').html(response);
+    },
+    error: function (err) {
+    // Handle error if needed
+    }
+    });
     }
 
     function ajax_pagination(link){

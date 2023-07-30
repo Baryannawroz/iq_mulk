@@ -2,8 +2,8 @@
     $setting = App\Models\Setting::first();
 @endphp
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html lang="en" dir="rtl">
 <head>
    <link rel="shortcut icon"  href="{{ asset($setting->favicon) }}"  type="image/x-icon">
   <meta charset="UTF-8">

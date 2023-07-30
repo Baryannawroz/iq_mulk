@@ -5,10 +5,11 @@ $footer = App\Models\Footer::first();
 
 @include('admin.header')
 
-<body>
+<body dir="rtl">
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
+            @include('admin.sidebar')
             <nav class="navbar navbar-expand-lg main-navbar">
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
@@ -76,10 +77,8 @@ $footer = App\Models\Footer::first();
 
 
 
-            @include('admin.sidebar')
 
             @yield('admin-content')
-
 
 
             <footer class="main-footer">

@@ -16,6 +16,7 @@ class CatController extends Controller
     public function index()
     {
         $cats = Cat::latest('id')->get();
+
         return view('admin.cat', compact('cats'));
     }
 
@@ -122,5 +123,18 @@ class CatController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function catActivate(Cat $cat)
+    {
+        $cat->status = 1;
+        $cat->save();
+        return redirect()->back();
+    }
+    public function catDeactivate(Cat $cat)
+    {
+        $cat->status = 0;
+        $cat->save();
+
+        return redirect()->back();
     }
 }

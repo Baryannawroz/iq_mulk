@@ -301,7 +301,14 @@
                                             </div>
                                         </div>
 
-                              --}}
+                                        {{-- @if($recaptcha_setting->status==1)
+                                        <div class="col-12">
+                                            <div class="form-group homec-form-input">
+                                                <div class="g-recaptcha"
+                                                    data-sitekey="{{ $recaptcha_setting->site_key }}"></div>
+                                            </div>
+                                        </div>
+                                        @endif --}}
 
                                         <div class="col-12 d-flex mg-top-20">
                                             <button type="submit"

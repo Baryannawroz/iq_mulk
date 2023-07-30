@@ -37,8 +37,15 @@
                                         <td>
                                             <a href="/admin/subcategory/{{ $sub->id }}/edit" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
 
-
-                                            {{-- <a href="javascript:;" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger btn-sm" onclick="deleteData({{ $sub->id }})"><i class="fa fa-trash" aria-hidden="true"></i></a> --}}
+@if ($sub->status === 1)
+<a href="/admin/subcategory/{{ $sub->id }}/deactivate" class="btn btn-success btn-sm">
+    <i class="fa fa-check" aria-hidden="true"></i> <!-- Check icon for active -->
+</a>
+@else
+<a href="/admin/subcategory/{{ $sub->id }}/activate" class="btn btn-danger btn-sm">
+    <i class="fa fa-times" aria-hidden="true"></i> <!-- Times icon for inactive -->
+</a>
+@endif
 
                                         </td>
 
