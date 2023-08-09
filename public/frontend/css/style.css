@@ -399,7 +399,8 @@ Version:	1.0
         padding: 15px 20px;
     }
     .offcanvas-toggler {
-        right: 15px;
+            position: absolute;
+                right: 85%;
     }
     .homec-header .homec-header__menu {
         display: none;
@@ -4624,7 +4625,7 @@ blockquote::before {
 ========================================*/
 
 .breadcrumbs__content {
-    height: 450px;
+    height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -4685,8 +4686,9 @@ blockquote::before {
 
 @media only screen and (min-width: 0px) and (max-width: 991px) {
     .breadcrumbs__content {
-        padding-top: 125px;
-        height: 300px;
+            padding-top: 194px;
+                height: 117px;
+            }
     }
 }
 

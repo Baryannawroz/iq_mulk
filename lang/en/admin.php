@@ -1,5 +1,6 @@
 <?php
  return array (
+  'category' => 'Category',
   'About Us' => 'About Us',
   'Dashboard' => 'Dashboard',
   'Background Image' => 'Background Image',

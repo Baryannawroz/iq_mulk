@@ -51,6 +51,7 @@ use App\Mail\ContactMessageInformation;
 use App\Mail\SubscriptionVerification;
 use App\Mail\UserRegistration;
 use App\Helpers\MailHelper;
+use App\Models\Cat;
 use Mail;
 use Session;
 use Str;
@@ -74,11 +75,11 @@ class HomeController extends Controller
                     Session::put('selected_theme', 'theme_three');
                 }else{
                     if(!Session::has('selected_theme')){
-                        Session::put('selected_theme', 'theme_one');
+                        Session::put('selected_theme', 'theme_three');
                     }
                 }
             }else{
-                Session::put('selected_theme', 'theme_one');
+                Session::put('selected_theme', 'theme_three');
             }
         }else{
             if($setting->selected_theme == 1){
@@ -475,6 +476,7 @@ class HomeController extends Controller
 
         if($selected_theme == 'theme_one'){
             return view('index')->with([
+                'cats'=>Cat::all(),
                 'selected_theme' => $selected_theme,
                 'seo_setting' => $seo_setting,
                 'intro_content' => $intro_content,
@@ -493,7 +495,8 @@ class HomeController extends Controller
                 'filter_prices' => $pricing_plan,
             ]);
         }elseif($selected_theme == 'theme_two'){
-            return view('index2')->with([
+            return view('index2')->with(['cats' => Cat::all(),
+
                 'selected_theme' => $selected_theme,
                 'seo_setting' => $seo_setting,
                 'intro_content' => $intro_content,
@@ -514,7 +517,8 @@ class HomeController extends Controller
                 'filter_prices' => $filter_prices,
             ]);
         }elseif($selected_theme == 'theme_three'){
-            return view('index3')->with([
+            return view('index3')->with(['cats' => Cat::all(),
+
                 'selected_theme' => $selected_theme,
                 'seo_setting' => $seo_setting,
                 'intro_content' => $intro_content,

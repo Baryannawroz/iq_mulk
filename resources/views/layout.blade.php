@@ -125,17 +125,13 @@
                     <!-- Main Menu -->
                     <ul class="nav-menu menu navigation list-none">
 
-                        @if ($setting->selected_theme == 0)
-                        <li class="menu-item-has-children"><a href="javascript:;">{{__('user.Home')}}</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{ route('home',['theme' => 1]) }}">{{__('user.Homepage 01')}}</a></li>
-                                <li><a href="{{ route('home',['theme' => 2]) }}">{{__('user.Homepage 02')}}</a></li>
-                                <li><a href="{{ route('home',['theme' => 3]) }}">{{__('user.Homepage 03')}}</a></li>
-                            </ul>
+
+
+                        <li>
+
+                            <a href="{{ route('home',['theme' => 3]) }}">{{__('user.Home')}}</a>
                         </li>
-                        @else
-                        <li><a href="{{ route('home') }}">{{__('user.Home')}}</a></li>
-                        @endif
+
 
                         <li class="menu-item-has-children"><a href="javascript:;">{{__('user.Properties')}}</a>
                             <ul class="sub-menu">
@@ -275,21 +271,10 @@
                                             <!-- Main Menu -->
                                             <ul class="nav-menu menu navigation list-none">
 
-                                                @if ($setting->selected_theme == 0)
-                                                <li class="menu-item-has-children"><a
-                                                        href="javascript:;">{{__('user.Home')}}</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="{{ route('home',['theme' => 1]) }}">{{__('user.Homepage
-                                                                01')}}</a></li>
-                                                        <li><a href="{{ route('home',['theme' => 2]) }}">{{__('user.Homepage
-                                                                02')}}</a></li>
-                                                        <li><a href="{{ route('home',['theme' => 3]) }}">{{__('user.Homepage
-                                                                03')}}</a></li>
-                                                    </ul>
+                                                <li>
+
+                                                    <a href="{{ route('home',['theme' => 3]) }}">{{__('user.Home')}}</a>
                                                 </li>
-                                                @else
-                                                <li><a href="{{ route('home') }}">{{__('user.Home')}}</a></li>
-                                                @endif
 
                                                 <li class="menu-item-has-children"><a
                                                         href="javascript:;">{{__('user.Properties')}}</a>

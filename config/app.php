@@ -16,7 +16,11 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'locales' => ['en', 'es', 'fr'], // Add more languages as needed
 
+
+
+    
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -220,6 +224,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
     ])->toArray(),
 
 ];

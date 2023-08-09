@@ -63,7 +63,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SubController;
+use Illuminate\Support\Facades\App;
 
+route::get('/test', function () {
+    dd(App::getLocale());
+});
 Route::group(['middleware' => ['demo', 'XSS']], function () {
 
     Route::group(['middleware' => ['maintainance']], function () {
@@ -72,6 +76,7 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
 
             Route::get('/download-file/{file}', [HomeController::class, 'downloadListingFile'])->name('download-file');
 
+            Route::get('lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
             Route::get('/', [HomeController::class, 'index'])->name('home');
             Route::get('/about-us', [HomeController::class, 'about_us'])->name('about-us');
             Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact-us');

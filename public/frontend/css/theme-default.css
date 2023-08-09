@@ -429,6 +429,7 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     scroll-behavior: auto !important;
+
 }
 *,
 *:before,
@@ -438,6 +439,7 @@ html {
 }
 body {
     background: #fff;
+
 }
 hr {
     background-color: #ccc;
@@ -745,7 +747,7 @@ object {
   background-position:center;
   background-size:cover;
   .slide-inner{
-    
+
   }
   .entity-img{
     display:none;
@@ -1137,7 +1139,7 @@ object {
     background-size:cover;
     background-repeat:no-repeat;
 }
-  
+
 /* Theme ScrollUp */
 .scrollToTop {
 	right: -10px;
@@ -1203,12 +1205,12 @@ object {
        left:0px;
        top:0px;
     }
-    
+
     to {
        left:0px;
        top:20px;
     }
- 
+
  }
 
  @-webkit-keyframes slide-top {
@@ -1226,7 +1228,7 @@ object {
     from {
         bottom: 63px;
     }
-    to { 
+    to {
         bottom: 400px;
     }
 }
@@ -1371,7 +1373,7 @@ object {
     position: absolute;
     top: 0;
     left: 0;
-    width: 300px;
+    width: 375px;
     height: 100%;
     margin: 0;
 }
@@ -1390,6 +1392,7 @@ object {
 	position: absolute;
 	right: 0;
 	top: 45px;
+        margin-right: -2rem;
 }
 .offcanvas-header .btn-close:hover {
     color: #7166F0;
@@ -1479,8 +1482,7 @@ object {
 	-moz-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	top: 1px;
-	right: 10px;
-}
+    right: 175px;}
 .offcanvas-menu li a::after {
 	position: absolute;
 	right: 0;

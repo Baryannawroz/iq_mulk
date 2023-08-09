@@ -59,6 +59,8 @@
             </div>
     </section>
 </div>
+<a href="/lang/en">English</a>
+<a href="/lang/kur">kurd</a>
 
 <script>
     function deleteData(id){

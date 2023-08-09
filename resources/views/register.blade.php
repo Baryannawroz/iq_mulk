@@ -112,11 +112,6 @@
 
                                     </div>
 
-                                    @if($recaptcha_setting->status==1)
-                                        <div class="form-group homec-form-input">
-                                            <div class="g-recaptcha" data-sitekey="{{ $recaptcha_setting->site_key }}"></div>
-                                        </div>
-                                    @endif
 
                                     <!-- Form Group -->
                                     <div class="form-group form-mg-top-30">
