@@ -134,7 +134,7 @@
         $counter_content = $counter->content;
     @endphp
     <!-- FunFacts -->
-    <section class="homec-funfacts pd-btm-100">
+    {{-- <section class="homec-funfacts pd-btm-100">
         <img src="{{ asset($counter_content->bg_image) }}" alt="bg_image">
         <div class="container">
             <div class="row">
@@ -184,7 +184,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End FunFacts Area -->
 
     <!-- Agents -->
@@ -303,7 +303,7 @@
     <!-- End Faq Area -->
 
     <!-- Download App -->
-    <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
+    {{-- <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
         <div class="homec-shape">
             <div class="homec-shape-single homec-shape-11"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
             <div class="homec-shape-single homec-shape-12"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
@@ -343,7 +343,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Download App -->
 
 @endsection

@@ -129,47 +129,49 @@
 
                             </ul>
                         </li>
-
+<li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
+    <ul class="sub-menu">
+        @foreach ($cats as $cat)
+        @if($cat->status===1)
+        <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
+        @endif
+        @endforeach
+    </ul>
+</li>
                         <li class="menu-item-has-children"><a href="#">{{__('user.Pages')}}</a>
                             <ul class="sub-menu">
 
                                 @if ($setting->agent_can_add_property)
                                 @if ($setting->agent_can_add_property == 'enable')
-                                <li><a href="{{ route('pricing-plan') }}">{{__('user.Pricing Plan')}}</a></li>
+                                <li><a href="{{ route('pricing-plan') }}">{{__('user.Price Plan')}}</a></li>
                                 @endif
                                 @endif
 
-                                <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a></li>
+                                {{-- <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a></li> --}}
                                 <li><a href="{{ route('faq') }}">{{__('user.FAQ')}}</a></li>
 
-                                <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms and
-                                        Conditions')}}</a></li>
+                                {{-- <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms and
+                                        Conditions')}}</a></li> --}}
 
-                                <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
+                                {{-- <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
+                                --}}
 
-                                @foreach ($custom_pages as $custom_page)
+                                {{-- @foreach ($custom_pages as $custom_page)
                                 <li><a href="{{ route('page', $custom_page->slug) }}">{{ $custom_page->page_name }}</a>
                                 </li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
-                            <li class="menu-item-has-children"><a href="#">{{__('cats')}}</a>
-                                    <ul class="sub-menu">
-                                        @foreach ($cats as $cat)
-                                        @if($cat->status===1)
-                                        <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
-                                        @endif
-                                        @endforeach
-                                    </ul>
-                                </li>
+
                         </li>
 
-                        @if ($setting->agent_can_add_property)
+                        {{-- @if ($setting->agent_can_add_property)
                         @if ($setting->agent_can_add_property == 'enable')
                         <li><a href="{{ route('agents') }}">{{__('user.Our Agents')}}</a></li>
                         @endif
-                        @endif
+                        @endif --}}
 
                         <li><a href="{{ route('about-us') }}">{{__('user.About Us')}}</a></li>
+                        <li></li>
                         <li><a href="{{ route('contact-us') }}">{{__('user.Contact')}}</a></li>
 
                         <li><a href="{{ route('user.dashboard') }}">{{__('user.Dashboard')}}</a></li>
@@ -278,49 +280,55 @@
 
                                                     </ul>
                                                 </li>
+                                                <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
+                                                    <ul class="sub-menu">
+                                                        @foreach ($cats as $cat)
+                                                        @if($cat->status===1)
+                                                        <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
+                                                        @endif
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
                                                 <li class="menu-item-has-children"><a href="#">{{__('user.Pages')}}</a>
                                                     <ul class="sub-menu">
 
                                                         @if ($setting->agent_can_add_property)
                                                         @if ($setting->agent_can_add_property == 'enable')
-                                                        <li><a href="{{ route('pricing-plan') }}">{{__('user.Pricing
-                                                                Plan')}}</a></li>
+                                                        <li><a href="{{ route('pricing-plan') }}">
+                                                                {{__('user.Price Plan')}}
+                                                            </a></li>
                                                         @endif
                                                         @endif
 
-                                                        <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a></li>
+                                                        {{-- <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a>
+                                                        </li> --}}
                                                         <li><a href="{{ route('faq') }}">{{__('user.FAQ')}}</a></li>
 
-                                                        <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms
-                                                                and Conditions')}}</a></li>
+                                                        {{-- <li><a
+                                                                href="{{ route('terms-and-conditions') }}">{{__('user.Terms
+                                                                and Conditions')}}</a></li> --}}
 
-                                                        <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy
-                                                                Policy')}}</a></li>
+                                                        {{-- <li><a
+                                                                href="{{ route('privacy-policy') }}">{{__('user.Privacy
+                                                                Policy')}}</a></li> --}}
 
-                                                        @foreach ($custom_pages as $custom_page)
+                                                        {{-- @foreach ($custom_pages as $custom_page)
                                                         <li><a href="{{ route('page', $custom_page->slug) }}">{{
                                                                 $custom_page->page_name }}</a></li>
-                                                        @endforeach
+                                                        @endforeach --}}
                                                     </ul>
-                                                    <li class="menu-item-has-children"><a href="#">{{__('cats')}}</a>
-                                                            <ul class="sub-menu">
-                                                                @foreach ($cats as $cat)
-                                                                @if($cat->status===1)
-                                                                <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
-                                                                @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </li>
+
                                                 </li>
 
 
-                                                @if ($setting->agent_can_add_property)
+                                                {{-- @if ($setting->agent_can_add_property)
                                                 @if ($setting->agent_can_add_property == 'enable')
                                                 <li><a href="{{ route('agents') }}">{{__('user.Our Agents')}}</a></li>
                                                 @endif
-                                                @endif
+                                                @endif --}}
 
                                                 <li><a href="{{ route('about-us') }}">{{__('user.About Us')}}</a></li>
+                                                <li></li>
                                                 <li><a href="{{ route('contact-us') }}">{{__('user.Contact')}}</a></li>
                                             </ul>
                                             <!-- End Main Menu -->
@@ -384,18 +392,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Subscribe Form -->
-                    <div class="homec-form mg-top-100">
-                        <div class="homec-form__content">
-                            <span class="homec-form__label">{{__('user.For Rent house offer')}}</span>
-                            <h3 class="homec-form__title">{{__('user.Join Homeco Community')}}</h3>
-                        </div>
-                        <form id="subscriberForm" class="homec-form__form">
-                            @csrf
-                            <input type="email" placeholder="{{__('user.Your Email')}}" name="email">
-                            <button id="subscribe_btn" type="submit" class="homec-btn"><span
-                                    id="subscribe_btn_text">{{__('user.Subscribe Now')}}</span></button>
-                        </form>
-                    </div>
+
                     <!-- End Subscribe Form -->
                 </div>
             </div>
@@ -447,15 +444,14 @@
                                         <div class="single-widget footer-need-helps">
                                             <h3 class="widget-title">{{__('user.Important Link')}}</h3>
                                             <ul class="f-need-helps-inner list-none">
-                                                <li><a href="{{ route('user.dashboard') }}"><i
-                                                            class="fa-solid fa-minus"></i>{{__('user.Dashboard')}}</a>
+                                                <li><a href="/pricing-plan"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.Price Plan')}}</a>
                                                 </li>
                                                 <li><a href="{{ route('user.wishlist') }}"><i
                                                             class="fa-solid fa-minus"></i>{{__('user.Wishlist')}}</a>
                                                 </li>
-                                                <li><a href="{{ route('user.change-password') }}"><i
-                                                            class="fa-solid fa-minus"></i>{{__('user.Change
-                                                        Password')}}</a></li>
+                                                <li><a href="/faq"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.FAQ')}}</a></li>
                                                 <li><a href="{{ route('about-us') }}"><i
                                                             class="fa-solid fa-minus"></i>{{__('user.About Us')}}</a>
                                                 </li>

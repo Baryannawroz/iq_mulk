@@ -32,7 +32,7 @@
     </section>
     <!-- End breadcrumbs -->
 
-    <section class="homec-contact-form homec-bg-cover pd-top-80 pd-btm-80 mg-top-100" style="background-image: url({{ asset($contact->supporter_image) }});">
+    {{-- <section class="homec-contact-form homec-bg-cover pd-top-80 pd-btm-80 mg-top-100" style="background-image: url({{ asset($contact->supporter_image) }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Contact Area -->
     <section class="contact pd-top-70 pd-btm-100">
@@ -147,7 +147,7 @@
 
 
     <!-- Download App -->
-    <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
+    {{-- <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
         <div class="homec-shape">
             <div class="homec-shape-single homec-shape-11"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
             <div class="homec-shape-single homec-shape-12"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
@@ -187,7 +187,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Download App -->
 
 @endsection

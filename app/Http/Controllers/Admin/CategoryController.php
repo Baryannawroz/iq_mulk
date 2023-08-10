@@ -24,6 +24,7 @@ class CategoryController extends Controller
         $setting = Setting::first();
         $selected_theme = $setting->selected_theme;
 
+        
         return view('admin.category',compact('categories','selected_theme'));
     }
 

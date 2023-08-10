@@ -5,7 +5,7 @@ $footer = App\Models\Footer::first();
 
 @include('admin.header')
 
-<body dir="rtl">
+<body dir="rtl" style="font-family: Xendan-Regular">
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>

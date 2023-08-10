@@ -55,7 +55,7 @@ class CatController extends Controller
 
         Cat::create($validatedData);
 
-        return redirect("/admin/category2")->with('success', 'Cat inserted successfully!');
+        return redirect("/admin/cat")->with('success', 'Cat inserted successfully!');
     }
 
     /**
@@ -110,7 +110,7 @@ class CatController extends Controller
         $record->name= $validatedData['name'];
         $record->description= $validatedData['description'];
         $record->save();
-        return redirect("/admin/category2")->with('success', 'Cat inserted successfully!');
+        return redirect("/admin/cat")->with('success', 'Cat inserted successfully!');
 
     }
 

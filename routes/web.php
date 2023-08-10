@@ -440,13 +440,13 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
 
 
 
-        Route::get('category2', [CatController::class, 'index']);
-        Route::get('category/create', [CatController::class, 'create']);
-        Route::post('category/store', [CatController::class, 'store']);
-        Route::post('category2/update', [CatController::class, 'update']);
-        Route::get('category2/{cat}/edit', [CatController::class, 'edit']);
-        Route::get('category/{cat}/activate', [CatController::class, 'catActivate']);
-        Route::get('category/{cat}/deactivate', [CatController::class, 'catDeactivate']);
+        Route::get('cat', [CatController::class, 'index']);
+        Route::get('cat/create', [CatController::class, 'create']);
+        Route::post('cat/store', [CatController::class, 'store']);
+        Route::post('cat/update', [CatController::class, 'update']);
+        Route::get('cat/{cat}/edit', [CatController::class, 'edit']);
+        Route::get('cat/{cat}/activate', [CatController::class, 'catActivate']);
+        Route::get('cat/{cat}/deactivate', [CatController::class, 'catDeactivate']);
 
 
         Route::get('subcategory', [SubController::class, 'index']);

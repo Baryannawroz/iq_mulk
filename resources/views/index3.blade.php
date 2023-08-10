@@ -1,5 +1,5 @@
 
-@extends('layout3')
+@extends('layout')
 @section('title')
     <title>{{ $seo_setting->seo_title }}</title>
 @endsection
@@ -223,7 +223,7 @@
     @endif
 
     @if ($counter->visibility)
-        <section class="pd-top-70 pd-btm-120">
+        {{-- <section class="pd-top-70 pd-btm-120">
             <div class="container">
                 <div class="row">
                     @foreach ($counter->items as $counter_item)
@@ -241,7 +241,7 @@
                     @endforeach
                 </div>
             </div>
-        </section>
+        </section> --}}
     @endif
 
     @if ($about_us->visibility)
@@ -249,7 +249,7 @@
             $home1_content = $about_us->home1_content;
         @endphp
         <!-- About Area -->
-        <section class="homec-about homec-bg-third-color pd-top-90 pd-btm-120">
+        {{-- <section class="homec-about homec-bg-third-color pd-top-90 pd-btm-120">
             <div class="homec-shape">
                 <div class="homec-shape-single homec-shape-1"><img src="{{ asset('frontend/img/anim-shape-1.svg') }}" alt="shape"></div>
                 <div class="homec-shape-single homec-shape-2"><img src="{{ asset('frontend/img/anim-shape-2.svg') }}" alt="shape"></div>
@@ -314,7 +314,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- End About Area -->
     @endif
 
@@ -322,7 +322,7 @@
         @if ($setting->agent_can_add_property == 'enable')
             @if ($agent->visibility)
             <!-- Agents -->
-            <section class="homec-bg-third-color homec-bg-cover pd-top-90 pd-btm-120" style="background-image: url({{ asset($agent->home2_agent_bg) }});">
+            {{-- <section class="homec-bg-third-color homec-bg-cover pd-top-90 pd-btm-120" style="background-image: url({{ asset($agent->home2_agent_bg) }});">
                 <div class="homec-overlay"></div>
                 <div class="section-inside-bg homec-agent-inside"></div>
                 <div class="container">
@@ -388,7 +388,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
             <!-- End Agents -->
             @endif
         @endif
@@ -396,7 +396,7 @@
 
     @if ($urgent_property->visibility)
     <!-- Testimonials & Clients -->
-    <section class="pd-top-120 pd-btm-60">
+    {{-- <section class="pd-top-120 pd-btm-60">
         <div class="homec-section-bottom-shape"></div>
         <div class="container">
             <div class="row">
@@ -481,13 +481,13 @@
             </div>
             @endif
         </div>
-    </section>
+    </section> --}}
     <!-- End Testimonials & Clients -->
     @endif
 
     @if ($testimonial->visibility)
     <!-- Testimonials  -->
-    <section class="homec-bg-third-color homec-bg-cover  pd-top-120 pd-btm-120" style="background-image: url({{
+    {{-- <section class="homec-bg-third-color homec-bg-cover  pd-top-120 pd-btm-120" style="background-image: url({{
     asset($testimonial->bg_image) }});">
         <div class="container">
             <div class="row">
@@ -550,7 +550,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Testimonials -->
     @endif
 
@@ -718,7 +718,7 @@
 
         @if ($mobile_app->visibility)
         <!-- Download App -->
-        <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
+        {{-- <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
             <div class="homec-shape">
                 <div class="homec-shape-single homec-shape-11"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
                 <div class="homec-shape-single homec-shape-12"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
@@ -758,13 +758,13 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- End Download App -->
     @endif
 
     @if ($blog->visibility)
     <!-- Blog Area -->
-    <section id="blog" class="blog-area homec-bg-cover section-padding homec-blog-bg">
+    {{-- <section id="blog" class="blog-area homec-bg-cover section-padding homec-blog-bg">
         <div class="blog-bg-pattern">
             <div class="container">
                 <div class="row">
@@ -834,7 +834,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Blog Area -->
     @endif
 @endsection

@@ -52,7 +52,7 @@
                                         <td>
                                         <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
 
-                                  
+
                                     </td>
 
                                     </tr>

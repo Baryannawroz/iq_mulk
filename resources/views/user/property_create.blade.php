@@ -400,7 +400,7 @@
                         </div>
                     </div>
 
-                    <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.Aminities')}}</h4>
                         <div class="homec-submit-form__inner">
                             <div class="form-group homec-form-input--list">
@@ -415,7 +415,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.Nearest Location')}}</h4>
@@ -453,7 +453,7 @@
                         </div>
                     </div>
 
-                    <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.Additional Information')}}</h4>
                         <div class="homec-submit-form__inner" id="additional-box">
                             <div class="row">
@@ -481,9 +481,9 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.Property Plan')}}</h4>
                         <div class="homec-submit-form__inner" id="plan-box">
                             <div class="row">
@@ -523,9 +523,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.SEO Information')}}</h4>
                         <div class="homec-submit-form__inner">
                             <div class="row">
@@ -549,7 +549,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="col-12 d-flex justify-content-end mg-top-40">
@@ -564,7 +564,7 @@
 </section>
 
 <!-- Download App -->
-<section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15"
+{{-- <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15"
     style="background-image:url({{ asset($mobile_app->app_bg) }})">
     <div class="homec-shape">
         <div class="homec-shape-single homec-shape-11"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}"
@@ -615,7 +615,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- End Download App -->
 
 

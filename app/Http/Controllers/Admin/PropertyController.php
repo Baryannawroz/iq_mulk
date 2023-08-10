@@ -347,57 +347,57 @@ class PropertyController extends Controller
         $top_property = 'disable';
         $urgent_property = 'disable';
 
-        if($property->agent_id == 0){
-            $featured_property = 'enable';
-            $top_property = 'enable';
-            $urgent_property = 'enable';
-        }else{
-            $agent_id = $property->agent_id;
-            $agent_order = Order::where('agent_id', $agent_id)->orderBy('id','desc')->first();
+        // if($property->agent_id == 0){
+        //     $featured_property = 'enable';
+        //     $top_property = 'enable';
+        //     $urgent_property = 'enable';
+        // }else{
+        //     $agent_id = $property->agent_id;
+        //     $agent_order = Order::where('agent_id', $agent_id)->orderBy('id','desc')->first();
 
-            if($agent_order){
-                $is_featured = $agent_order->featured_property;
-                $featured_property_qty = $agent_order->featured_property_qty;
+        //     if($agent_order){
+        //         $is_featured = $agent_order->featured_property;
+        //         $featured_property_qty = $agent_order->featured_property_qty;
 
-                $is_top = $agent_order->top_property;
-                $top_property_qty = $agent_order->top_property_qty;
+        //         $is_top = $agent_order->top_property;
+        //         $top_property_qty = $agent_order->top_property_qty;
 
-                $is_urgent = $agent_order->urgent_property;
-                $urgent_property_qty = $agent_order->urgent_property_qty;
+        //         $is_urgent = $agent_order->urgent_property;
+        //         $urgent_property_qty = $agent_order->urgent_property_qty;
 
 
-                if($top_property_qty == -1){
-                    $top_property = 'enable';
-                }else{
-                    $top_property_count = Property::where('agent_id', $agent_id)->where('is_top', 'enable')->count();
-                    if($top_property_count < $top_property_qty){
-                        $top_property = 'enable';
-                    }
-                }
+        //         if($top_property_qty == -1){
+        //             $top_property = 'enable';
+        //         }else{
+        //             $top_property_count = Property::where('agent_id', $agent_id)->where('is_top', 'enable')->count();
+        //             if($top_property_count < $top_property_qty){
+        //                 $top_property = 'enable';
+        //             }
+        //         }
 
-                if($urgent_property_qty == -1){
-                    $urgent_property = 'enable';
-                }else{
-                    $urgent_property_count = Property::where('agent_id', $agent_id)->where('is_urgent', 'enable')->count();
-                    if($urgent_property_count < $urgent_property_qty){
-                        $urgent_property = 'enable';
-                    }
-                }
+        //         if($urgent_property_qty == -1){
+        //             $urgent_property = 'enable';
+        //         }else{
+        //             $urgent_property_count = Property::where('agent_id', $agent_id)->where('is_urgent', 'enable')->count();
+        //             if($urgent_property_count < $urgent_property_qty){
+        //                 $urgent_property = 'enable';
+        //             }
+        //         }
 
-                if($featured_property_qty == -1){
-                    $featured_property = 'enable';
-                }else{
-                    $featured_property_count = Property::where('agent_id', $agent_id)->where('is_featured', 'enable')->count();
-                    if($featured_property_count < $featured_property_qty){
-                        $featured_property = 'enable';
-                    }
-                }
-            }else{
-                $notification = trans('admin_validation.Agent does not have any pricing plan');
-                $notification = array('messege'=>$notification,'alert-type'=>'error');
-                return redirect()->back()->with($notification);
-            }
-        }
+        //         if($featured_property_qty == -1){
+        //             $featured_property = 'enable';
+        //         }else{
+        //             $featured_property_count = Property::where('agent_id', $agent_id)->where('is_featured', 'enable')->count();
+        //             if($featured_property_count < $featured_property_qty){
+        //                 $featured_property = 'enable';
+        //             }
+        //         }
+        //     }else{
+        //         $notification = trans('admin_validation.Agent does not have any pricing plan');
+        //         $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //         return redirect()->back()->with($notification);
+        //     }
+        // }
 
         return view('admin.property_edit')->with([
             'property' => $property,

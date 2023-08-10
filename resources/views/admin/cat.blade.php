@@ -12,7 +12,7 @@
         </div>
 
         <div class="section-body">
-            <a href="/admin/category/create" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('admin.Add
+            <a href="/admin/cat/create" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('admin.Add
                 New')}}</a>
             <div class="row mt-4">
                 <div class="col-12">
@@ -34,16 +34,16 @@
                                         <td>{{ $cat->name }}</td>
 
                                         <td>
-                                            <a href="/admin/category2/{{$cat->id}}/edit"
+                                            <a href="/admin/cat/{{$cat->id}}/edit"
                                                 class="btn btn-primary btn-sm"><i class="fa fa-edit"
                                                     aria-hidden="true"></i></a>
 
                                           @if ($cat->status === 1)
-                                            <a href="/admin/category/{{ $cat->id }}/deactivate" class="btn btn-success btn-sm">
+                                            <a href="/admin/cat/{{ $cat->id }}/deactivate" class="btn btn-success btn-sm">
                                                 <i class="fa fa-check" aria-hidden="true"></i> <!-- Check icon for active -->
                                             </a>
                                             @else
-                                            <a href="/admin/category/{{ $cat->id }}/activate" class="btn btn-danger btn-sm">
+                                            <a href="/admin/cat/{{ $cat->id }}/activate" class="btn btn-danger btn-sm">
                                                 <i class="fa fa-times" aria-hidden="true"></i> <!-- Times icon for inactive -->
                                             </a>
                                             @endif

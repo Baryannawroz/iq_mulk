@@ -110,59 +110,59 @@ class PropertyController extends Controller
 
     public function create(Request $request){
 
-        if(!$request->purpose){
-            $notification = trans('user_validation.Please select property purpose');
-            $notification=array('messege'=>$notification,'alert-type'=>'error');
-            return redirect()->route('user.choose-property-type')->with($notification);
-        }
+        // if(!$request->purpose){
+        //     $notification = trans('user_validation.Please select property purpose');
+        //     $notification=array('messege'=>$notification,'alert-type'=>'error');
+        //     return redirect()->route('user.choose-property-type')->with($notification);
+        // }
 
-        if($request->purpose != 'rent' && $request->purpose != 'sale'){
-            $notification = trans('user_validation.Please select valid property purpose');
-            $notification=array('messege'=>$notification,'alert-type'=>'error');
-            return redirect()->route('user.choose-property-type')->with($notification);
-        }
+        // if($request->purpose != 'rent' && $request->purpose != 'sale'){
+        //     $notification = trans('user_validation.Please select valid property purpose');
+        //     $notification=array('messege'=>$notification,'alert-type'=>'error');
+        //     return redirect()->route('user.choose-property-type')->with($notification);
+        // }
 
         $user = Auth::guard('web')->user();
         $agent_id = $user->id;
 
-        $agent_order = Order::where('agent_id', $agent_id)->where('order_status','active')->orderBy('id','desc')->first();
+        // $agent_order = Order::where('agent_id', $agent_id)->where('order_status','active')->orderBy('id','desc')->first();
 
-        if($agent_order){
+        // if($agent_order){
 
-            $available = 'disable';
+        //     $available = 'disable';
 
-            $expiration_date = $agent_order->expiration_date;
+        //     $expiration_date = $agent_order->expiration_date;
 
-            if($expiration_date != 'lifetime'){
-                if(date('Y-m-d') > $expiration_date){
-                    $notification = trans('user_validation.Pricing plan date is expired');
-                    $notification = array('messege'=>$notification,'alert-type'=>'error');
-                    return redirect()->back()->with($notification);
-                }
-            }
+        //     if($expiration_date != 'lifetime'){
+        //         if(date('Y-m-d') > $expiration_date){
+        //             $notification = trans('user_validation.Pricing plan date is expired');
+        //             $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //             return redirect()->back()->with($notification);
+        //         }
+        //     }
 
-            $number_of_property = $agent_order->number_of_property;
+            // $number_of_property = $agent_order->number_of_property;
 
-            if($number_of_property == -1){
-                $available = 'enable';
-            }else{
-                $property_count = Property::where('agent_id', $agent_id)->count();
-                if($property_count < $number_of_property){
-                    $available = 'enable';
-                }
-            }
+            // if($number_of_property == -1){
+            //     $available = 'enable';
+            // }else{
+            //     $property_count = Property::where('agent_id', $agent_id)->count();
+            //     if($property_count < $number_of_property){
+            //         $available = 'enable';
+            //     }
+        //     }
 
-            if($available == 'disable'){
-                $notification = trans('user_validation.You can not add property more than limit quantity');
-                $notification = array('messege'=>$notification,'alert-type'=>'error');
-                return redirect()->back()->with($notification);
-            }
+        //     if($available == 'disable'){
+        //         $notification = trans('user_validation.You can not add property more than limit quantity');
+        //         $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //         return redirect()->back()->with($notification);
+        //     }
 
-        }else{
-            $notification = trans('user_validation.Agent does not have any pricing plan');
-            $notification = array('messege'=>$notification,'alert-type'=>'error');
-            return redirect()->back()->with($notification);
-        }
+        // }else{
+        //     $notification = trans('user_validation.Agent does not have any pricing plan');
+        //     $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //     return redirect()->back()->with($notification);
+        // }
 
         $setting = Setting::first();
 
@@ -209,44 +209,44 @@ class PropertyController extends Controller
         $user = Auth::guard('web')->user();
         $agent_id = $user->id;
 
-        $agent_order = Order::where('agent_id', $agent_id)->where('order_status','active')->orderBy('id','desc')->first();
+        // $agent_order = Order::where('agent_id', $agent_id)->where('order_status','active')->orderBy('id','desc')->first();
 
-        if($agent_order){
+        // if($agent_order){
 
-            $available = 'disable';
+        //     $available = 'disable';
 
-            $expiration_date = $agent_order->expiration_date;
+        //     $expiration_date = $agent_order->expiration_date;
 
-            if($expiration_date != 'lifetime'){
-                if(date('Y-m-d') > $expiration_date){
-                    $notification = trans('user_validation.Pricing plan date is expired');
-                    $notification = array('messege'=>$notification,'alert-type'=>'error');
-                    return redirect()->back()->with($notification);
-                }
-            }
+        //     if($expiration_date != 'lifetime'){
+        //         if(date('Y-m-d') > $expiration_date){
+        //             $notification = trans('user_validation.Pricing plan date is expired');
+        //             $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //             return redirect()->back()->with($notification);
+        //         }
+        //     }
 
-            $number_of_property = $agent_order->number_of_property;
+        //     $number_of_property = $agent_order->number_of_property;
 
-            if($number_of_property == -1){
-                $available = 'enable';
-            }else{
-                $property_count = Property::where('agent_id', $agent_id)->count();
-                if($property_count < $number_of_property){
-                    $available = 'enable';
-                }
-            }
+        //     if($number_of_property == -1){
+        //         $available = 'enable';
+        //     }else{
+        //         $property_count = Property::where('agent_id', $agent_id)->count();
+        //         if($property_count < $number_of_property){
+        //             $available = 'enable';
+        //         }
+        //     }
 
-            if($available == 'disable'){
-                $notification = trans('user_validation.You can not add property more than limit quantity');
-                $notification = array('messege'=>$notification,'alert-type'=>'error');
-                return redirect()->back()->with($notification);
-            }
+        //     if($available == 'disable'){
+        //         $notification = trans('user_validation.You can not add property more than limit quantity');
+        //         $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //         return redirect()->back()->with($notification);
+        //     }
 
-        }else{
-            $notification = trans('user_validation.Agent does not have any pricing plan');
-            $notification = array('messege'=>$notification,'alert-type'=>'error');
-            return redirect()->back()->with($notification);
-        }
+        // }else{
+        //     $notification = trans('user_validation.Agent does not have any pricing plan');
+        //     $notification = array('messege'=>$notification,'alert-type'=>'error');
+        //     return redirect()->back()->with($notification);
+        // }
 
 
         $rules = [
@@ -349,11 +349,11 @@ class PropertyController extends Controller
             $property->approve_by_admin = 'approved';
         }
 
-        if($agent_order->expiration_date == 'lifetime'){
+        // if($agent_order->expiration_date == 'lifetime'){
             $property->expired_date = null;
-        }else{
-            $property->expired_date = $agent_order->expiration_date;
-        }
+        // }else{
+        //     $property->expired_date = $agent_order->expiration_date;
+        // }
         $property->save();
 
         if($request->aminities){

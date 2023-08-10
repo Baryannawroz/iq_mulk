@@ -95,7 +95,7 @@
             </div>
 
 
-            <form id="property_form" action="/admin/category/store" method="POST" enctype="multipart/form-data">
+            <form id="property_form" action="/admin/cat/store" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mt-4">

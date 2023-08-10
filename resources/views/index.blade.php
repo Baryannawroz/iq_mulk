@@ -751,7 +751,7 @@
 
         @if ($mobile_app->visibility)
             <!-- Download App -->
-            <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
+            {{-- <section class="download-app homec-bg-cover homec-bg-primary-color pd-top-15 pd-btm-15" style="background-image:url({{ asset($mobile_app->app_bg) }})">
                 <div class="homec-shape">
                     <div class="homec-shape-single homec-shape-11"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
                     <div class="homec-shape-single homec-shape-12"><img src="{{ asset('frontend/img/anim-shape-10.svg') }}" alt="bg"></div>
@@ -791,7 +791,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
             <!-- End Download App -->
         @endif
 

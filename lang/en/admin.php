@@ -265,7 +265,6 @@
   'Item' => 'Item',
   'Urgent Property' => 'Urgent Property',
   'Why Choose Us' => 'Why Choose Us',
-  'Pricing Plan' => 'Pricing Plan',
   'Partner' => 'Partner',
   'About Us Visibility' => 'About Us Visibility',
   'FAQ Visibility' => 'FAQ Visibility',

@@ -707,7 +707,7 @@ WW
                 $counter_content = $counter->content;
             @endphp
             <!-- FunFacts -->
-            <section class="homec-funfacts pd-btm-100">
+            {{-- <section class="homec-funfacts pd-btm-100">
                 <img src="{{ asset($counter_content->bg_image) }}" alt="bg_image">
                 <div class="container">
                     <div class="row">
@@ -757,7 +757,7 @@ WW
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
             <!-- End FunFacts Area -->
         @endif
 

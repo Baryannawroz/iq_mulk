@@ -12,6 +12,7 @@ use App\Models\Property;
 use App\Helpers\MailHelper;
 use Mail;
 use App\Mail\SendSingleAgentMail;
+use App\Models\PricingPlan;
 use Image;
 use File;
 use Str;
@@ -87,6 +88,39 @@ class CustomerController extends Controller
         $agent->instagram = $request->instagram;
         $agent->status = 1;
         $agent->save();
+        $item = PricingPlan::find(3);
+
+        if ($item->expired_time == 'monthly') {
+            $expiration_date = date('Y-m-d', strtotime('30 days'));
+        } elseif ($item->expired_time == 'yearly') {
+            $expiration_date = date('Y-m-d', strtotime('365 days'));
+        } elseif ($item->expired_time == 'lifetime') {
+            $expiration_date = 'lifetime';
+        }
+
+        Order::where('agent_id', $agent->id)->update(['order_status' => 'expired']);
+
+        $order = new Order();
+        $order->order_id = substr(rand(0, time()), 0, 10);
+        $order->agent_id = $agent->id;
+        $order->pricing_plan_id = $request->plan_id;
+        $order->plan_type = $item->plan_type;
+        $order->plan_price = $item->plan_price;
+        $order->plan_name = $item->plan_name;
+        $order->expired_time = $item->expired_time;
+        $order->number_of_property = $item->number_of_property;
+        $order->featured_property = $item->featured_property;
+        $order->featured_property_qty = $item->featured_property_qty;
+        $order->top_property = $item->top_property;
+        $order->top_property_qty = $item->top_property_qty;
+        $order->urgent_property = $item->urgent_property;
+        $order->urgent_property_qty = $item->urgent_property_qty;
+        $order->order_status = 'active';
+        $order->payment_status = 'success';
+        $order->transaction_id = 'hand_cash';
+        $order->payment_method = 'hand_cash';
+        $order->expiration_date = $expiration_date;
+        $order->save();
 
         $notification=trans('admin_validation.Created Successfully');
         $notification=array('messege'=>$notification,'alert-type'=>'success');
