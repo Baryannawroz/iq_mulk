@@ -130,6 +130,7 @@
 				</div>
 			</div>
 		</section>
+        
 		<!-- End Dashboard -->
 
     <!-- Download App -->

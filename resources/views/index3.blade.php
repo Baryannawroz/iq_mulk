@@ -100,6 +100,89 @@
                 </div>
             </div>
         </section>
+
+{{-- agent  --}}
+<section class="homec-bg-third-color homec-bg-cover pd-top-90 pd-btm-120"
+        style="background-image: url({{ asset($agent->home2_agent_bg) }});">
+        <div class="homec-overlay"></div>
+        <div class="section-inside-bg homec-agent-inside"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="homec-flex homec-flex__section mg-btm-60">
+                        <div class="homec-section__head section-white homec-section__head__half m-0 mg-top-30">
+                            <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
+                                data-aos="fade-in" data-aos-delay="300">{{ $agent->title }}</span>
+                            <h2 class="homec-section__title" data-aos="fade-in" data-aos-delay="400">{{ $agent->description
+                                }}</h2>
+                        </div>
+                        <div class="homec-section__btn mg-top-30" data-aos="fade-right" data-aos-delay="500">
+                            <a href="{{ route('agents') }}" class="homec-btn"><span>{{__('user.See All Agents')}}</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="swiper mySwiper homec-slider-agent loading">
+                        <div class="swiper-wrapper">
+                            @foreach ($agent->agents as $agent_index => $single_agent )
+                            <div class="swiper-slide">
+                                <!-- Single agent-->
+                                <div class="homec-agent">
+                                    <!-- Agent Head-->
+                                    <div class="homec-agent__head">
+                                        @if ($single_agent->image)
+                                        <img src="{{ asset($single_agent->image) }}" alt="agent">
+                                        @else
+                                        <img src="{{ asset($default_user_avatar) }}" alt="agent">
+                                        @endif
+                                        <ul class="homec-agent__social list-none">
+                                            @if ($single_agent->linkedin)
+                                            <li><a href="{{ $single_agent->linkedin }}"><i
+                                                        class="fab fa-linkedin-in"></i></a></li>
+                                            @endif
+
+                                            @if ($single_agent->twitter)
+                                            <li><a href="{{ $single_agent->twitter }}"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            @endif
+
+                                            @if ($single_agent->instagram)
+                                            <li><a href="{{ $single_agent->instagram }}"><i
+                                                        class="fab fa-instagram"></i></a></li>
+                                            @endif
+
+                                            @if ($single_agent->facebook)
+                                            <li><a href="{{ $single_agent->facebook }}"><i
+                                                        class="fab fa-facebook-f"></i></a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                    <!-- Agent Body -->
+                                    <div class="homec-agent__body">
+                                        <h4 class="homec-agent__title"><a
+                                                href="{{ route('agent', ['agent_type' => 'agent', 'user_name' => $single_agent->user_name]) }}">{{
+                                                $single_agent->name }}<span>{{ $single_agent->designation }}</span></a></h4>
+                                    </div>
+                                    <!-- End Agent Body -->
+                                </div>
+                                <!-- End Single agent-->
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- Slider Pagination -->
+                    <div
+                        class="swiper-pagination swiper-pagination__start swiper-pagination--white  swiper-pagination__agent">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{{-- end agent --}}
+
+
         <!-- End homec Hero -->
     @endif
 

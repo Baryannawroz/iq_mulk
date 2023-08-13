@@ -6,7 +6,7 @@
 <!-- Main Content -->
 <div class="main-content">
 
-    <section class="section">
+    {{-- <section class="section">
         <div class="section-header">
           <h1>{{__('admin.Dashboard')}}</h1>
         </div>
@@ -392,7 +392,7 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
   </div>
 
