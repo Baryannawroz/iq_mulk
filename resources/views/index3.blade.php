@@ -217,6 +217,28 @@
         <!-- End Features Area -->
     @endif
 
+    <section class="homec-features pd-top-120 pd-btm-120">
+        <div class="container">
+            <div class="row">
+                @foreach ($cats as $cat)
+                <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
+                    <!-- Single Feature -->
+                    <a href="{{ route('properties', ['type' => $cat->id]) }}" class="homec-features__single">
+                        <div class="homec-features__icon">
+                            {{-- <img src="{{ asset($property_type->icon) }}" alt="icon"> --}}
+                        </div>
+                        <div class="homec-features__content">
+                            <h3 class="homec-features__title">{{ $cat->name }}</h3>
+                            {{-- <p class="homec-features__text">{{ $property_type->totalProperty }}+ {{__('user.Property')}}</p> --}}
+                        </div>
+                    </a>
+                    <!-- End Single Feature -->
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
 
     @if ($featured_property->visibility)
         <!-- Latest Property -->

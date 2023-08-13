@@ -1,4 +1,27 @@
 @charset "UTF-8";
+
+
+
+@font-face {
+    font-family: "Xendan-Regular";
+    src: url("../../css/fonts/Xendan-Regular.eot?#iefix") format("embedded-opentype"),
+        url("../../css/fonts/Xendan-Regular.woff") format("woff"),
+        url("../../css/fonts/Xendan-Regular.ttf") format("truetype"),
+        url("../../css/fonts/Xendan-Regular.svg#Xendan-Regular") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Xendan-Bold";
+    src: url("../../css/fonts/Xendan-Bold.eot?#iefix") format("embedded-opentype"),
+        url("../../css/fonts/Xendan-Bold.woff") format("woff"),
+        url("../../css/fonts/Xendan-Bold.ttf") format("truetype"),
+        url("../../css/fonts/Xendan-Bold.svg#Xendan-Bold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
 /**
  * Stisla
  *
@@ -1600,7 +1623,7 @@ h6 .badge {
       left: 34px;
       content: '\f0d8';
       font-weight: 600;
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'Xendan-Regular';
       color: #fff;
       font-size: 30px; }
     .navbar .form-inline .search-result .search-header {
@@ -1958,7 +1981,7 @@ body {
   background-color: #f4f6f9;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Nunito", "Segoe UI", arial;
+  font-family: "Xendan-Regular", "Segoe UI", arial;
   color: #6c757d; }
 
 a.bb {
@@ -2073,7 +2096,7 @@ blockquote {
   background-color: #f9f9f9;
   border-radius: 3px;
   position: relative;
-  font-family: 'Time new Romans';
+  font-family: 'Xendan-Regular';
   font-size: 16px;
   letter-spacing: .3px; }
   blockquote:before {
@@ -2570,7 +2593,7 @@ body.sidebar-mini .main-sidebar {
         background-color: #fff; }
         body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li a.has-dropdown:after {
           content: "";
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Xendan-Regular';
           font-weight: 900;
           position: absolute;
           top: 50%;
@@ -2683,7 +2706,7 @@ body.layout-3 .navbar.navbar-secondary {
       margin-right: 35px; }
       body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link.has-dropdown:after {
         content: "";
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Xendan-Regular';
         font-weight: 900;
         position: absolute;
         top: 50%;
@@ -2719,7 +2742,7 @@ body.layout-3 .navbar.navbar-secondary {
       padding-right: 20px !important; }
       body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item .nav-link.has-dropdown:after {
         content: "";
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Xendan-Regular';
         font-weight: 900;
         position: absolute;
         top: 50%;
@@ -2823,7 +2846,7 @@ body.layout-3 .main-footer {
       background-color: #f8fafb; }
     .main-sidebar .sidebar-menu li a.has-dropdown:after {
       content: "";
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'Xendan-Regular';
       font-weight: 900;
       position: absolute;
       top: 50%;

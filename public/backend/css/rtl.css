@@ -11,6 +11,27 @@
  * @url   https://getstisla.com
  *
  */
+
+@font-face {
+    font-family: "Xendan-Regular";
+    src: url("../../css/fonts/Xendan-Regular.eot?#iefix") format("embedded-opentype"),
+        url("../../css/fonts/Xendan-Regular.woff") format("woff"),
+        url("../../css/fonts/Xendan-Regular.ttf") format("truetype"),
+        url("../../css/fonts/Xendan-Regular.svg#Xendan-Regular") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Xendan-Bold";
+    src: url("../../css/fonts/Xendan-Bold.eot?#iefix") format("embedded-opentype"),
+        url("../../css/fonts/Xendan-Bold.woff") format("woff"),
+        url("../../css/fonts/Xendan-Bold.ttf") format("truetype"),
+        url("../../css/fonts/Xendan-Bold.svg#Xendan-Bold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
 @font-face {
   font-family: Vazir;
   src: url("../fonts/vazir/Vazir.eot");
@@ -55,7 +76,7 @@
 
 body, html {
   direction: rtl;
-  font-family: Vazir, Tahoma, Arial; }
+  font-family: 'Xendan-Regular', Tahoma, Arial; }
 
 .ltr {
   direction: ltr; }
@@ -64,7 +85,7 @@ body, html {
   direction: rtl; }
 
 h1, h2, h3, h4, h5, h6, p, a, span, input, textarea, select, option, label {
-  font-family: Vazir, Tahoma, Arial; }
+  font-family: 'Xendan-Regular', Tahoma, Arial; }
 
 .main-sidebar {
   right: 0;
@@ -251,7 +272,7 @@ body.sidebar-gone .navbar {
 
 .form-group label {
   font-weight: normal;
-  font-family: Vazir, Tahoma, Arial;
+  font-family: 'Xendan-Regular', Tahoma, Arial;
   letter-spacing: 0; }
 
 .dropdown-list .dropdown-header {
@@ -265,14 +286,14 @@ body.sidebar-gone .navbar {
 
 .card.card-sm-3 .card-header h4, .card.card-sm-4 .card-header h4 {
   letter-spacing: 0;
-  font-family: Vazir, Tahoma, Arial; }
+  font-family: 'Xendan-Regular', Tahoma, Arial; }
 
 .main-sidebar .sidebar-user .sidebar-user-picture {
   float: right;
   margin-left: 10px; }
 
 .main-footer {
-  font-family: Vazir, Tahoma, Arial;
+  font-family: 'Xendan-Regular', Tahoma, Arial;
   padding: 20px 280px 20px 30px;
   font-size: 90%;
   border-top: solid 1px #EEE;

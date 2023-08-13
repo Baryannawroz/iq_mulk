@@ -140,16 +140,15 @@
                                 </li>
 
                                 <li><a
-                                        href="{{ route('properties',['purpose' => 'any','featured_property' => 'enable']) }}">{{__('user.Featured
-                                        Properties')}}</a></li>
+                                        href="{{ route('properties',['purpose' => 'any','featured_property' => 'enable']) }}">
+                                        {{__('user.Featured Properties')}}</a></li>
 
                                 <li><a
-                                        href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">{{__('user.Urgent
-                                        Properties')}}</a></li>
+                                        href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">
+                                        {{__('user.Urgent Properties')}}</a></li>
 
-                                <li><a href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">{{__('user.Top
-                                        Properties')}}</a></li>
-
+                                <li><a href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">
+                                        {{__('user.Top Properties')}}</a></li>
                             </ul>
                         </li>
                         <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
@@ -280,16 +279,16 @@
                                                         </li>
 
                                                         <li><a
-                                                                href="{{ route('properties',['purpose' => 'any','featured_property' => 'enable']) }}">{{__('user.Featured
-                                                                Properties')}}</a></li>
+                                                                href="{{ route('properties',['purpose' => 'any','featured_property' => 'enable']) }}">
+                                                                {{__('user.Featured Properties')}}</a></li>
 
                                                         <li><a
-                                                                href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">{{__('user.Urgent
-                                                                Properties')}}</a></li>
+                                                                href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">
+                                                                {{__('user.Urgent Properties')}}</a></li>
 
                                                         <li><a
-                                                                href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">{{__('user.Top
-                                                                Properties')}}</a></li>
+                                                                href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">
+                                                                {{__('user.Top Properties')}}</a></li>
 
 
                                                     </ul>

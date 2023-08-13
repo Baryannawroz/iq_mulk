@@ -1,7 +1,9 @@
 @php
 $setting = App\Models\Setting::first();
 @endphp
-
+@php
+$logedInAdmin = Auth::guard('admin')->user();
+@endphp
 
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
@@ -20,7 +22,8 @@ $setting = App\Models\Setting::first();
 
             <li
                 class="nav-item dropdown  {{ Route::is('admin.pricing-plan.*') || Route::is('admin.assign-pricing-plan') || Route::is('admin.purchase-history') || Route::is('admin.show-purchase-history') || Route::is('admin.pending-payment') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('user.Price Plan')}}</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('user.Price
+                        Plan')}}</span></a>
 
                 <ul class="dropdown-menu ">
 
@@ -32,7 +35,8 @@ $setting = App\Models\Setting::first();
 
                     <li
                         class="  {{ Route::is('admin.purchase-history') || Route::is('admin.show-purchase-history')  ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('admin.purchase-history') }}">{{__('admin.Purchase history')}}</a>
+                        <a class="nav-link" href="{{ route('admin.purchase-history') }}">{{__('admin.Purchase
+                            history')}}</a>
                     </li>
 
                     <li class="{{ Route::is('admin.pending-payment')  ? 'active' : '' }}"><a class="nav-link"
@@ -66,12 +70,13 @@ $setting = App\Models\Setting::first();
 
             <li
                 class="nav-item dropdown {{ Route::is('admin.category.*')  || Route::is('admin.nearest-location.*') || Route::is('admin.aminity.*') || Route::is('admin.property.*') || Route::is('admin.agent-property') || Route::is('admin.agent-pending-property') || Route::is('admin.assign-slider-property') || Route::is('admin.agent-reject-property') || Route::is('admin.review-list') || Route::is('admin.show-review') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas far fa-building"></i><span>{{__('admin.Real
-                        Estate')}}</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas far fa-building"></i><span>
+                    {{__('admin.Real Estate')}}</span></a>
 
                 <ul class="dropdown-menu">
 
-                    <li><a class="nav-link" href="{{ route('admin.property.create') }}">{{__('admin.Create Property')}}</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.property.create') }}">
+                    {{__('admin.Create Property')}}</a></li>
 
                     <li class="{{ Route::is('admin.property.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.property.index') }}">{{__('admin.Own Properties')}}</a></li>
@@ -87,8 +92,9 @@ $setting = App\Models\Setting::first();
                             href="{{ route('admin.agent-reject-property') }}">{{__('admin.Agent Reject Property')}}</a>
                     </li>
 
-                    <li class="  {{ Route::is('admin.assign-slider-property') ? 'active' : '' }}"><a
-                            class="nav-link" href="{{ route('admin.assign-slider-property') }}">{{__('admin.Assign Slider Property')}}</a></li>
+                    <li class="  {{ Route::is('admin.assign-slider-property') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.assign-slider-property') }}">
+                            {{__('admin.Assign Slider Property')}}</a></li>
 
 
                     <li class="{{ Route::is('admin.coupon.*') ? 'active' : '' }}"><a class="nav-link"
@@ -100,43 +106,15 @@ $setting = App\Models\Setting::first();
                     <li class=" {{ Route::is('admin.aminity.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.aminity.index') }}">{{__('admin.Aminities')}}</a>
                     </li>
-
+                    @if ($logedInAdmin->admin_type == 1)
                     <li
                         class="  {{ Route::is('admin.review-list') || Route::is('admin.show-review') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('admin.review-list') }}">{{__('admin.Review
-                            List')}}</a>
+                        <a class="nav-link" href="{{ route('admin.review-list') }}">{{__('admin.Review List')}}</a>
                     </li>
+                    @endif
 
                 </ul>
             </li>
-
-
-            <li
-                class="nav-item dropdown {{ Route::is('admin.city.*') || Route::is('admin.city-import-page') || Route::is('admin.assign-homepage-city') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i
-                        class="fas fa-map-marker-alt"></i><span>{{__('admin.Locations')}}</span></a>
-
-                <ul class="dropdown-menu">
-
-                    <li class=""><a class="nav-link" href="{{ route('admin.city-import-page') }}">{{__('admin.Bulk
-                            Import')}}</a>
-                    </li>
-
-                    <li><a class="nav-link" href="{{ route('admin.city.create') }}">{{__('admin.Create city')}}</a></li>
-
-
-                    <li class="{{ Route::is('admin.city.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.city.index') }}">{{__('admin.City')}}</a>
-                    </li>
-
-                    <li class="  {{ Route::is('admin.assign-homepage-city') ? 'active' : '' }}"><a
-                            class="nav-link" href="{{ route('admin.assign-homepage-city') }}">{{__('admin.Assign
-                            homepage city')}}</a>
-                    </li>
-
-                </ul>
-            </li>
-
 
             <li
                 class="nav-item dropdown {{  Route::is('admin.agent') || Route::is('admin.send-email-to-all-agent') || Route::is('admin.send-email-to-agent') || Route::is('admin.agent-show') || Route::is('admin.create-agent') ? 'active' : '' }}">
@@ -174,7 +152,41 @@ $setting = App\Models\Setting::first();
 
 
 
-             <li
+
+
+
+
+            @if ($logedInAdmin->admin_type == 1)
+
+
+            <li
+                class="nav-item dropdown {{ Route::is('admin.city.*') || Route::is('admin.city-import-page') || Route::is('admin.assign-homepage-city') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fas fa-map-marker-alt"></i><span>{{__('admin.Locations')}}</span></a>
+
+                <ul class="dropdown-menu">
+
+                    <li class=""><a class="nav-link" href="{{ route('admin.city-import-page') }}">{{__('admin.Bulk
+                            Import')}}</a>
+                    </li>
+
+                    <li><a class="nav-link" href="{{ route('admin.city.create') }}">{{__('admin.Create city')}}</a></li>
+
+
+                    <li class="{{ Route::is('admin.city.*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.city.index') }}">{{__('admin.City')}}</a>
+                    </li>
+
+                    <li class="  {{ Route::is('admin.assign-homepage-city') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.assign-homepage-city') }}">{{__('admin.Assign homepage city')}}</a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+
+            <li
                 class="nav-item dropdown {{ Route::is('admin.maintainance-mode') || Route::is('admin.banner-image.index') || Route::is('admin.seo-setup') ||  Route::is('admin.default-avatar') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-globe"></i><span>{{__('admin.Manage
                         Website')}}</span></a>
@@ -184,24 +196,20 @@ $setting = App\Models\Setting::first();
                     <li class="{{ Route::is('admin.seo-setup') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.seo-setup') }}">{{__('admin.SEO Setup')}}</a></li>
                     <li class="{{ Route::is('admin.maintainance-mode') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.maintainance-mode') }}">{{__('admin.Maintainance
-                            Mode')}}</a></li>
+                            href="{{ route('admin.maintainance-mode') }}">{{__('admin.Maintainance Mode')}}</a></li>
 
                     <li class="{{ Route::is('admin.banner-image.index') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.banner-image.index') }}">{{__('admin.Banner
-                            Image')}}</a></li>
+                            href="{{ route('admin.banner-image.index') }}">{{__('admin.Banner Image')}}</a></li>
 
                     <li class="{{ Route::is('admin.default-avatar') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.default-avatar') }}">{{__('admin.Default
-                            Avatar')}}</a></li>
+                            href="{{ route('admin.default-avatar') }}">{{__('admin.Default Avatar')}}</a></li>
 
                 </ul>
             </li>
 
             <li class="{{ Route::is('admin.mobile-app-setting') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.mobile-app-setting') }}"><i class="fas fa-mobile"></i>
-                    <span>{{__('admin.Mobile App
-                        Setting')}}</span></a></li>
+                    <span>{{__('admin.Mobile App Setting')}}</span></a></li>
 
 
             <li
@@ -211,20 +219,17 @@ $setting = App\Models\Setting::first();
                 <ul class="dropdown-menu">
 
                     <li class="{{ Route::is('admin.slider.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.slider.index') }}">{{__('admin.Intro
-                            section')}}</a></li>
+                            href="{{ route('admin.slider.index') }}">{{__('admin.Intro section')}}</a></li>
 
                     <li class="{{ Route::is('admin.home2-about-us') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.home2-about-us') }}">{{__('admin.Home2
-                            About Us')}}</a></li>
+                            href="{{ route('admin.home2-about-us') }}">{{__('admin.Home2 About Us')}}</a></li>
 
                     <li class="{{ Route::is('admin.partner.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.partner.index') }}">{{__('admin.Partner')}}</a>
                     </li>
 
                     <li class="{{ Route::is('admin.mobile-app') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.mobile-app') }}">{{__('admin.Mobile
-                            App')}}</a></li>
+                            href="{{ route('admin.mobile-app') }}">{{__('admin.Mobile App')}}</a></li>
 
                     <li class="{{ Route::is('admin.testimonial.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.testimonial.index') }}">{{__('admin.Testimonial')}}</a>
@@ -235,13 +240,11 @@ $setting = App\Models\Setting::first();
                     </li>
 
                     <li class="{{ Route::is('admin.why-choose-us.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.why-choose-us.index') }}">{{__('admin.Why
-                            choose us')}}</a></li>
+                            href="{{ route('admin.why-choose-us.index') }}">{{__('admin.Why choose us')}}</a></li>
 
 
                 </ul>
             </li>
-
 
             <li
                 class="nav-item dropdown {{ Route::is('admin.footer.*') || Route::is('admin.social-link.*') ? 'active' : '' }}">
@@ -255,17 +258,16 @@ $setting = App\Models\Setting::first();
                     </li>
 
                     <li class="{{ Route::is('admin.social-link.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.social-link.index') }}">{{__('admin.Social
-                            Link')}}</a></li>
+                            href="{{ route('admin.social-link.index') }}">{{__('admin.Social Link')}}</a></li>
 
                 </ul>
             </li>
 
-
             <li class="{{ Route::is('admin.payment-method') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.payment-method') }}"><i class="fas fa-dollar-sign"></i>
-                    <span>{{__('admin.Payment
-                        Method')}}</span></a></li>
+                    <span>{{__('admin.Payment Method')}}</span></a></li>
+
+            @endif
 
             <li
                 class="nav-item dropdown {{ Route::is('admin.about-us.*') || Route::is('admin.custom-page.*') || Route::is('admin.terms-and-condition.*') || Route::is('admin.privacy-policy.*') || Route::is('admin.faq.*') || Route::is('admin.error-page.*') || Route::is('admin.contact-us.*') || Route::is('admin.login-page') || Route::is('admin.homepage') || Route::is('admin.create-property') ? 'active' : '' }}">
@@ -278,41 +280,33 @@ $setting = App\Models\Setting::first();
                     </li>
 
                     <li class="{{ Route::is('admin.about-us.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.about-us.index') }}">{{__('admin.About
-                            Us')}}</a></li>
+                            href="{{ route('admin.about-us.index') }}">{{__('admin.About Us')}}</a></li>
 
                     <li class="{{ Route::is('admin.create-property') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.create-property') }}">{{__('admin.Create
-                            Property')}}</a></li>
+                            href="{{ route('admin.create-property') }}">{{__('admin.Create Property')}}</a></li>
 
                     <li class="{{ Route::is('admin.contact-us.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.contact-us.index') }}">{{__('admin.Contact
-                            Us')}}</a></li>
+                            href="{{ route('admin.contact-us.index') }}">{{__('admin.Contact Us')}}</a></li>
 
                     <li class="{{ Route::is('admin.custom-page.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.custom-page.index') }}">{{__('admin.Custom
-                            Page')}}</a></li>
+                            href="{{ route('admin.custom-page.index') }}">{{__('admin.Custom Page')}}</a></li>
 
                     <li class="{{ Route::is('admin.terms-and-condition.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.terms-and-condition.index') }}">{{__('admin.Terms
-                            And
+                            href="{{ route('admin.terms-and-condition.index') }}">{{__('admin.Terms And
                             Conditions')}}</a></li>
 
                     <li class="{{ Route::is('admin.privacy-policy.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.privacy-policy.index') }}">{{__('admin.Privacy
-                            Policy')}}</a></li>
+                            href="{{ route('admin.privacy-policy.index') }}">{{__('admin.Privacy Policy')}}</a></li>
 
                     <li class="{{ Route::is('admin.faq.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.faq.index') }}">{{__('admin.FAQ')}}</a>
                     </li>
 
                     <li class="{{ Route::is('admin.login-page') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.login-page') }}">{{__('admin.Login
-                            Page')}}</a></li>
+                            href="{{ route('admin.login-page') }}">{{__('admin.Login Page')}}</a></li>
 
                     <li class="{{ Route::is('admin.error-page.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.error-page.index') }}">{{__('admin.Error
-                            Page')}}</a></li>
+                            href="{{ route('admin.error-page.index') }}">{{__('admin.Error Page')}}</a></li>
 
                 </ul>
             </li>
@@ -332,8 +326,7 @@ $setting = App\Models\Setting::first();
                     </li>
 
                     <li class="{{ Route::is('admin.popular-blog.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.popular-blog.index') }}">{{__('admin.Popular
-                            Blogs')}}</a></li>
+                            href="{{ route('admin.popular-blog.index') }}">{{__('admin.Popular Blogs')}}</a></li>
 
                     <li class="{{ Route::is('admin.blog-comment.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.blog-comment.index') }}">{{__('admin.Comments')}}</a>
@@ -341,6 +334,7 @@ $setting = App\Models\Setting::first();
                 </ul>
             </li>
 
+            @if ($logedInAdmin->admin_type == 1)
             <li
                 class="nav-item dropdown {{ Route::is('admin.email-configuration') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-envelope"></i><span>{{__('admin.Email
@@ -365,8 +359,7 @@ $setting = App\Models\Setting::first();
 
                 <ul class="dropdown-menu">
                     <li class="{{ Route::is('admin.admin-language') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.admin-language') }}">{{__('admin.Admin
-                            Language')}}</a></li>
+                            href="{{ route('admin.admin-language') }}">{{__('admin.Admin Language')}}</a></li>
 
                     <li class="{{ Route::is('admin.admin-validation-language') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.admin-validation-language') }}">{{__('admin.Admin
@@ -374,8 +367,7 @@ $setting = App\Models\Setting::first();
                     </li>
 
                     <li class="{{ Route::is('admin.website-language') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.website-language') }}">{{__('admin.Frontend
-                            Language')}}</a></li>
+                            href="{{ route('admin.website-language') }}">{{__('admin.Frontend Language')}}</a></li>
                     <li class="{{ Route::is('admin.website-validation-language') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.website-validation-language') }}">{{__('admin.Frontend
                             Validation')}}</a>
@@ -387,20 +379,14 @@ $setting = App\Models\Setting::first();
                     href="{{ route('admin.general-setting') }}"><i class="fas fa-cog"></i>
                     <span>{{__('admin.Setting')}}</span></a></li>
 
-            @php
-            $logedInAdmin = Auth::guard('admin')->user();
-            @endphp
- @if ($logedInAdmin->admin_type == 1)
+
             <li class="{{ Route::is('admin.clear-database') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.clear-database') }}"><i class="fas fa-trash"></i>
-                    <span>{{__('admin.Clear
-                        Database')}}</span></a></li>
-            @endif
+                    <span>{{__('admin.Clear Database')}}</span></a></li>
 
             <li class="{{ Route::is('admin.clear-cache') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.clear-cache') }}"><i class="fas fa-undo"></i>
-                    <span>{{__('admin.Cache
-                        Clear')}}</span></a></li>
+                    <span>{{__('admin.Cache Clear')}}</span></a></li>
 
             <li class="{{ Route::is('admin.subscriber') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.subscriber') }}"><i class="fas fa-fire"></i>
@@ -408,14 +394,11 @@ $setting = App\Models\Setting::first();
 
             <li class="{{ Route::is('admin.contact-message') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.contact-message') }}"><i class="fas fa-fa fa-envelope"></i>
-                    <span>{{__('admin.Contact
-                        Message')}}</span></a></li> --}}
+                    <span>{{__('admin.Contact Message')}}</span></a></li>
 
-            @if ($logedInAdmin->admin_type == 1)
             <li class="{{ Route::is('admin.admin.index') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.admin.index') }}"><i class="fas fa-user"></i>
-                    <span>{{__('admin.Admin
-                        list')}}</span></a></li>
+                    <span>{{__('admin.Admin list')}}</span></a></li>
             @endif
 
         </ul>
