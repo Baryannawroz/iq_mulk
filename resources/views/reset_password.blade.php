@@ -19,27 +19,27 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
 
 		<!-- Bootstrap -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/bootstrap.min.css') }}">
 		<!-- Animate CSS -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/animate.min.css') }}">
 		<!-- AOS CSS -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/aos.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/aos.min.css') }}">
 		<!-- Fontawesome -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/font-awesome-all.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/font-awesome-all.min.css') }}">
 		<!-- Swiper Slider CSS -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/swiper-slider.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/swiper-slider.min.css') }}">
 		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/select2-min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/select2-min.css') }}">
 		<!-- Video Popup -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/video-popup.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/video-popup.min.css') }}">
 		<!-- Jquery UI CSS -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/jquery-ui.min.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/jquery-ui.min.css') }}">
 
 		<!-- Main CSS -->
-		<link rel="stylesheet" href="{{ asset('frontend/css/theme-default.css') }}">
-		<link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/theme-default.css') }}">
+		<link rel="stylesheet" href="{{ asset($path.'frontend/css/style.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}">
+        <link rel="stylesheet" href="{{ asset($path.'toastr/toastr.min.css') }}">
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
         @include('theme_color')
@@ -114,7 +114,7 @@
                                             <button class="homec-btn homec-btn__second" type="submit"><span>{{__('user.Reset Password')}}</span></button>
 
                                             @if ($social_login->is_gmail == 1)
-                                                <button id="googleLoginBtn" class="homec-btn homec-btn__second homec-btn__social" type="button"><div class="ntfmax-wc__btn-icon"><img src="{{ asset('frontend/img/google.svg') }}"></div><span>{{__('user.Sign in with Google')}}</span></button>
+                                                <button id="googleLoginBtn" class="homec-btn homec-btn__second homec-btn__social" type="button"><div class="ntfmax-wc__btn-icon"><img src="{{ asset($path.'frontend/img/google.svg') }}"></div><span>{{__('user.Sign in with Google')}}</span></button>
                                             @endif
 
                                         </div>
@@ -161,31 +161,31 @@
         <!-- End Sign In -->
 
 		<!-- Jquery JS -->
-		<script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
-		<script src="{{ asset('frontend/js/jquery-migrate.js') }}"></script>
-		<script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/jquery.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/jquery-migrate.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/jquery-ui.min.js') }}"></script>
 		<!-- Bootstrap JS -->
-		<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/bootstrap.min.js') }}"></script>
 		<!-- Aos JS -->
-		<script src="{{ asset('frontend/js/aos.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/aos.min.js') }}"></script>
 		<!-- CK Editor JS -->
-		<script src="{{ asset('frontend/js/ckeditor.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/ckeditor.min.js') }}"></script>
 		<!-- Select2 JS-->
-		<script src="{{ asset('frontend/js/select2-js.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/select2-js.min.js') }}"></script>
 		<!-- Video Popup JS -->
-		<script src="{{ asset('frontend/js/video-popup.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/video-popup.min.js') }}"></script>
 		<!-- Swiper SLider JS -->
-		<script src="{{ asset('frontend/js/swiper-slider.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/swiper-slider.min.js') }}"></script>
 		<!-- Waypoints JS -->
-		<script src="{{ asset('frontend/js/waypoints.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/waypoints.min.js') }}"></script>
 		<!-- Counterup JS -->
-		<script src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/jquery.counterup.min.js') }}"></script>
 		<!-- Easing JS -->
-		<script src="{{ asset('frontend/js/easing.min.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/easing.min.js') }}"></script>
 		<!-- Main JS -->
-		<script src="{{ asset('frontend/js/active.js') }}"></script>
+		<script src="{{ asset($path.'frontend/js/active.js') }}"></script>
 
-        <script src="{{ asset('toastr/toastr.min.js') }}"></script>
+        <script src="{{ asset($path.'toastr/toastr.min.js') }}"></script>
 
         <script>
             @if(Session::has('messege'))

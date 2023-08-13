@@ -7,7 +7,7 @@
     <title>{{__('user.Flutterwave Payment')}}</title>
     <link rel="icon" type="image/png" href="{{ asset($setting->favicon) }}">
 
-    <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery.min.js') }}"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
 
 </head>

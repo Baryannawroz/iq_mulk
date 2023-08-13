@@ -17,30 +17,30 @@
         rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/bootstrap.min.css') }}">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/animate.min.css') }}">
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/aos.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/aos.min.css') }}">
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/font-awesome-all.min.css') }}">
     <!-- Swiper Slider CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/swiper-slider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/swiper-slider.min.css') }}">
     <!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/select2-min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/select2-min.css') }}">
     <!-- Video Popup -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/video-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/video-popup.min.css') }}">
     <!-- Jquery UI CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/jquery-ui.min.css') }}">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/theme-default.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/theme-default.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/style.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'toastr/toastr.min.css') }}">
 
     <!-- Jquery JS -->
-    <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery.min.js') }}"></script>
 
     @if ($googleAnalytic->status == 1)
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalytic->analytic_id }}"></script>
@@ -206,19 +206,19 @@
                             <ul class="homec-header__list homec-header__list--v2">
                                 <li>
                                     <a href="mailto:{{ $footer->email }}">
-                                        <img src="{{ asset('frontend/img/email-icon.svg') }}" alt="email">
+                                        <img src="{{ asset($path.'frontend/img/email-icon.svg') }}" alt="email">
                                         <span>{{ $footer->email }}</span>
                                     </a>
                                 </li>
                                 <li class="d-none-tab">
                                     <a href="tel:{{ $footer->phone }}">
-                                        <img src="{{ asset('frontend/img/phone-icon.svg') }}" alt="phone">
+                                        <img src="{{ asset($path.'frontend/img/phone-icon.svg') }}" alt="phone">
                                         <span>{{ $footer->phone }}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        <img src="{{ asset('frontend/img/locations-icon.svg') }}" alt="address">
+                                        <img src="{{ asset($path.'frontend/img/locations-icon.svg') }}" alt="address">
                                         <span>{{ $footer->address }}</span>
                                     </a>
                                 </li>
@@ -468,13 +468,13 @@
                                             <h3 class="widget-title">{{__('user.Contact Us')}}</h3>
                                             <div class="f-contact__form-top">
                                                 <ul class="f-contact-list list-none">
-                                                    <li><img src="{{ asset('frontend/img/footer-phone.svg') }}"
+                                                    <li><img src="{{ asset($path.'frontend/img/footer-phone.svg') }}"
                                                             alt="phone"><a href="tel:{{ $footer->phone }}">{{
                                                             $footer->phone }}</a></li>
-                                                    <li><img src="{{ asset('frontend/img/footer-message.png') }}"
+                                                    <li><img src="{{ asset($path.'frontend/img/footer-message.png') }}"
                                                             alt="email"><a href="mailto:{{ $footer->email }}">{{
                                                             $footer->email }}</a></li>
-                                                    <li><img src="{{ asset('frontend/img/footer-location.png') }}"
+                                                    <li><img src="{{ asset($path.'frontend/img/footer-location.png') }}"
                                                             alt="address">
                                                         <p>{{ $footer->address }}</p>
                                                     </li>
@@ -532,37 +532,37 @@
 
 
     @if ($cookie_consent->status == 1)
-    <script src="{{ asset('frontend/js/cookieconsent.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/cookieconsent.min.js') }}"></script>
 
     <script>
         window.addEventListener("load",function(){window.wpcc.init({"border":"{{ $cookie_consent->border }}","corners":"{{ $cookie_consent->corners }}","colors":{"popup":{"background":"{{ $cookie_consent->background_color }}","text":"{{ $cookie_consent->text_color }} !important","border":"{{ $cookie_consent->border_color }}"},"button":{"background":"{{ $cookie_consent->btn_bg_color }}","text":"{{ $cookie_consent->btn_text_color }}"}},"content":{"href":"{{ route('privacy-policy') }}","message":"{{ $cookie_consent->message }}","link":"{{ $cookie_consent->link_text }}","button":"{{ $cookie_consent->btn_text }}"}})});
     </script>
     @endif
 
-    <script src="{{ asset('frontend/js/jquery-migrate.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery-migrate.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery-ui.min.js') }}"></script>
     <!-- Bootstrap JS -->
-    <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/bootstrap.min.js') }}"></script>
     <!-- Aos JS -->
-    <script src="{{ asset('frontend/js/aos.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/aos.min.js') }}"></script>
     <!-- CK Editor JS -->
-    <script src="{{ asset('frontend/js/ckeditor.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/ckeditor.min.js') }}"></script>
     <!-- Select2 JS-->
-    <script src="{{ asset('frontend/js/select2-js.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/select2-js.min.js') }}"></script>
     <!-- Video Popup JS -->
-    <script src="{{ asset('frontend/js/video-popup.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/video-popup.min.js') }}"></script>
     <!-- Swiper SLider JS -->
-    <script src="{{ asset('frontend/js/swiper-slider.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/swiper-slider.min.js') }}"></script>
     <!-- Waypoints JS -->
-    <script src="{{ asset('frontend/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/waypoints.min.js') }}"></script>
     <!-- Counterup JS -->
-    <script src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery.counterup.min.js') }}"></script>
     <!-- Easing JS -->
-    <script src="{{ asset('frontend/js/easing.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/easing.min.js') }}"></script>
     <!-- Main JS -->
-    <script src="{{ asset('frontend/js/active.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/active.js') }}"></script>
 
-    <script src="{{ asset('toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset($path.'toastr/toastr.min.js') }}"></script>
 
     <script>
         @if(Session::has('messege'))

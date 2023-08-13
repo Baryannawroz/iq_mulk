@@ -504,7 +504,7 @@
     </section>
 </div>
 
-<script src="{{ asset('backend/js/select2.min.js') }}"></script>
+<script src="{{ asset($path.'backend/js/select2.min.js') }}"></script>
 <script>
 
     (function($) {
