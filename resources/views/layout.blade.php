@@ -17,37 +17,37 @@
         rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/bootstrap.min.css') }}">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/animate.min.css') }}">
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/aos.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/aos.min.css') }}">
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/font-awesome-all.min.css') }}">
     <!-- Swiper Slider CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/swiper-slider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/swiper-slider.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/flex-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/flex-slider.css') }}">
 
     <!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/select2-min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/select2-min.css') }}">
     <!-- Video Popup -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/video-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/video-popup.min.css') }}">
     <!-- Jquery UI CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/jquery-ui.min.css') }}">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/theme-default.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/theme-default.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'frontend/css/style.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($path.'toastr/toastr.min.css') }}">
 
     <!-- Jquery JS -->
-    <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery.min.js') }}"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Swiper SLider JS -->
-    <script src="{{ asset('frontend/js/swiper-slider.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/sweetalert2@11.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/swiper-slider.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/sweetalert2@11.js') }}"></script>
 
     @if ($googleAnalytic->status == 1)
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalytic->analytic_id }}"></script>
@@ -147,11 +147,12 @@
                                         href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">{{__('user.Urgent
                                         Properties')}}</a></li>
 
-                                <li><a href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">{{__('user.Top Properties')}}</a></li>
+                                <li><a href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">{{__('user.Top
+                                        Properties')}}</a></li>
 
                             </ul>
                         </li>
-                      <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
+                        <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
                             <ul class="sub-menu">
                                 @foreach ($cats as $cat)
                                 @if ($cat->status===1)
@@ -163,25 +164,25 @@
                         </li>
 
 
-                                @if ($setting->agent_can_add_property)
-                                @if ($setting->agent_can_add_property == 'enable')
-                                <li><a href="{{ route('pricing-plan') }}">{{__('user.Price Plan')}}</a></li>
-                                @endif
-                                @endif
+                        @if ($setting->agent_can_add_property)
+                        @if ($setting->agent_can_add_property == 'enable')
+                        <li><a href="{{ route('pricing-plan') }}">{{__('user.Price Plan')}}</a></li>
+                        @endif
+                        @endif
 
-                                {{-- <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a></li> --}}
-                                {{-- <li><a href="{{ route('faq') }}">{{__('user.FAQ')}}</a></li> --}}
+                        {{-- <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a></li> --}}
+                        {{-- <li><a href="{{ route('faq') }}">{{__('user.FAQ')}}</a></li> --}}
 
-                                {{-- <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms and
-                                        Conditions')}}</a></li> --}}
+                        {{-- <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms and
+                                Conditions')}}</a></li> --}}
 
-                                {{-- <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
-                                --}}
+                        {{-- <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
+                        --}}
 
-                                {{-- @foreach ($custom_pages as $custom_page)
-                                <li><a href="{{ route('page', $custom_page->slug) }}">{{ $custom_page->page_name }}</a>
-                                </li>
-                                @endforeach --}}
+                        {{-- @foreach ($custom_pages as $custom_page)
+                        <li><a href="{{ route('page', $custom_page->slug) }}">{{ $custom_page->page_name }}</a>
+                        </li>
+                        @endforeach --}}
 
 
                         {{-- @if ($setting->agent_can_add_property)
@@ -221,19 +222,19 @@
                             <ul class="homec-header__list">
                                 <li>
                                     <a href="mailto:{{ $footer->email }}">
-                                        <img src="{{ asset('frontend/img/email-icon.svg') }}" alt="email">
+                                        <img src="{{ asset($path.'frontend/img/email-icon.svg') }}" alt="email">
                                         <span>{{ $footer->email }}</span>
                                     </a>
                                 </li>
                                 <li class="d-none-tab">
                                     <a href="tel:{{ $footer->phone }}">
-                                        <img src="{{ asset('frontend/img/phone-icon.svg') }}" alt="phone">
+                                        <img src="{{ asset($path.'frontend/img/phone-icon.svg') }}" alt="phone">
                                         <span>{{ $footer->phone }}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        <img src="{{ asset('frontend/img/locations-icon.svg') }}" alt="address">
+                                        <img src="{{ asset($path.'frontend/img/locations-icon.svg') }}" alt="address">
                                         <span>{{ $footer->address }}</span>
                                     </a>
                                 </li>
@@ -282,13 +283,16 @@
                                                         </li>
 
                                                         <li><a
-                                                                href="{{ route('properties',['purpose' => 'any','featured_property' => 'enable']) }}">{{__('user.Featured Properties')}}</a></li>
+                                                                href="{{ route('properties',['purpose' => 'any','featured_property' => 'enable']) }}">{{__('user.Featured
+                                                                Properties')}}</a></li>
 
                                                         <li><a
-                                                                href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">{{__('user.Urgent Properties')}}</a></li>
+                                                                href="{{ route('properties',['purpose' => 'any','urgent_property' => 'enable']) }}">{{__('user.Urgent
+                                                                Properties')}}</a></li>
 
                                                         <li><a
-                                                                href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">{{__('user.Top Properties')}}</a></li>
+                                                                href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">{{__('user.Top
+                                                                Properties')}}</a></li>
 
 
                                                     </ul>
@@ -304,28 +308,27 @@
                                                 </li>
 
 
-                                                        @if ($setting->agent_can_add_property)
-                                                        @if ($setting->agent_can_add_property == 'enable')
-                                                        <li><a href="{{ route('pricing-plan') }}">{{__('user.Price Plan')}}</a></li>
-                                                        @endif
-                                                        @endif
+                                                @if ($setting->agent_can_add_property)
+                                                @if ($setting->agent_can_add_property == 'enable')
+                                                <li><a href="{{ route('pricing-plan') }}">{{__('user.Price Plan')}}</a>
+                                                </li>
+                                                @endif
+                                                @endif
 
-                                                        {{-- <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a>
-                                                        </li> --}}
-                                                        {{-- <li><a href="{{ route('faq') }}">{{__('user.FAQ')}}</a></li> --}}
+                                                {{-- <li><a href="{{ route('blogs') }}">{{__('user.Blogs')}}</a>
+                                                </li> --}}
+                                                {{-- <li><a href="{{ route('faq') }}">{{__('user.FAQ')}}</a></li> --}}
 
-                                                        {{-- <li><a
-                                                                href="{{ route('terms-and-conditions') }}">{{__('user.Terms
-                                                                and Conditions')}}</a></li> --}}
+                                                {{-- <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms
+                                                        and Conditions')}}</a></li> --}}
 
-                                                        {{-- <li><a
-                                                                href="{{ route('privacy-policy') }}">{{__('user.Privacy
-                                                                Policy')}}</a></li> --}}
+                                                {{-- <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy
+                                                        Policy')}}</a></li> --}}
 
-                                                        {{-- @foreach ($custom_pages as $custom_page)
-                                                        <li><a href="{{ route('page', $custom_page->slug) }}">{{
-                                                                $custom_page->page_name }}</a></li>
-                                                        @endforeach --}}
+                                                {{-- @foreach ($custom_pages as $custom_page)
+                                                <li><a href="{{ route('page', $custom_page->slug) }}">{{
+                                                        $custom_page->page_name }}</a></li>
+                                                @endforeach --}}
 
 
 
@@ -393,105 +396,108 @@
     @yield('frontend-content')
 
     <!-- Footer -->
-  <footer class="footer-area p-relative">
-    <div class="homec-shape">
-        <div class="homec-shape-single homec-shape-10"><img src="{{ asset($footer->background_image) }}" alt="#">
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!-- Subscribe Form -->
-
-                <!-- End Subscribe Form -->
+    <footer class="footer-area p-relative">
+        <div class="homec-shape">
+            <div class="homec-shape-single homec-shape-10"><img src="{{ asset($footer->background_image) }}" alt="#">
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="footer-top-inner pd-top-30 pd-btm-100">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-3 col-12">
-                            <!-- Footer Widget -->
-                            <div class="footer-about-widget">
-                                <div class="footer-logo homec-header__logo">
-                                    <a class="logo" href="{{ route('home') }}"><img
-                                            src="{{ asset($setting->footer_logo) }}" alt="logo"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Subscribe Form -->
+
+                    <!-- End Subscribe Form -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-top-inner pd-top-30 pd-btm-100">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-3 col-12">
+                                <!-- Footer Widget -->
+                                <div class="footer-about-widget">
+                                    <div class="footer-logo homec-header__logo">
+                                        <a class="logo" href="{{ route('home') }}"><img
+                                                src="{{ asset($setting->footer_logo) }}" alt="logo"></a>
+                                    </div>
+                                    <p class="footer-about-text">{{ $footer->about_us }}</p>
+                                    <!-- Social -->
+                                    <ul class="homec-social homec-social__v2">
+
+                                        @foreach ($social_links as $social_link)
+                                        <li><a href="{{ $social_link->link }}"><i
+                                                    class="{{ $social_link->icon }}"></i></a>
+                                        </li>
+                                        @endforeach
+
+                                    </ul>
+                                    <!-- End Social -->
                                 </div>
-                                <p class="footer-about-text">{{ $footer->about_us }}</p>
-                                <!-- Social -->
-                                <ul class="homec-social homec-social__v2">
-
-                                    @foreach ($social_links as $social_link)
-                                    <li><a href="{{ $social_link->link }}"><i class="{{ $social_link->icon }}"></i></a>
-                                    </li>
-                                    @endforeach
-
-                                </ul>
-                                <!-- End Social -->
+                                <!-- End Footer Widget -->
                             </div>
-                            <!-- End Footer Widget -->
-                        </div>
-                        <div class="col-lg-8 col-md-9">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <!-- Footer Widget -->
-                                    <div class="single-widget footer-useful-links">
-                                        <h3 class="widget-title">{{__('user.Property Type')}}</h3>
-                                        <ul class="f-useful-links-inner list-none">
-                                            @foreach ($footer_categories as $footer_category)
-                                            <li><a
-                                                    href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i
-                                                        class="fa-solid fa-minus"></i>{{ $footer_category->name
-                                                    }}</a></li>
-                                            @endforeach
+                            <div class="col-lg-8 col-md-9">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <!-- Footer Widget -->
+                                        <div class="single-widget footer-useful-links">
+                                            <h3 class="widget-title">{{__('user.Property Type')}}</h3>
+                                            <ul class="f-useful-links-inner list-none">
+                                                @foreach ($footer_categories as $footer_category)
+                                                <li><a
+                                                        href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i
+                                                            class="fa-solid fa-minus"></i>{{ $footer_category->name
+                                                        }}</a></li>
+                                                @endforeach
 
-                                        </ul>
+                                            </ul>
+                                        </div>
+                                        <!-- End Footer Widget -->
                                     </div>
-                                    <!-- End Footer Widget -->
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <!-- Footer Widget -->
-                                    <div class="single-widget footer-need-helps">
-                                        <h3 class="widget-title">{{__('user.Important Link')}}</h3>
-                                        <ul class="f-need-helps-inner list-none">
-                                            <li><a href="/pricing-plan"><i
-                                                        class="fa-solid fa-minus"></i>{{__('user.Price Plan')}}</a>
-                                            </li>
-                                            <li><a href="{{ route('user.wishlist') }}"><i
-                                                        class="fa-solid fa-minus"></i>{{__('user.Wishlist')}}</a>
-                                            </li>
-                                            <li><a href="/faq"><i class="fa-solid fa-minus"></i>{{__('user.FAQ')}}</a>
-                                            </li>
-                                            <li><a href="{{ route('about-us') }}"><i
-                                                        class="fa-solid fa-minus"></i>{{__('user.About Us')}}</a>
-                                            </li>
-                                            <li><a href="{{ route('contact-us') }}"><i
-                                                        class="fa-solid fa-minus"></i>{{__('user.Contact Us')}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- End Footer Widget -->
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <!-- Footer Widget -->
-                                    <div class="single-widget footer-contact">
-                                        <h3 class="widget-title">{{__('user.Contact Us')}}</h3>
-                                        <div class="f-contact__form-top">
-                                            <ul class="f-contact-list list-none">
-                                                <li><img src="{{ asset('frontend/img/footer-phone.svg') }}"
-                                                        alt="phone"><a href="tel:{{ $footer->phone }}">{{
-                                                        $footer->phone }}</a></li>
-                                                <li><img src="{{ asset('frontend/img/footer-message.png') }}"
-                                                        alt="email"><a href="mailto:{{ $footer->email }}">{{
-                                                        $footer->email }}</a></li>
-                                                <li><img src="{{ asset('frontend/img/footer-location.png') }}"
-                                                        alt="address">
-                                                    <p>{{ $footer->address }}</p>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <!-- Footer Widget -->
+                                        <div class="single-widget footer-need-helps">
+                                            <h3 class="widget-title">{{__('user.Important Link')}}</h3>
+                                            <ul class="f-need-helps-inner list-none">
+                                                <li><a href="/pricing-plan"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.Price Plan')}}</a>
+                                                </li>
+                                                <li><a href="{{ route('user.wishlist') }}"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.Wishlist')}}</a>
+                                                </li>
+                                                <li><a href="/faq"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.FAQ')}}</a>
+                                                </li>
+                                                <li><a href="{{ route('about-us') }}"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.About Us')}}</a>
+                                                </li>
+                                                <li><a href="{{ route('contact-us') }}"><i
+                                                            class="fa-solid fa-minus"></i>{{__('user.Contact Us')}}</a>
                                                 </li>
                                             </ul>
                                         </div>
+                                        <!-- End Footer Widget -->
                                     </div>
-                                    <!-- End Footer Widget -->
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <!-- Footer Widget -->
+                                        <div class="single-widget footer-contact">
+                                            <h3 class="widget-title">{{__('user.Contact Us')}}</h3>
+                                            <div class="f-contact__form-top">
+                                                <ul class="f-contact-list list-none">
+                                                    <li><img src="{{ asset($path.'frontend/img/footer-phone.svg') }}"
+                                                            alt="phone"><a href="tel:{{ $footer->phone }}">{{
+                                                            $footer->phone }}</a></li>
+                                                    <li><img src="{{ asset($path.'frontend/img/footer-message.png') }}"
+                                                            alt="email"><a href="mailto:{{ $footer->email }}">{{
+                                                            $footer->email }}</a></li>
+                                                    <li><img src="{{ asset($path.'frontend/img/footer-location.png') }}"
+                                                            alt="address">
+                                                        <p>{{ $footer->address }}</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- End Footer Widget -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -499,27 +505,26 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <!-- Copyright Text -->
-                    <p class="copyright-text">{{ $footer->copyright }}</a></p>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <!-- Footer Page List -->
-                    <ul class="footer-pages list-none">
-                        <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
-                        <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms & Conditions')}}</a></li>
-                    </ul>
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <!-- Copyright Text -->
+                        <p class="copyright-text">{{ $footer->copyright }}</a></p>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <!-- Footer Page List -->
+                        <ul class="footer-pages list-none">
+                            <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
+                            <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms & Conditions')}}</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Copyright -->
-</footer>
+        <!-- End Copyright -->
+    </footer>
     <!-- End Footer -->
 
     <!-- Scrool Top -->
@@ -542,41 +547,41 @@
     @endif
 
     @if ($cookie_consent->status == 1)
-    <script src="{{ asset('frontend/js/cookieconsent.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/cookieconsent.min.js') }}"></script>
 
     <script>
         window.addEventListener("load",function(){window.wpcc.init({"border":"{{ $cookie_consent->border }}","corners":"{{ $cookie_consent->corners }}","colors":{"popup":{"background":"{{ $cookie_consent->background_color }}","text":"{{ $cookie_consent->text_color }} !important","border":"{{ $cookie_consent->border_color }}"},"button":{"background":"{{ $cookie_consent->btn_bg_color }}","text":"{{ $cookie_consent->btn_text_color }}"}},"content":{"href":"{{ route('privacy-policy') }}","message":"{{ $cookie_consent->message }}","link":"{{ $cookie_consent->link_text }}","button":"{{ $cookie_consent->btn_text }}"}})});
     </script>
     @endif
 
-    <script src="{{ asset('frontend/js/jquery-migrate.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery-migrate.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery-ui.min.js') }}"></script>
     <!-- Bootstrap JS -->
-    <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/bootstrap.min.js') }}"></script>
     <!-- Aos JS -->
-    <script src="{{ asset('frontend/js/aos.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/aos.min.js') }}"></script>
     <!-- CK Editor JS -->
-    <script src="{{ asset('frontend/js/ckeditor.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/ckeditor.min.js') }}"></script>
     <!-- Select2 JS-->
-    <script src="{{ asset('frontend/js/select2-js.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/select2-js.min.js') }}"></script>
     <!-- Video Popup JS -->
-    <script src="{{ asset('frontend/js/video-popup.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/video-popup.min.js') }}"></script>
 
 
-    <script src="{{ asset('frontend/js/flex-slider.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/flex-slider.js') }}"></script>
 
     <!-- Waypoints JS -->
-    <script src="{{ asset('frontend/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/waypoints.min.js') }}"></script>
     <!-- Counterup JS -->
-    <script src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/jquery.counterup.min.js') }}"></script>
     <!-- Easing JS -->
-    <script src="{{ asset('frontend/js/easing.min.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/easing.min.js') }}"></script>
     <!-- Main JS -->
-    <script src="{{ asset('frontend/js/active.js') }}"></script>
+    <script src="{{ asset($path.'frontend/js/active.js') }}"></script>
 
-    <script src="{{ asset('toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset($path.'toastr/toastr.min.js') }}"></script>
 
-    <script src="{{ asset('backend/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset($path.'backend/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
     <script>
         @if(Session::has('messege'))

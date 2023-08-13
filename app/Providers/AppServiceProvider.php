@@ -17,6 +17,7 @@ use App\Models\FacebookPixel;
 use App\Models\GoogleAnalytic;
 use App\Models\BreadcrumbImage;
 use App\Models\FooterSocialLink;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -39,7 +40,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::share('path', App::environment() == 'production' ? 'public' : '');
         View::composer('*', function ($view) {
+
             $setting = Setting::first();
             $social_links = FooterSocialLink::all();
             $footer = Footer::first();
