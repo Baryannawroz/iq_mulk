@@ -70,7 +70,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('footer_categories', $footer_categories);
         });
         View::composer('layout', function ($view) {
-            $view->with('cats', Cat::all());
+            $view->with('cats', Cat::where('status',true)->get());
         });
     }
 }

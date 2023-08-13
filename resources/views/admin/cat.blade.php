@@ -38,7 +38,7 @@
                                                 class="btn btn-primary btn-sm"><i class="fa fa-edit"
                                                     aria-hidden="true"></i></a>
 
-                                          @if ($cat->status === 1)
+                                          @if ($cat->status)
                                             <a href="/admin/cat/{{ $cat->id }}/deactivate" class="btn btn-success btn-sm">
                                                 <i class="fa fa-check" aria-hidden="true"></i> <!-- Check icon for active -->
                                             </a>
