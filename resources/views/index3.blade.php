@@ -187,39 +187,22 @@
     @endif
 
 
-    @if ($category->visibility)
-
-        @php
-            $property_types = $category->property_types;
-        @endphp
-        <!-- Features Area -->
-        <section class="homec-features pd-top-120 pd-btm-120">
-            <div class="container">
-                <div class="row">
-                    @foreach ($property_types as $property_type)
-                        <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
-                            <!-- Single Feature -->
-                            <a href="{{ route('properties', ['type' => $property_type->slug]) }}" class="homec-features__single">
-                                <div class="homec-features__icon">
-                                    <img src="{{ asset($property_type->icon) }}" alt="icon">
-                                </div>
-                                <div class="homec-features__content">
-                                    <h3 class="homec-features__title">{{ $property_type->name }}</h3>
-                                    <p class="homec-features__text">{{ $property_type->totalProperty }}+ {{__('user.Property')}}</p>
-                                </div>
-                            </a>
-                            <!-- End Single Feature -->
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        <!-- End Features Area -->
-    @endif
-
     <section class="homec-features pd-top-120 pd-btm-120">
         <div class="container">
             <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
+                    <!-- Single Feature -->
+
+                    <a href="{{ route('properties',['purpose' => 'any']) }}" class="homec-features__single">
+                        <div class="homec-features__icon">
+                            <img src="" alt="icon">
+                        </div>
+                        <div class="homec-features__content">
+                            <h3 class="homec-features__title">{{__('user.Property')}}</h3>
+                        </div>
+                    </a>
+                    <!-- End Single Feature -->
+                </div>
                 @foreach ($cats as $cat)
                 <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
                     <!-- Single Feature -->

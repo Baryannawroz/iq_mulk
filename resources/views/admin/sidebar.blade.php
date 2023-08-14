@@ -71,12 +71,12 @@ $logedInAdmin = Auth::guard('admin')->user();
             <li
                 class="nav-item dropdown {{ Route::is('admin.category.*')  || Route::is('admin.nearest-location.*') || Route::is('admin.aminity.*') || Route::is('admin.property.*') || Route::is('admin.agent-property') || Route::is('admin.agent-pending-property') || Route::is('admin.assign-slider-property') || Route::is('admin.agent-reject-property') || Route::is('admin.review-list') || Route::is('admin.show-review') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas far fa-building"></i><span>
-                    {{__('admin.Real Estate')}}</span></a>
+                        {{__('admin.Real Estate')}}</span></a>
 
                 <ul class="dropdown-menu">
 
                     <li><a class="nav-link" href="{{ route('admin.property.create') }}">
-                    {{__('admin.Create Property')}}</a></li>
+                            {{__('admin.Create Property')}}</a></li>
 
                     <li class="{{ Route::is('admin.property.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.property.index') }}">{{__('admin.Own Properties')}}</a></li>
@@ -92,9 +92,11 @@ $logedInAdmin = Auth::guard('admin')->user();
                             href="{{ route('admin.agent-reject-property') }}">{{__('admin.Agent Reject Property')}}</a>
                     </li>
 
-                    <li class="  {{ Route::is('admin.assign-slider-property') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.assign-slider-property') }}">
-                            {{__('admin.Assign Slider Property')}}</a></li>
+                    <li class="  {{ Route::is('admin.assign-slider-property') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.assign-slider-property') }}">
+                            {{__('admin.Assign Slider Property')}}
+                        </a>
+                    </li>
 
 
                     <li class="{{ Route::is('admin.coupon.*') ? 'active' : '' }}"><a class="nav-link"
@@ -248,8 +250,8 @@ $logedInAdmin = Auth::guard('admin')->user();
 
             <li
                 class="nav-item dropdown {{ Route::is('admin.footer.*') || Route::is('admin.social-link.*') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.Header &
-                        Footer')}}</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>
+                        {{__('admin.Header & Footer')}}</span></a>
 
                 <ul class="dropdown-menu">
 

@@ -135,6 +135,12 @@
 
                         <li class="menu-item-has-children"><a href="javascript:;">{{__('user.Properties')}}</a>
                             <ul class="sub-menu">
+
+                                @foreach ($property_types as $footer_category)
+                                    <li><a href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i class="fa-solid fa-minus"></i>{{
+                                            $footer_category->name
+                                            }}</a></li>
+                                    @endforeach
                                 <li><a
                                         href="{{ route('properties',['purpose' => 'any']) }}">{{__('user.Properties')}}</a>
                                 </li>
@@ -274,7 +280,12 @@
                                                 <li class="menu-item-has-children"><a
                                                         href="javascript:;">{{__('user.Properties')}}</a>
                                                     <ul class="sub-menu">
-                                                        <li><a
+                                                        @foreach ($property_types as $footer_category)
+                                                        <li><a href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i class="fa-solid fa-minus"></i>{{
+                                                                $footer_category->name
+                                                                }}</a></li>
+                                                        @endforeach
+                                                        {{-- <li><a
                                                                 href="{{ route('properties',['purpose' => 'any']) }}">{{__('user.Properties')}}</a>
                                                         </li>
 
@@ -288,7 +299,7 @@
 
                                                         <li><a
                                                                 href="{{ route('properties',['purpose' => 'any','top_property' => 'enable']) }}">
-                                                                {{__('user.Top Properties')}}</a></li>
+                                                                {{__('user.Top Properties')}}</a></li> --}}
 
 
                                                     </ul>

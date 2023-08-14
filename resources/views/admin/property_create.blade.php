@@ -7,7 +7,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        <h1>{{__('admin.Create property')}}</h1>
+            <h1>{{__('admin.Create property')}}</h1>
         </div>
 
         <div class="section-body property_box">
@@ -21,7 +21,8 @@
                                 <select name="nearest_locations[]" id="" class="form-control">
                                     <option value="">{{__('admin.Select')}}</option>
                                     @foreach ($nearest_locations as $nearest_location)
-                                        <option value="{{ $nearest_location->id }}">{{ $nearest_location->location }}</option>
+                                    <option value="{{ $nearest_location->id }}">{{ $nearest_location->location }}
+                                    </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -33,7 +34,9 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-danger nearest-row-btn removeNearestPlaceRow plus_btn"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                            <button type="button"
+                                class="btn btn-danger nearest-row-btn removeNearestPlaceRow plus_btn"><i
+                                    class="fas fa-trash" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +59,8 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-danger nearest-row-btn removeAdditioanRow plus_btn"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-danger nearest-row-btn removeAdditioanRow plus_btn"><i
+                                    class="fas fa-trash" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
@@ -75,7 +79,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-danger nearest-row-btn removePlanRow plus_btn"><i class="fas fa-trash" aria-hidden="true"></i> {{__('admin.Remove Plan')}}</button>
+                            <button type="button" class="btn btn-danger nearest-row-btn removePlanRow plus_btn"><i
+                                    class="fas fa-trash" aria-hidden="true"></i> {{__('admin.Remove Plan')}}</button>
                         </div>
 
                         <div class="col-12">
@@ -87,15 +92,18 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="">{{__('admin.Description')}}</label>
-                                <textarea name="plan_descriptions[]" id="" class="form-control text-area-5" cols="30" rows="10"></textarea>
+                                <textarea name="plan_descriptions[]" id="" class="form-control text-area-5" cols="30"
+                                    rows="10"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <a href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Own Properties')}}</a>
-            <form id="property_form" action="{{ route('admin.property.store') }}" method="POST" enctype="multipart/form-data">
+            <a href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
+                {{__('admin.Own Properties')}}</a>
+            <form id="property_form" action="{{ route('admin.property.store') }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mt-4">
@@ -107,31 +115,35 @@
                                 <hr>
 
                                 <div class="form-group">
-                                    <label for="title">{{__('admin.Property Owner')}}<span class="text-danger">*</span></label>
+                                    <label for="title">{{__('admin.Property Owner')}}<span
+                                            class="text-danger">*</span></label>
                                     <select name="owner_id" id="owner_id" class="form-control select2">
                                         <option value="0">{{__('admin.Own Property')}}</option>
                                         @foreach ($agents as $agent)
-                                            <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->phone }}</option>
+                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->phone }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="title">{{__('admin.Title')}}<span class="text-danger">*</span></label>
-                                    <input type="text" name="title" class="form-control" id="title" >
+                                    <input type="text" name="title" class="form-control" id="title">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="slug">{{__('admin.Slug')}} <span class="text-danger">*</span></label>
-                                    <input type="text" name="slug" class="form-control" id="slug" >
+                                    <input type="text" name="slug" class="form-control" id="slug">
                                 </div>
 
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Property Type')}} <span class="text-danger">*</span></label>
-                                            <select name="property_type_id" id="property_type_id" class="form-control select2">
+                                            <label for="">{{__('admin.Property Type')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <select name="property_type_id" id="property_type_id"
+                                                class="form-control select2">
                                                 <option value="">{{__('admin.Select')}}</option>
                                                 @foreach ($types as $type)
                                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -143,7 +155,8 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="purpose">{{__('admin.Purpose')}} <span class="text-danger">*</span></label>
+                                            <label for="purpose">{{__('admin.Purpose')}} <span
+                                                    class="text-danger">*</span></label>
                                             <select name="purpose" id="purpose" class="form-control">
                                                 <option value="sale">{{__('admin.For Sale')}}</option>
                                                 <option value="rent">{{__('admin.For Rent')}}</option>
@@ -153,7 +166,8 @@
 
                                     <div class="col-md-6 d-none" id="rend_period_box">
                                         <div class="form-group">
-                                            <label for="rent_period">{{__('admin.Rent Period')}} <span class="text-danger">*</span></label>
+                                            <label for="rent_period">{{__('admin.Rent Period')}} <span
+                                                    class="text-danger">*</span></label>
                                             <select name="rent_period" id="rent_period" class="form-control">
                                                 <option value="daily">{{__('admin.Daily')}}</option>
                                                 <option value="monthly">{{__('admin.Monthly')}}</option>
@@ -164,55 +178,62 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="price">{{__('admin.Price')}} <span class="text-danger">*</span></label>
+                                            <label for="price">{{__('admin.Price')}} <span
+                                                    class="text-danger">*</span></label>
                                             <input type="text" name="price" class="form-control" value="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Total Area(m2)')}} <span class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.Total Area(m2)')}} <span
+                                                    class="text-danger">*</span></label>
                                             <input type="text" name="total_area" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Total Unit')}} <span class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.Total Unit')}} <span
+                                                    class="text-danger">*</span></label>
                                             <input type="number" name="total_unit" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Total Bedroom')}} <span class="text-danger">*</span></label>
-                                            <input type="number" name="total_bedroom"  class="form-control">
+                                            <label for="">{{__('admin.Total Bedroom')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="number" name="total_bedroom" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Total Bathroom')}} <span class="text-danger">*</span></label>
-                                            <input type="number" name="total_bathroom"  class="form-control">
+                                            <label for="">{{__('admin.Total Bathroom')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="number" name="total_bathroom" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Total Garage')}} <span class="text-danger">*</span></label>
-                                            <input type="number" name="total_garage"  class="form-control">
+                                            <label for="">{{__('admin.Total Garage')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="number" name="total_garage" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Total Kitchen')}} <span class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.Total Kitchen')}} <span
+                                                    class="text-danger">*</span></label>
                                             <input type="number" name="total_kitchen" class="form-control">
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="description">{{__('admin.Description')}} <span class="text-danger">*</span></label>
-                                            <textarea name="description" id="description" cols="30" rows="10" class="summernote"></textarea>
-                                        </div>
+                                   <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="description">{{__('admin.Description')}} <span class="text-danger">*</span></label>
+                                        <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
                                     </div>
+                                </div>
 
                                 </div>
                             </div>
@@ -226,7 +247,8 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.City')}} <span class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.City')}} <span
+                                                    class="text-danger">*</span></label>
                                             <select name="city_id" id="city_id" class="form-control select2">
                                                 <option value="">{{__('admin.Select')}}</option>
                                                 @foreach ($cities as $city)
@@ -239,22 +261,27 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="address">{{__('admin.Address')}} <span class="text-danger">*</span></label>
+                                            <label for="address">{{__('admin.Address')}} <span
+                                                    class="text-danger">*</span></label>
                                             <input type="text" name="address" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="address_description">{{__('admin.Address Details')}} <span class="text-danger">*</span></label>
-                                            <textarea name="address_description" class="form-control text-area-5" id="" cols="30" rows="10"></textarea>
+                                            <label for="address_description">{{__('admin.Address Details')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea name="address_description" class="form-control text-area-5" id=""
+                                                cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="google_map">{{__('admin.Google Map')}} <span class="text-danger">*</span></label>
-                                            <textarea name="google_map" class="form-control text-area-5" id="" cols="30" rows="10"></textarea>
+                                            <label for="google_map">{{__('admin.Google Map')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea name="google_map" class="form-control text-area-5" id="" cols="30"
+                                                rows="10"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -268,15 +295,18 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Thumbnail Image')}} <span class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.Thumbnail Image')}} <span
+                                                    class="text-danger">*</span></label>
                                             <input type="file" name="thumbnail_image" class="form-control-file">
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span class="text-danger">*</span></label>
-                                            <input type="file" name="slider_images[]" multiple class="form-control-file">
+                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="file" name="slider_images[]" multiple
+                                                class="form-control-file">
                                         </div>
                                     </div>
 
@@ -297,7 +327,8 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Video description')}} </label>
-                                            <textarea name="video_description" class="form-control text-area-3" id="" cols="30" rows="10"></textarea>
+                                            <textarea name="video_description" class="form-control text-area-3" id=""
+                                                cols="30" rows="10"></textarea>
 
                                         </div>
                                     </div>
@@ -315,9 +346,11 @@
                                             <div>
 
                                                 @foreach ($aminities as $aminity)
-                                                    <input value="{{ $aminity->id }}" type="checkbox" name="aminities[]" id="aminity{{ $aminity->id }}">
+                                                <input value="{{ $aminity->id }}" type="checkbox" name="aminities[]"
+                                                    id="aminity{{ $aminity->id }}">
 
-                                                    <label class="mx-1" for="aminity{{ $aminity->id }}">{{ $aminity->aminity }}</label>
+                                                <label class="mx-1" for="aminity{{ $aminity->id }}">{{ $aminity->aminity
+                                                    }}</label>
                                                 @endforeach
 
                                             </div>
@@ -341,7 +374,8 @@
                                                     <select name="nearest_locations[]" id="" class="form-control">
                                                         <option value="">{{__('admin.Select')}}</option>
                                                         @foreach ($nearest_locations as $nearest_location)
-                                                            <option value="{{ $nearest_location->id }}">{{ $nearest_location->location }}</option>
+                                                        <option value="{{ $nearest_location->id }}">{{
+                                                            $nearest_location->location }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -353,7 +387,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
-                                                <button id="addNearestPlaceRow" type="button" class="btn btn-success nearest-row-btn plus_btn"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                                                <button id="addNearestPlaceRow" type="button"
+                                                    class="btn btn-success nearest-row-btn plus_btn"><i
+                                                        class="fas fa-plus" aria-hidden="true"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -381,7 +417,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
-                                                <button id="addAdditionalRow" type="button" class="btn btn-success nearest-row-btn plus_btn"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                                                <button id="addAdditionalRow" type="button"
+                                                    class="btn btn-success nearest-row-btn plus_btn"><i
+                                                        class="fas fa-plus" aria-hidden="true"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -405,7 +443,10 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                                <button id="addNewPlan" type="button" class="btn btn-success nearest-row-btn plus_btn"><i class="fas fa-plus" aria-hidden="true"></i> {{__('admin.New Plan')}}</button>
+                                                <button id="addNewPlan" type="button"
+                                                    class="btn btn-success nearest-row-btn plus_btn"><i
+                                                        class="fas fa-plus" aria-hidden="true"></i> {{__('admin.New
+                                                    Plan')}}</button>
                                             </div>
 
                                             <div class="col-12">
@@ -417,7 +458,8 @@
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="">{{__('admin.Description')}}</label>
-                                                    <textarea name="plan_descriptions[]" id="" class="form-control text-area-5" cols="30" rows="10"></textarea>
+                                                    <textarea name="plan_descriptions[]" id=""
+                                                        class="form-control text-area-5" cols="30" rows="10"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -435,9 +477,10 @@
                                         <div class="form-group">
                                             <div class="control-label">{{__('admin.Status')}}</div>
                                             <label class=" mt-2">
-                                              <input type="checkbox" name="status" class="custom-switch-input">
-                                              <span class="custom-switch-indicator"></span>
-                                              <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
+                                                <input type="checkbox" name="status" class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">{{__('admin.Enable /
+                                                    Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -446,9 +489,10 @@
                                         <div class="form-group">
                                             <div class="control-label">{{__('admin.Featured')}}</div>
                                             <label class=" mt-2">
-                                              <input type="checkbox" name="is_featured" class="custom-switch-input">
-                                              <span class="custom-switch-indicator"></span>
-                                              <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
+                                                <input type="checkbox" name="is_featured" class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">{{__('admin.Enable /
+                                                    Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -457,9 +501,10 @@
                                         <div class="form-group">
                                             <div class="control-label">{{__('admin.Top Property')}}</div>
                                             <label class=" mt-2">
-                                              <input type="checkbox" name="is_top" class="custom-switch-input">
-                                              <span class="custom-switch-indicator"></span>
-                                              <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
+                                                <input type="checkbox" name="is_top" class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">{{__('admin.Enable /
+                                                    Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -468,9 +513,10 @@
                                         <div class="form-group">
                                             <div class="control-label">{{__('admin.Urgent Property')}}</div>
                                             <label class=" mt-2">
-                                              <input type="checkbox" name="is_urgent" class="custom-switch-input">
-                                              <span class="custom-switch-indicator"></span>
-                                              <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
+                                                <input type="checkbox" name="is_urgent" class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">{{__('admin.Enable /
+                                                    Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -485,7 +531,8 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.SEO Meta Description')}} </label>
-                                            <textarea name="seo_meta_description" class="form-control text-area-5" id="" cols="30" rows="10"></textarea>
+                                            <textarea name="seo_meta_description" class="form-control text-area-5" id=""
+                                                cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
 
@@ -506,7 +553,6 @@
 
 <script src="{{ asset($path.'backend/js/select2.min.js') }}"></script>
 <script>
-
     (function($) {
     "use strict";
     $(document).ready(function () {
