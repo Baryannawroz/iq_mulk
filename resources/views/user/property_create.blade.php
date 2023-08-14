@@ -261,7 +261,7 @@
                             <div class="mg-top-20">
                                 <h4 class="homec-submit-form__heading">{{__('user.Description')}} *</h4>
                                 <div class="form-group homec-form-input">
-                                    <textarea name="description" id="ckdesc1" class="summernote"></textarea>
+                                    <textarea name="description" id="ckdesc1" class=""></textarea>
                                 </div>
                             </div>
                         </div>
@@ -553,8 +553,8 @@
 
                     <div class="row">
                         <div class="col-12 d-flex justify-content-end mg-top-40">
-                            <button type="submit" class="homec-btn homec-btn__second"><span>{{__('user.Submit
-                                    Property')}}</span></button>
+                            <button type="submit" class="homec-btn homec-btn__second"><span>
+                                    {{__('user.Submit Property')}}</span></button>
                         </div>
                     </div>
                 </form>

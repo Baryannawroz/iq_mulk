@@ -52,7 +52,7 @@
 
                                 <div class="form-group col-12">
                                     <label>{{__('admin.Description')}} <span class="text-danger">*</span></label>
-                                    <textarea name="description" id="" cols="30" rows="10" class="summernote">{{ old('description') }}</textarea>
+                                    <textarea name="description" id="" cols="30" rows="10" class="">{{ old('description') }}</textarea>
                                 </div>
 
                                 <div class="form-group col-12">

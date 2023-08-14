@@ -83,15 +83,16 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <livewire:cat-sub-select />
-<div class="form-group">
-    <label for="title">{{__('admin.phone')}}<span class="text-danger">*</span></label>
-    <input max="11" type="text" name="phone" class="form-control" id="title">
-</div>
+                                        <div class="form-group">
+                                            <label for="title">{{__('admin.phone')}}<span
+                                                    class="text-danger">*</span></label>
+                                            <input max="11" type="text" name="phone" class="form-control" id="title">
+                                        </div>
                                         <div class="form-group">
                                             <label for="description">{{__('admin.Description')}} <span
                                                     class="text-danger">*</span></label>
                                             <textarea name="description" id="description" cols="30" rows="10"
-                                                class="summernote"></textarea>
+                                                class=""></textarea>
                                         </div>
                                     </div>
 
@@ -139,8 +140,10 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span class="text-danger">*</span></label>
-                                            <input type="file" name="slider_images[]" multiple class="form-control-file">
+                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="file" name="slider_images[]" multiple
+                                                class="form-control-file">
                                         </div>
                                     </div>
 
