@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cat;
+use App\Models\Category;
 use App\Models\City;
 use App\Models\PropertySlider;
 use App\Models\Section;
@@ -27,9 +28,10 @@ class SectionController extends Controller
 
         $subs = Sub::where('cat_id', $cat_id)->where('status', 1)->get();
         $cities = City::all();
+        $property_types = Category::select('id', 'name', 'slug')->orderBy('name', 'asc')->where('status', 1)->get();
 
 
-        return view("sections", compact("cat_id", "subs", 'cities','seo_setting'));
+        return view("sections", compact("cat_id", "subs", 'cities','seo_setting', "property_types"));
     }
 
     /**

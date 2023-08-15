@@ -71,6 +71,7 @@ class AppServiceProvider extends ServiceProvider
         });
         View::composer('layout', function ($view) {
             $view->with('cats', Cat::where('status',true)->get());
+           $view->with('property_types', Category::select('id', 'name', 'slug')->orderBy('name', 'asc')->where('status', 1)->get());
         });
     }
 }

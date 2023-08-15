@@ -212,7 +212,7 @@ Version:	1.0
 .homec-header .navigation li .sub-menu li {
     display: block;
     margin: 0;
-    text-align: left;
+    text-align: right;
 }
 
 .homec-header .navigation li .sub-menu li:last-child {
@@ -1886,7 +1886,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .homec-hero__content.homec-hero__content--v2 .homec-hero__title {
-    text-align: left;
+    text-align: right;
     margin: 0;
 }
 
@@ -2501,7 +2501,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .homec-package-detail__value {
-    text-align: left;
+    text-align: right;
 }
 
 .homec-package-detail__single {
@@ -6650,7 +6650,7 @@ div.ck-editor.ck-rounded-corners {
 .homec-btn__download .btn-content {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: right;
 }
 
 .homec-btn__download p {
@@ -6828,7 +6828,7 @@ div.ck-editor.ck-rounded-corners {
 .copyright-text {
     color: #ECEAFF !important;
     margin: 0;
-    text-align: left;
+    text-align: right;
 }
 
 .copyright-text a {

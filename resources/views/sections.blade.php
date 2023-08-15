@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- Proeprty Bar -->
-              <div class="homec-property-bar text-center d-flex justify-content-center">
+                <div class="homec-property-bar text-center d-flex justify-content-center">
                     <!-- Use "d-flex" and "justify-content-center" classes to center the child element -->
                     <p class="h3">{{ __("user.Sections") }}</p>
                 </div>
@@ -79,7 +79,7 @@
 
                         <div class="property-sidebar__single">
                             <div class="property-sidebar__filters">
-                                <h4 class="property-sidebar__title">{{__('user.subs')}}</h4>
+                                <h4 class="property-sidebar__title">{{__('user.type')}}</h4>
                                 <div class="form-group">
                                     <select class="property-sidebar__group homec-border select2noSearch" name="sub">
                                         <option value="">{{__('user.Select')}}</option>
@@ -96,7 +96,7 @@
                         <!-- Single Sidebar -->
                         <div class="property-sidebar__single mg-top-20">
                             <div class="property-sidebar__filters">
-                                <h4 class="property-sidebar__title">{{__('user.Location')}}</h4>
+                                <h4 class="property-sidebar__title">{{__('user.City')}}</h4>
                                 <div class="form-group">
                                     <select class="property-sidebar__group homec-border select2" name="location">
                                         <option value="">{{__('user.Select')}}</option>

@@ -72,8 +72,10 @@
                     <div class="ecom-wc__form">
                         <div class="ecom-wc__form-inner">
                             <h3 class="ecom-wc__form-title ecom-wc__form-title__one">{{__('user.Register')}}
-                                <span>{{__('user.To create a new account, fill out the form below and get the
-                                    varification link to email')}}</span></h3>
+                                <span>
+                                    {{__('user.To create a new account, fill out the form below and get the')}}
+                                </span>
+                            </h3>
                             <!-- Sign in Form -->
                             <form class="ecom-wc__form-main p-0" action="{{ route('store-register') }}" method="post">
                                 @csrf
@@ -112,8 +114,8 @@
 
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group homec-form-input">
-                                            <label class="ecom-wc__form-label mg-btm-10">{{__('user.Confirm
-                                                Password')}}*</label>
+                                            <label class="ecom-wc__form-label mg-btm-10">
+                                                {{__('user.Confirm Password')}}*</label>
                                             <div class="form-group__input">
                                                 <input class="ecom-wc__form-input" type="password"
                                                     name="password_confirmation"
@@ -175,8 +177,8 @@
                             </div>
                             <div class="ecom-wc__footer">
                                 <ul class="ecom-wc__footer--list list-none">
-                                    <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms and
-                                            Conditions')}}</a></li>
+                                    <li><a href="{{ route('terms-and-conditions') }}">
+                                            {{__('user.Terms and Conditions')}}</a></li>
                                     <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
                                     <li><a href="{{ route('contact-us') }}">{{__('user.Contact Us')}}</a></li>
                                 </ul>

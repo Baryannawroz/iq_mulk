@@ -72,7 +72,8 @@
                     <div class="ecom-wc__form">
                         <div class="ecom-wc__form-inner">
                             <h3 class="ecom-wc__form-title ecom-wc__form-title__one">{{__('user.Login')}}
-                                <span>{{__('user.To access our pltafrom please login first')}}</span></h3>
+                                <span>{{__('user.To access our pltafrom please login first')}}</span>
+                            </h3>
                             <!-- Sign in Form -->
                             <form class="ecom-wc__form-main p-0" action="{{ route('store-login') }}" method="post">
                                 @csrf
@@ -152,8 +153,8 @@
                             </div>
                             <div class="ecom-wc__footer">
                                 <ul class="ecom-wc__footer--list list-none">
-                                    <li><a href="{{ route('terms-and-conditions') }}">{{__('user.Terms and
-                                            Conditions')}}</a></li>
+                                    <li><a href="{{ route('terms-and-conditions') }}">
+                                            {{__('user.Terms and Conditions')}}</a></li>
                                     <li><a href="{{ route('privacy-policy') }}">{{__('user.Privacy Policy')}}</a></li>
                                     <li><a href="{{ route('contact-us') }}">{{__('user.Contact Us')}}</a></li>
                                 </ul>

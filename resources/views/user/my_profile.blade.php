@@ -111,12 +111,16 @@
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group homec-form-input">
-											<label class="ecom-wc__form-label mg-btm-10">{{__('user.Twitter')}}</label>
-											<div class="form-group__input">
-												<input class="ecom-wc__form-input" type="text" name="twitter" value="{{ html_decode($user->twitter) }}">
-											</div>
-										</div>
+{{--
+    <div class="form-group homec-form-input">
+        <label class="ecom-wc__form-label mg-btm-10">{{__('user.Twitter')}}</label>
+        <div class="form-group__input">
+            {{-- <input class="ecom-wc__form-input" type="text" name="twitter" value="{{ html_decode($user->twitter) }}"> --}}
+        {{-- </div> --}}
+    {{-- </div> --}}
+
+
+
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group homec-form-input">
@@ -126,14 +130,15 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-6 col-md-6 col-12">
+									{{-- <div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group homec-form-input">
 											<label class="ecom-wc__form-label mg-btm-10">{{__('user.Linkedin')}}</label>
 											<div class="form-group__input">
-												<input class="ecom-wc__form-input" type="text" name="linkedin" value="{{ html_decode($user->linkedin) }}">
-											</div>
-										</div>
-									</div>
+												{{-- <input class="ecom-wc__form-input" type="text" name="linkedin" value="{{ html_decode($user->linkedin) }}"> --}}
+											{{-- </div> --}}
+										{{-- </div> --}}
+									{{-- </div> --}}
+
 								</div>
 
 							</div>

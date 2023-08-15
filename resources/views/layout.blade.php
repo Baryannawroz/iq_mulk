@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html class="no-js" lang="ZXX" dir="rtl">
 
 <head>
@@ -133,14 +135,15 @@
                         </li>
 
 
+
                         <li class="menu-item-has-children"><a href="javascript:;">{{__('user.Properties')}}</a>
                             <ul class="sub-menu">
-
                                 @foreach ($property_types as $footer_category)
-                                    <li><a href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i class="fa-solid fa-minus"></i>{{
-                                            $footer_category->name
-                                            }}</a></li>
-                                    @endforeach
+                                <li><a href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i
+                                            class="fa-solid fa-minus"></i>{{
+                                        $footer_category->name
+                                        }}</a></li>
+                                @endforeach
                                 <li><a
                                         href="{{ route('properties',['purpose' => 'any']) }}">{{__('user.Properties')}}</a>
                                 </li>
@@ -281,7 +284,9 @@
                                                         href="javascript:;">{{__('user.Properties')}}</a>
                                                     <ul class="sub-menu">
                                                         @foreach ($property_types as $footer_category)
-                                                        <li><a href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i class="fa-solid fa-minus"></i>{{
+                                                        <li><a
+                                                                href="{{ route('properties', ['property_type' => $footer_category->slug]) }}"><i
+                                                                    class="fa-solid fa-minus"></i>{{
                                                                 $footer_category->name
                                                                 }}</a></li>
                                                         @endforeach
@@ -307,7 +312,10 @@
                                                 <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
                                                     <ul class="sub-menu">
                                                         @foreach ($cats as $cat)
-                                                        <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
+                                                        <li><a href="/sections/{{ $cat->id }}"><i
+                                                                    class="fa-solid fa-minus"></i>{{
+                                                                $cat->name
+                                                                }}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </li>

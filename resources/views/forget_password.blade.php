@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="ZXX">
+<html class="no-js" lang="ZXX" dir="rtl">
 	<head>
 		<!-- Meta Tags -->
 		<meta charset="utf-8">
@@ -79,11 +79,11 @@
                                         </div>
                                     </div>
 
-                                    @if($recaptcha_setting->status==1)
+                                    {{-- @if($recaptcha_setting->status==1)
                                         <div class="form-group homec-form-input">
                                             <div class="g-recaptcha" data-sitekey="{{ $recaptcha_setting->site_key }}"></div>
                                         </div>
-                                    @endif
+                                    @endif --}}
 
                                     <!-- Form Group -->
                                     <div class="form-group form-mg-top-30">
