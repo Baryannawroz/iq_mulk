@@ -94,6 +94,7 @@ class SectionController extends Controller
             $section->city_id = $validatedData['city_id'];
             $section->image = $image_name;
             $section->phone = $validatedData['phone'];
+
             $section->save();
 
             foreach ($validatedData["slider_images"] as $image) {
@@ -184,7 +185,7 @@ class SectionController extends Controller
 
         $sections = $sections->paginate(20);
         $sections = $sections->appends($request->all());
-        $subs = Sub::where('status',1)->get();
+        $subs = Sub::where('status','1')->get();
         return view('sections_with_ajax')->with(['sections' => $sections, 'subs' => $subs]);
     }
 }

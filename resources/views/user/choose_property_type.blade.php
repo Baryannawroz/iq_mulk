@@ -36,7 +36,7 @@
 		<section class="homec-error pd-top-90 pd-btm-120">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="600">
+					<div class="col-lg-4 col-md-4 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="600">
                         <!-- Homec Add Property Card -->
 						<div class="homec-add-property homec-bg-third-color homec-border">
                             <!-- Homec Property Image -->
@@ -54,7 +54,25 @@
 						</div>
                         <!-- End Homec Add Property Card -->
 					</div>
-                    <div class="col-lg-6 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="800">
+					<div class="col-lg-4 col-md-4 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="600">
+                        <!-- Homec Add Property Card -->
+						<div class="homec-add-property homec-bg-third-color homec-border">
+                            <!-- Homec Property Image -->
+							<div class="homec-add-property__img">
+                                <img src="{{ asset($property_content->rent_logo) }}">
+                            </div>
+                            <!-- Homec Property Content -->
+                            <div class="homec-add-property__content">
+                                <h3 class="homec-add-property__title">{{ $property_content->rent_title }}</h3>
+                                <p class="homec-add-property__text">{{ $property_content->rent_description }}</p>
+                                <div class="homec-add-property__button">
+                                    <a href="{{ route('user.property.create',['purpose' => 'rent']) }}" class="homec-btn"><span>{{ $property_content->rent_btn_text }}</span></a>
+                                </div>
+                            </div>
+						</div>
+                        <!-- End Homec Add Property Card -->
+					</div>
+                    <div class="col-lg-4 col-md-4 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="800">
                         <!-- Homec Add Property Card -->
 						<div class="homec-add-property homec-bg-third-color homec-border">
                             <!-- Homec Property Image -->
