@@ -3,7 +3,7 @@
 <div class="tab-pane fade show active grid_body" id="homec-grid" role="tabpanel">
     <div class="row">
         @foreach ($sections as $section)
-        @if($section->sub->status===1)
+        @if($section->sub->status)
         <div class="col-md-6 col-12 mg-top-30">
             <!-- Single property-->
             <div class="homec-property">

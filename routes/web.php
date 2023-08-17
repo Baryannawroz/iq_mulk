@@ -161,6 +161,11 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
             Route::get('login/google', [LoginController::class, 'redirectToGoogle'])->name('login-google');
             Route::get('/callback/google', [LoginController::class, 'googleCallBack'])->name('callback-google');
 
+            Route::get('section/create', [SectionController::class, 'userCreate']);
+            Route::POST('section/store', [SectionController::class, 'userStore']);
+
+
+
             Route::group(['as' => 'user.', 'prefix' => 'user'], function () {
                 Route::get('dashboard', [UserProfileController::class, 'dashboard'])->name('dashboard');
                 Route::get('my-profile', [UserProfileController::class, 'my_profile'])->name('my-profile');

@@ -129,15 +129,15 @@
 
                             </ul>
                         </li>
-<li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
-    <ul class="sub-menu">
-        @foreach ($cats as $cat)
-        @if($cat->status===1)
-        <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
-        @endif
-        @endforeach
-    </ul>
-</li>
+                        <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
+                            <ul class="sub-menu">
+                                @foreach ($cats as $cat)
+                                @if($cat->status)
+                                <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
+                                @endif
+                                @endforeach
+                            </ul>
+                        </li>
                         <li class="menu-item-has-children"><a href="#">{{__('user.Pages')}}</a>
                             <ul class="sub-menu">
 
@@ -283,7 +283,7 @@
                                                 <li class="menu-item-has-children"><a href="#">{{__('user.cats')}}</a>
                                                     <ul class="sub-menu">
                                                         @foreach ($cats as $cat)
-                                                        @if($cat->status===1)
+                                                        @if($cat->status)
                                                         <li><a href="/sections/{{ $cat->id }}">{{ $cat->name }}</a></li>
                                                         @endif
                                                         @endforeach

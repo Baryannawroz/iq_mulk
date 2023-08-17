@@ -1,8 +1,11 @@
+
+
+
 @extends('admin.master_layout')
 @section('title')
 <title>{{__('admin.Create property')}}</title>
 @endsection
-@section('admin-content')
+
 @livewireStyles
 <!-- Main Content -->
 <div class="main-content">
@@ -131,7 +134,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Thumbnail Image')}} <span
+                                            <label for="">{{__('user.Thumbnail Image')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="file" name="thumbnail_image" class="form-control-file">
                                         </div>
@@ -139,7 +142,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.Slider Image')}} ({{__('user.Multiple')}}) <span class="text-danger">*</span></label>
                                             <input type="file" name="slider_images[]" multiple class="form-control-file">
                                         </div>
                                     </div>
@@ -312,4 +315,4 @@
 </script>
 @livewireScripts
 
-@endsection
+

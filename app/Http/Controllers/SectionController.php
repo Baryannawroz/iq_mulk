@@ -31,7 +31,7 @@ class SectionController extends Controller
         $property_types = Category::select('id', 'name', 'slug')->orderBy('name', 'asc')->where('status', 1)->get();
 
 
-        return view("sections", compact("cat_id", "subs", 'cities','seo_setting', "property_types"));
+        return view("sections", compact("cat_id", "subs", 'cities', 'seo_setting', "property_types"));
     }
 
     /**
@@ -42,10 +42,18 @@ class SectionController extends Controller
     public function create()
     {
         $cities = City::select('id', 'name')->get();
-        $cats = Cat::select('id', 'name')->where('status',1)->get();
+        $cats = Cat::select('id', 'name')->where('status', 1)->get();
         $subs = Sub::select('id', 'name')->where('status', 1)->get();
 
         return view("admin.section_create", compact("cities", 'cats', 'subs'));
+    }
+    public function userCreate()
+    {
+        $cities = City::select('id', 'name')->get();
+        $cats = Cat::select('id', 'name')->where('status', 1)->get();
+        $subs = Sub::select('id', 'name')->where('status', 1)->get();
+
+        return view("user.section_create", compact("cities", 'cats', 'subs'));
     }
 
     /**
@@ -115,6 +123,72 @@ class SectionController extends Controller
             return redirect()->route('admin.dashboard');
         }
     }
+    public function userStore(Request $request)
+    {
+        dd($request);
+        $rules = [
+            'name' => 'required',
+            'description' => 'required',
+            'cat_id' => 'required',
+            'sub_id' => 'required',
+            'city_id' => 'required',
+            'phone' => 'required|max:11',
+            'thumbnail_image' => 'required',
+            'slider_images' => 'required|array',
+            "video_thumbnail" => "",
+            "video_id" => "",
+            "address" => ""
+        ];
+
+
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $validatedData = $validator->validated();
+
+
+        if ($validatedData['thumbnail_image']) {
+            $image = $validatedData['thumbnail_image'];
+            $extention = $image->getClientOriginalExtension();
+            $image_name = 'Property-slider' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+            $image_name = 'uploads/section-images/' . $image_name;
+            Image::make($image)
+                ->encode('webp', 80)
+                ->save(public_path() . '/' . $image_name);
+
+            $section = new Section();
+            $section->name = $validatedData['name'];
+            $section->description = $validatedData['description'];
+            $section->cat_id = $validatedData['cat_id'];
+            $section->sub_id = $validatedData['sub_id'];
+            $section->city_id = $validatedData['city_id'];
+            $section->image = $image_name;
+            $section->phone = $validatedData['phone'];
+
+            $section->save();
+
+            foreach ($validatedData["slider_images"] as $image) {
+
+                $extention = $image->getClientOriginalExtension();
+                $image_name = 'Property-slider' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+                $image_name = 'uploads/section-images/' . $image_name;
+                Image::make($image)
+                    ->encode('webp', 80)
+                    ->save(public_path() . '/' . $image_name);
+                $slider = new Section_image();
+                $slider->section_id = $section->id;
+                $slider->image = $image_name;
+                $slider->save();
+            }
+
+
+            return redirect()->route('user.dashboard');
+        }
+    }
 
 
 
@@ -168,7 +242,7 @@ class SectionController extends Controller
     public function sections_with_ajax(Request $request)
     {
 
-        $sections = Section::select('id', 'name', 'city_id', "image","phone",'sub_id')->where('status', '1')->latest("id");
+        $sections = Section::select('id', 'name', 'city_id', "image", "phone", 'sub_id')->where('status', '1')->latest("id");
         if ($request->location) {
 
             $sections = $sections->where('city_id', $request->location);
@@ -185,7 +259,7 @@ class SectionController extends Controller
 
         $sections = $sections->paginate(20);
         $sections = $sections->appends($request->all());
-        $subs = Sub::where('status','1')->get();
+        $subs = Sub::where('status', '1')->get();
         return view('sections_with_ajax')->with(['sections' => $sections, 'subs' => $subs]);
     }
 }
