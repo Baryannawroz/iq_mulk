@@ -21,7 +21,7 @@ use App\Models\Order;
 use App\Models\PropertyPlan;
 use App\Models\Wishlist;
 use App\Models\Review;
-
+use App\Models\Section;
 use Auth;
 use Image;
 use File;
@@ -62,8 +62,9 @@ class PropertyController extends Controller
         // mobile app
 
         $properties = Property::where('agent_id', $user->id)->orderBy('id','desc')->paginate(10);
+        $sections = Section::where('user_id', $user->id)->orderBy('id','desc')->paginate(10);
 
-        return view('user.property')->with(['mobile_app' => $mobile_app, 'properties' => $properties]);
+        return view('user.property')->with(['mobile_app' => $mobile_app, 'properties' => $properties, 'sections' => $sections]);
     }
 
 

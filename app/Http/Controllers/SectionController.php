@@ -244,9 +244,16 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($section)
     {
-        //
+
+        $section= Section::find($section);
+if($section)
+        if (Auth::user()->id==$section->user_id) {
+            $section->delete();
+            return redirect()->back();
+        }
+        return redirect()->back();
     }
     public function sections_with_ajax(Request $request)
     {
