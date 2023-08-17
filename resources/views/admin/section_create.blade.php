@@ -1,20 +1,43 @@
-
-
-
 @extends('admin.master_layout')
 @section('title')
-<title>{{__('admin.Create property')}}</title>
+<title>{{__('admin.Create reklam')}}</title>
 @endsection
-
-@livewireStyles
+@section('admin-content')
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>{{__('admin.Create section')}}</h1>
+            <h1>{{__('admin.Create reklam')}}</h1>
         </div>
 
         <div class="section-body property_box">
+
+
+
+            <div id="hidden-addition-box" class="d-none">
+                <div class="delete-dynamic-additio">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">{{__('admin.Key')}}</label>
+                                <input type="text" class="form-control" name="add_keys[]">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">{{__('admin.Value')}}</label>
+                                <input type="text" class="form-control" name="add_values[]">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-danger nearest-row-btn removeAdditioanRow plus_btn"><i
+                                    class="fas fa-trash" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div id="hidden-plan-box" class="d-none">
                 <div class="delete-dynamic-plan">
 
@@ -50,7 +73,8 @@
 
             <a href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
                 {{__('admin.Own Properties')}}</a>
-            <form id="property_form" action="/admin/section/store" method="POST" enctype="multipart/form-data">
+            <form id="property_form" action="/admin/section/store" method="POST"
+                enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mt-4">
@@ -61,44 +85,30 @@
                                 <h4>{{__('admin.Basic Information')}}</h4>
                                 <hr>
 
-                                {{-- <div class="form-group">
-                                    <label for="title">{{__('admin.Property Owner')}}<span
-                                            class="text-danger">*</span></label>
-                                    <select name="owner_id" id="owner_id" class="form-control select2">
-                                        <option value="0">{{__('admin.Own Property')}}</option>
-                                        @foreach ($agents as $agent)
-                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->phone }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div> --}}
+
 
                                 <div class="form-group">
-                                    <label for="title">{{__('admin.name')}}<span class="text-danger">*</span></label>
+                                    <label for="title">{{__('user.Title')}}<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control" id="title">
                                 </div>
 
-                                {{-- <div class="form-group">
-                                    <label for="slug">{{__('admin.Slug')}} <span class="text-danger">*</span></label>
-                                    <input type="text" name="slug" class="form-control" id="slug">
-                                </div> --}}
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <livewire:cat-sub-select />
-<div class="form-group">
-    <label for="title">{{__('admin.phone')}}<span class="text-danger">*</span></label>
-    <input max="11" type="text" name="phone" class="form-control" id="title">
-</div>
-                                        <div class="form-group">
-                                            <label for="description">{{__('admin.Description')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <textarea name="description" id="description" cols="30" rows="10"
-                                                class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
+                              <div class="col-12">
+                                @livewireStyles
+                                <livewire:cat-sub-select />
+                                @livewireScripts
+                              </div>
+                                <div class="form-group">
+                                    <label for="phone">{{__('user.Phone')}} <span class="text-danger">*</span></label>
+                                    <input type="text" max="11" name="phone" class="form-control" id="phone">
                                 </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="">{{__('admin.Description')}}</label>
+                                        <textarea name="description" id="" required class="form-control text-area-5"
+                                            cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -122,6 +132,14 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="address">{{__('admin.Address')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" name="address" class="form-control">
+                                        </div>
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -134,7 +152,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('user.Thumbnail Image')}} <span
+                                            <label for="">{{__('admin.Thumbnail Image')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="file" name="thumbnail_image" class="form-control-file">
                                         </div>
@@ -142,8 +160,19 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('user.Multiple')}}) <span class="text-danger">*</span></label>
-                                            <input type="file" name="slider_images[]" multiple class="form-control-file">
+                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="file" name="slider_images[]" multiple
+                                                class="form-control-file">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="">{{__('admin.Youtube video id')}} </label>
+                                            <input type="text" name="video_id" class="form-control">
                                         </div>
                                     </div>
 
@@ -151,14 +180,7 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-
-
-
-
-
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary save_btn">{{__('admin.Save')}}</button>
@@ -306,13 +328,12 @@
     })(jQuery);
 
     function convertToSlug(Text)
-    {
+        {
             return Text
                 .toLowerCase()
                 .replace(/[^\w ]+/g,'')
                 .replace(/ +/g,'-');
         }
 </script>
-@livewireScripts
 
-
+@endsection

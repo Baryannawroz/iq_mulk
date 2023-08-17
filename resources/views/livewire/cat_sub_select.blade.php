@@ -9,14 +9,14 @@
             @endforeach
         </select>
     </div>
-
+<br>
     <div class="form-group">
         <label for="title">{{__('admin.subcategory')}}<span class="text-danger">*</span></label>
         <select name="sub_id" id="sub_id" class="form-control select">
 
             @foreach ($subs as $sub)
-            @if ($cat_id==$sub->cat_id)
 
+            @if ($cat_id==$sub->cat_id)
             <option value="{{ $sub->id }}">{{ $sub->name }} </option>
             @endif
             @endforeach

@@ -11,6 +11,7 @@ use App\Models\Section_image;
 use App\Models\SeoSetting;
 use App\Models\Sub;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Image;
 
@@ -72,7 +73,10 @@ class SectionController extends Controller
             'city_id' => 'required',
             'phone' => 'required|max:11',
             'thumbnail_image' => 'required',
-            'slider_images' => 'required|array'
+            'slider_images' => 'required|array',
+            "video_thumbnail" => "",
+            "video_id" => "",
+            "address" => ""
         ];
 
 
@@ -102,6 +106,9 @@ class SectionController extends Controller
             $section->city_id = $validatedData['city_id'];
             $section->image = $image_name;
             $section->phone = $validatedData['phone'];
+            $section->address = $validatedData['address'];
+            $section->video_id = $validatedData['video_id'];
+            $section->user_id = 1;
 
             $section->save();
 
@@ -125,7 +132,7 @@ class SectionController extends Controller
     }
     public function userStore(Request $request)
     {
-        dd($request);
+
         $rules = [
             'name' => 'required',
             'description' => 'required',
@@ -139,7 +146,6 @@ class SectionController extends Controller
             "video_id" => "",
             "address" => ""
         ];
-
 
 
         $validator = Validator::make($request->all(), $rules);
@@ -168,6 +174,9 @@ class SectionController extends Controller
             $section->city_id = $validatedData['city_id'];
             $section->image = $image_name;
             $section->phone = $validatedData['phone'];
+            $section->address = $validatedData['address'];
+            $section->video_id = $validatedData['video_id'];
+            $section->user_id = Auth::user()->id;
 
             $section->save();
 

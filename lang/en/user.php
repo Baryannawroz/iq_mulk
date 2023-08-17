@@ -81,7 +81,7 @@ return array(
     'Please' => 'تکایە',
     'Choose File' => 'فایل هەڵبژێرە',
     'to upload' => 'بۆ ناردن ',
-    'Title' => 'Title',
+    'Title' => 'ناو',
     'Description' => 'تێبینی',
     'Basic Information' => 'زانیاری سەرەتای',
     'Slug' => 'Slug',

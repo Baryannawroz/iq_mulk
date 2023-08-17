@@ -13,7 +13,8 @@ class CatSubSelect extends Component
     public function render()
     {
         $cats = Cat::all();
-        $subs = Sub::all();
+        $subs = Sub::select('id', 'name','cat_id')->where('status', 1)->get();
+
         return view('livewire.cat_sub_select', compact('subs', 'cats'));
     }
 }
