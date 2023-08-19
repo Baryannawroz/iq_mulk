@@ -12,6 +12,7 @@ use App\Models\Section_image;
 use App\Models\SeoSetting;
 use App\Models\Setting;
 use App\Models\Sub;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -79,7 +80,8 @@ class SectionController extends Controller
             'slider_images' => 'required|array',
             "video_thumbnail" => "",
             "video_id" => "",
-            "address" => ""
+            "address" => "",
+            "expire_date" => ""
         ];
 
 
@@ -112,6 +114,10 @@ class SectionController extends Controller
             $section->address = $validatedData['address'];
             $section->video_id = $validatedData['video_id'];
             $section->user_id = 1;
+            if ($validatedData['expire_date']) {
+                $section->approved_date = Carbon::today();
+                $section->expired_date = $validatedData['expire_date'];
+            }
 
             $section->save();
 
@@ -216,6 +222,11 @@ class SectionController extends Controller
         $sliders = Section_image::where("section_id", $id)->get();
 
         return view('section_show', compact("section", 'sliders'));
+    }
+    public function list(){
+$sections=Section::all();
+$today=carbon::today();
+        return view('admin.agent_sections',compact('sections','today'));
     }
 
     /**
@@ -358,7 +369,7 @@ class SectionController extends Controller
                     ->encode('webp', 80)
                     ->save(public_path() . '/' . $image_name);
 
-                $slider = new PropertySlider();
+                $slider = new Section_image();
                 $slider->section_id = $section->id;
                 $slider->image = $image_name;
                 $slider->save();
@@ -395,7 +406,7 @@ class SectionController extends Controller
     public function sections_with_ajax(Request $request)
     {
 
-        $sections = Section::select('id', 'name', 'city_id', "image", "phone", 'sub_id')->where('status', '1')->latest("id");
+        $sections = Section::select('id', 'name', 'city_id', "image", "phone", 'sub_id')->where('expired_date', ">=", Carbon::today())->latest("id");
         if ($request->location) {
 
             $sections = $sections->where('city_id', $request->location);

@@ -441,6 +441,7 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
 
 
         Route::get('section/create', [SectionController::class, 'create']);
+        Route::get('section/list', [SectionController::class, 'list']);
         Route::post('section/store', [SectionController::class, 'store']);
 
 

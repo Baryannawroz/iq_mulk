@@ -52,9 +52,10 @@ $logedInAdmin = Auth::guard('admin')->user();
 
                 <ul class="dropdown-menu">
 
-                    <li class="{{ Route::is('admin.pricing-plan.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="/admin/section/create">{{__('section
-                            create')}}</a></li>
+                    <li><a class="nav-link" href="/admin/section/create">
+                            {{__('section create')}}</a></li>
+                    <li><a class="nav-link" href="/admin/section/list">
+                            {{__('section create')}}</a></li>
                     <li class="{{ Route::is('admin.pricing-plan.*') ? 'active' : '' }}"><a class="nav-link"
                             href="/admin/cat">{{__('category')}}</a>
                     </li>
@@ -216,8 +217,8 @@ $logedInAdmin = Auth::guard('admin')->user();
 
             <li
                 class="nav-item dropdown {{ Route::is('admin.mobile-slider.*') || Route::is('admin.slider.*') || Route::is('admin.counter.*') || Route::is('admin.testimonial.*') || Route::is('admin.mobile-app') || Route::is('admin.partner.*') || Route::is('admin.why-choose-us.*') || Route::is('admin.home2-about-us') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.All
-                        Section')}}</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>
+                        {{__('admin.All Section')}}</span></a>
                 <ul class="dropdown-menu">
 
                     <li class="{{ Route::is('admin.slider.*') ? 'active' : '' }}"><a class="nav-link"

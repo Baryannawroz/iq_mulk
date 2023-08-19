@@ -73,8 +73,7 @@
 
             <a href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
                 {{__('admin.Own Properties')}}</a>
-            <form id="property_form" action="/admin/section/store" method="POST"
-                enctype="multipart/form-data">
+            <form id="property_form" action="/admin/section/store" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mt-4">
@@ -92,11 +91,11 @@
                                     <input type="text" name="name" class="form-control" id="title">
                                 </div>
 
-                              <div class="col-12">
-                                @livewireStyles
-                                <livewire:cat-sub-select />
-                                @livewireScripts
-                              </div>
+                                <div class="col-12">
+                                    @livewireStyles
+                                    <livewire:cat-sub-select />
+                                    @livewireScripts
+                                </div>
                                 <div class="form-group">
                                     <label for="phone">{{__('user.Phone')}} <span class="text-danger">*</span></label>
                                     <input type="text" max="11" name="phone" class="form-control" id="phone">
@@ -139,6 +138,26 @@
                                             <input type="text" name="address" class="form-control">
                                         </div>
                                     </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" data-select2-id="select2-data-46-mub9">
+                                <h4>{{__('admin.Offer')}}</h4>
+                                <hr>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">{{__('admin.expire date')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control datepicker"
+                                                placeholder="Select a date" name="expire_date">
+                                        </div>
+                                    </div>
+
 
 
                                 </div>
