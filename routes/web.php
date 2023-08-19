@@ -467,6 +467,8 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
     Route::get('section/{id}', [SectionController::class, 'show']);
     Route::get('/sections-with-ajax', [SectionController::class, 'sections_with_ajax'])->name('sections-with-ajax');
     Route::post('section/{section}/delete', [SectionController::class, 'delete']);
+    Route::post('section/update/{id}', [SectionController::class, 'update']);
+    Route::get('section/edit/{id}', [SectionController::class, 'edit']);
 
 });
 // end admin routes
