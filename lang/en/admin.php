@@ -512,7 +512,7 @@ return array(
     'Change Status' => 'Change Status',
     'Update Status' => 'Update Status',
     'Pending Payment' => 'Pending Payment',
-    'Real Estate' => 'Real Estate',
+    'Real Estate' => 'موڵکەکان',
     'Locations' => 'Locations',
     'Bulk Import' => 'Bulk Import',
     'Agents' => 'Agents',

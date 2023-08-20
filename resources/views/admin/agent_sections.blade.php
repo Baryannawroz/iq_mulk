@@ -7,7 +7,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        <h1>{{__('admin.Agent All Properties')}}</h1>
+        <h1>{{__('user.Section list')}}</h1>
         </div>
 
 
@@ -22,7 +22,7 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">{{__('admin.SN')}}</th>
-                                        <th width="25%">{{__('admin.section')}}</th>
+                                        <th width="25%">{{__('user.section')}}</th>
                                         <th width="10%">{{__('admin.Status')}}</th>
                                         <th width="15%">{{__('admin.Action')}}</th>
                                       </tr>
@@ -45,7 +45,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="{{ route('admin.section.edit',$section->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                                <a href="/admin/section/edit/{{ $section->id }}" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
 
                                                 <a href="javascript:;" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger btn-sm" onclick="deleteData({{ $section->id }})"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </td>

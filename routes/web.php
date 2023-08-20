@@ -442,6 +442,9 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
 
         Route::get('section/create', [SectionController::class, 'create']);
         Route::get('section/list', [SectionController::class, 'list']);
+        Route::get('section/awaitingList', [SectionController::class, 'awaitingList']);
+        Route::get('section/edit/{id}', [SectionController::class, 'adminEdit']);
+        Route::post('section/update/{id}', [SectionController::class, 'adminUpdate']);
         Route::post('section/store', [SectionController::class, 'store']);
 
 

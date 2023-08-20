@@ -117,7 +117,7 @@
                                 <div class="form-group">
                                     <label for="title">{{__('admin.Property Owner')}}<span
                                             class="text-danger">*</span></label>
-                                    <select name="owner_id" id="owner_id" class="form-control select2">
+                                    <select required name="owner_id" id="owner_id" class="form-control select2">
                                         <option value="0">{{__('admin.Own Property')}}</option>
                                         @foreach ($agents as $agent)
                                         <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->phone }}
@@ -128,12 +128,12 @@
 
                                 <div class="form-group">
                                     <label for="title">{{__('admin.Title')}}<span class="text-danger">*</span></label>
-                                    <input type="text" name="title" class="form-control" id="title">
+                                    <input required type="text" name="title" class="form-control" id="title">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group d-none">
                                     <label for="slug">{{__('admin.Slug')}} <span class="text-danger">*</span></label>
-                                    <input type="text" name="slug" class="form-control" id="slug">
+                                    <input required type="text" name="slug" class="form-control" id="slug">
                                 </div>
 
                                 <div class="row">
@@ -142,7 +142,7 @@
                                         <div class="form-group">
                                             <label for="">{{__('admin.Property Type')}} <span
                                                     class="text-danger">*</span></label>
-                                            <select name="property_type_id" id="property_type_id"
+                                            <select required name="property_type_id" id="property_type_id"
                                                 class="form-control select2">
                                                 <option value="">{{__('admin.Select')}}</option>
                                                 @foreach ($types as $type)
@@ -157,7 +157,7 @@
                                         <div class="form-group">
                                             <label for="purpose">{{__('admin.Purpose')}} <span
                                                     class="text-danger">*</span></label>
-                                            <select name="purpose" id="purpose" class="form-control">
+                                            <select required name="purpose" id="purpose" class="form-control">
                                                 <option value="sale">{{__('admin.For Sale')}}</option>
                                                 <option value="rent">{{__('admin.For Rent')}}</option>
                                             </select>
@@ -168,7 +168,7 @@
                                         <div class="form-group">
                                             <label for="rent_period">{{__('admin.Rent Period')}} <span
                                                     class="text-danger">*</span></label>
-                                            <select name="rent_period" id="rent_period" class="form-control">
+                                            <select required name="rent_period" id="rent_period" class="form-control">
                                                 <option value="daily">{{__('admin.Daily')}}</option>
                                                 <option value="monthly">{{__('admin.Monthly')}}</option>
                                                 <option value="yearly">{{__('admin.Yearly')}}</option>
@@ -180,7 +180,7 @@
                                         <div class="form-group">
                                             <label for="price">{{__('admin.Price')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="text" name="price" class="form-control" value="">
+                                            <input required type="number" name="price" class="form-control" value="">
                                         </div>
                                     </div>
 
@@ -188,14 +188,14 @@
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Area(m2)')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="text" name="total_area" class="form-control">
+                                            <input required type="number" name="total_area" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Unit')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="number" name="total_unit" class="form-control">
+                                            <input required type="number" name="total_unit" class="form-control">
                                         </div>
                                     </div>
 
@@ -203,37 +203,39 @@
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Bedroom')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="number" name="total_bedroom" class="form-control">
+                                            <input required type="number" name="total_bedroom" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Bathroom')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="number" name="total_bathroom" class="form-control">
+                                            <input required type="number" name="total_bathroom" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Garage')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="number" name="total_garage" class="form-control">
+                                            <input required type="number" name="total_garage" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Kitchen')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="number" name="total_kitchen" class="form-control">
+                                            <input required type="number" name="total_kitchen" class="form-control">
                                         </div>
                                     </div>
 
-                                   <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="description">{{__('admin.Description')}} <span class="text-danger">*</span></label>
-                                        <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="description">{{__('admin.Description')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea required name="description" id="description" cols="30" rows="10"
+                                                class="form-control"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
                                 </div>
                             </div>
@@ -249,7 +251,7 @@
                                         <div class="form-group">
                                             <label for="">{{__('admin.City')}} <span
                                                     class="text-danger">*</span></label>
-                                            <select name="city_id" id="city_id" class="form-control select2">
+                                            <select required name="city_id" id="city_id" class="form-control select2">
                                                 <option value="">{{__('admin.Select')}}</option>
                                                 @foreach ($cities as $city)
                                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -297,7 +299,8 @@
                                         <div class="form-group">
                                             <label for="">{{__('admin.Thumbnail Image')}} <span
                                                     class="text-danger">*</span></label>
-                                            <input type="file" name="thumbnail_image" class="form-control-file">
+                                            <input required type="file" name="thumbnail_image"
+                                                class="form-control-file">
                                         </div>
                                     </div>
 
@@ -305,7 +308,7 @@
                                         <div class="form-group">
                                             <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span
                                                     class="text-danger">*</span></label>
-                                            <input type="file" name="slider_images[]" multiple
+                                            <input required type="file" name="slider_images[]" multiple
                                                 class="form-control-file">
                                         </div>
                                     </div>

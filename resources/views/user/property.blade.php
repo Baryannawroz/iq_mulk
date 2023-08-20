@@ -158,7 +158,7 @@
                                             <div class="homec-dashboard-property mg-top-30">
 
 
-                                                    @if ($property->approved_date)
+                                                    @if ($section->approved_date)
                                                     <div class="homec-dashboard-property__label red">{{__('user.Enable')}}</div>
                                                     @else
                                                     <div class="homec-dashboard-property__label red">{{__('user.Awaiting')}}</div>
@@ -202,7 +202,7 @@
 
                                                     <form class="d-none" action="/section/{{$section->id }}/delete" method="POST" id="remove_section-{{ $section->id }}">
                                                         @csrf
-                                                        
+
 
                                                     </form>
 

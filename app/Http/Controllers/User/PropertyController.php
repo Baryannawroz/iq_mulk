@@ -26,6 +26,7 @@ use Auth;
 use Image;
 use File;
 use Str;
+
 class PropertyController extends Controller
 {
     public function __construct()
@@ -34,18 +35,19 @@ class PropertyController extends Controller
     }
 
 
-    public function index(){
+    public function index()
+    {
 
         $setting = Setting::first();
 
         $user = Auth::guard('web')->user();
 
-        $user = User::select('id','name','email','image','phone','address','status')->where('id', $user->id)->first();
+        $user = User::select('id', 'name', 'email', 'image', 'phone', 'address', 'status')->where('id', $user->id)->first();
 
         // mobile app
         $app_visibility = false;
         $homepage = Homepage::first();
-        if($homepage->show_mobile_app == 'enable') $app_visibility = true;
+        if ($homepage->show_mobile_app == 'enable') $app_visibility = true;
         $mobile_app = (object) array(
             'visibility' => $app_visibility,
             'app_bg' => $setting->app_bg,
@@ -61,25 +63,26 @@ class PropertyController extends Controller
         );
         // mobile app
 
-        $properties = Property::where('agent_id', $user->id)->orderBy('id','desc')->paginate(10);
-        $sections = Section::where('user_id', $user->id)->orderBy('id','desc')->paginate(10);
+        $properties = Property::where('agent_id', $user->id)->orderBy('id', 'desc')->paginate(10);
+        $sections = Section::where('user_id', $user->id)->orderBy('id', 'desc')->paginate(10);
 
         return view('user.property')->with(['mobile_app' => $mobile_app, 'properties' => $properties, 'sections' => $sections]);
     }
 
 
-    public function choose_property_type(){
+    public function choose_property_type()
+    {
 
         $setting = Setting::first();
 
         $user = Auth::guard('web')->user();
 
-        $user = User::select('id','name','email','image','phone','address','status')->where('id', $user->id)->first();
+        $user = User::select('id', 'name', 'email', 'image', 'phone', 'address', 'status')->where('id', $user->id)->first();
 
         // mobile app
         $app_visibility = false;
         $homepage = Homepage::first();
-        if($homepage->show_mobile_app == 'enable') $app_visibility = true;
+        if ($homepage->show_mobile_app == 'enable') $app_visibility = true;
         $mobile_app = (object) array(
             'visibility' => $app_visibility,
             'app_bg' => $setting->app_bg,
@@ -106,10 +109,11 @@ class PropertyController extends Controller
             'sale_btn_text' => $setting->sale_btn_text,
         );
 
-        return view('user.choose_property_type')->with(['mobile_app' => $mobile_app,'property_content' => $property_content]);
+        return view('user.choose_property_type')->with(['mobile_app' => $mobile_app, 'property_content' => $property_content]);
     }
 
-    public function create(Request $request){
+    public function create(Request $request)
+    {
 
         // if(!$request->purpose){
         //     $notification = trans('user_validation.Please select property purpose');
@@ -142,15 +146,15 @@ class PropertyController extends Controller
         //         }
         //     }
 
-            // $number_of_property = $agent_order->number_of_property;
+        // $number_of_property = $agent_order->number_of_property;
 
-            // if($number_of_property == -1){
-            //     $available = 'enable';
-            // }else{
-            //     $property_count = Property::where('agent_id', $agent_id)->count();
-            //     if($property_count < $number_of_property){
-            //         $available = 'enable';
-            //     }
+        // if($number_of_property == -1){
+        //     $available = 'enable';
+        // }else{
+        //     $property_count = Property::where('agent_id', $agent_id)->count();
+        //     if($property_count < $number_of_property){
+        //         $available = 'enable';
+        //     }
         //     }
 
         //     if($available == 'disable'){
@@ -169,12 +173,12 @@ class PropertyController extends Controller
 
         $user = Auth::guard('web')->user();
 
-        $user = User::select('id','name','email','image','phone','address','status')->where('id', $user->id)->first();
+        $user = User::select('id', 'name', 'email', 'image', 'phone', 'address', 'status')->where('id', $user->id)->first();
 
         // mobile app
         $app_visibility = false;
         $homepage = Homepage::first();
-        if($homepage->show_mobile_app == 'enable') $app_visibility = true;
+        if ($homepage->show_mobile_app == 'enable') $app_visibility = true;
         $mobile_app = (object) array(
             'visibility' => $app_visibility,
             'app_bg' => $setting->app_bg,
@@ -205,7 +209,8 @@ class PropertyController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $user = Auth::guard('web')->user();
         $agent_id = $user->id;
@@ -251,24 +256,23 @@ class PropertyController extends Controller
 
 
         $rules = [
-            'title'=>'required|unique:properties',
-            'slug'=>'required|unique:properties',
-            'property_type_id'=>'required',
-            'purpose'=> 'required',
-            'rent_period'=> $request->purpose == 'rent' ? 'required' : '',
-            'price'=>'required',
-            'description'=>'required',
-            'city_id'=>'required',
-            'address'=>'required',
-            'address_description'=>'required',
-            'google_map'=>'required',
-            'total_area'=>'required',
-            'total_unit'=>'required',
-            'total_bedroom'=>'required',
-            'total_bathroom'=>'required',
-            'total_garage'=>'required',
-            'total_kitchen'=>'required',
-            'thumbnail_image'=>'required',
+            'title' => 'required|unique:properties',
+            'property_type_id' => 'required',
+            'purpose' => 'required',
+            'rent_period' => $request->purpose == 'rent' ? 'required' : '',
+            'price' => 'required',
+            'description' => 'required',
+            'city_id' => 'required',
+            'address' => 'required',
+            'address_description' => '',
+            'google_map' => '',
+            'total_area' => 'required',
+            'total_unit' => 'required',
+            'total_bedroom' => 'required',
+            'total_bathroom' => 'required',
+            'total_garage' => 'required',
+            'total_kitchen' => 'required',
+            'thumbnail_image' => 'required',
         ];
         $customMessages = [
             'title.required' => trans('user_validation.Title is required'),
@@ -293,12 +297,12 @@ class PropertyController extends Controller
             'thumbnail_image.required' => trans('user_validation.Thumbnail image is required'),
         ];
 
-        $this->validate($request, $rules,$customMessages);
+        $this->validate($request, $rules, $customMessages);
 
         $property = new Property();
         $property->agent_id = $agent_id;
         $property->title = $request->title;
-        $property->slug = $request->slug;
+        $property->slug = $property->id . $request->title;
         $property->property_type_id = $request->property_type_id;
         $property->purpose = $request->purpose;
         $property->rent_period = $request->purpose == 'rent' ? $request->rent_period : '';
@@ -321,23 +325,23 @@ class PropertyController extends Controller
         $property->video_id = $request->video_id;
         $property->video_description = $request->video_description;
 
-        if($request->thumbnail_image){
+        if ($request->thumbnail_image) {
             $extention = $request->thumbnail_image->getClientOriginalExtension();
-            $image_name = 'property-thumb'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-            $image_name = 'uploads/custom-images/'.$image_name;
+            $image_name = 'property-thumb' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+            $image_name = 'uploads/custom-images/' . $image_name;
             Image::make($request->thumbnail_image)
                 ->encode('webp', 80)
-                ->save(public_path().'/'.$image_name);
+                ->save(public_path() . '/' . $image_name);
             $property->thumbnail_image = $image_name;
         }
 
-        if($request->video_thumbnail){
+        if ($request->video_thumbnail) {
             $extention = $request->video_thumbnail->getClientOriginalExtension();
-            $image_name = 'video-thumb'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-            $image_name = 'uploads/custom-images/'.$image_name;
+            $image_name = 'video-thumb' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+            $image_name = 'uploads/custom-images/' . $image_name;
             Image::make($request->video_thumbnail)
                 ->encode('webp', 80)
-                ->save(public_path().'/'.$image_name);
+                ->save(public_path() . '/' . $image_name);
             $property->video_thumbnail = $image_name;
         }
 
@@ -346,19 +350,19 @@ class PropertyController extends Controller
         $property->status = 'enable';
 
         $setting = Setting::first();
-        if($setting->property_auto_approval == 'yes'){
+        if ($setting->property_auto_approval == 'yes') {
             $property->approve_by_admin = 'approved';
         }
 
         // if($agent_order->expiration_date == 'lifetime'){
-            $property->expired_date = null;
+        $property->expired_date = null;
         // }else{
         //     $property->expired_date = $agent_order->expiration_date;
         // }
         $property->save();
 
-        if($request->aminities){
-            foreach($request->aminities as $aminity){
+        if ($request->aminities) {
+            foreach ($request->aminities as $aminity) {
                 $item = new PropertyAminity();
                 $item->aminity_id = $aminity;
                 $item->property_id = $property->id;
@@ -366,14 +370,14 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->slider_images){
-            foreach($request->slider_images as $index => $image){
+        if ($request->slider_images) {
+            foreach ($request->slider_images as $index => $image) {
                 $extention = $image->getClientOriginalExtension();
-                $image_name = 'Property-slider'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-                $image_name = 'uploads/custom-images/'.$image_name;
+                $image_name = 'Property-slider' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+                $image_name = 'uploads/custom-images/' . $image_name;
                 Image::make($image)
                     ->encode('webp', 80)
-                    ->save(public_path().'/'.$image_name);
+                    ->save(public_path() . '/' . $image_name);
 
                 $slider = new PropertySlider();
                 $slider->property_id = $property->id;
@@ -382,9 +386,9 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->nearest_locations && $request->distances){
-            foreach($request->nearest_locations as $index => $nearest_location){
-                if($request->nearest_locations[$index] != '' && $request->distances[$index] != ''){
+        if ($request->nearest_locations && $request->distances) {
+            foreach ($request->nearest_locations as $index => $nearest_location) {
+                if ($request->nearest_locations[$index] != '' && $request->distances[$index] != '') {
                     $new_loc = new PropertyNearestLocation();
                     $new_loc->property_id = $property->id;
                     $new_loc->nearest_location_id = $request->nearest_locations[$index];
@@ -395,9 +399,9 @@ class PropertyController extends Controller
         }
 
 
-        if($request->add_keys && $request->add_values){
-            foreach($request->add_keys as $index => $add_key){
-                if($request->add_keys[$index] != '' && $request->add_values[$index] != ''){
+        if ($request->add_keys && $request->add_values) {
+            foreach ($request->add_keys as $index => $add_key) {
+                if ($request->add_keys[$index] != '' && $request->add_values[$index] != '') {
                     $new_loc = new AdditionalInformation();
                     $new_loc->property_id = $property->id;
                     $new_loc->add_key = $request->add_keys[$index];
@@ -407,15 +411,15 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->plan_images && $request->plan_titles && $request->plan_descriptions){
-            foreach($request->plan_images as $index => $image){
-                if($request->plan_images[$index] && $request->plan_titles[$index] && $request->plan_descriptions[$index]){
+        if ($request->plan_images && $request->plan_titles && $request->plan_descriptions) {
+            foreach ($request->plan_images as $index => $image) {
+                if ($request->plan_images[$index] && $request->plan_titles[$index] && $request->plan_descriptions[$index]) {
                     $extention = $image->getClientOriginalExtension();
-                    $image_name = 'Property-plan'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-                    $image_name = 'uploads/custom-images/'.$image_name;
+                    $image_name = 'Property-plan' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+                    $image_name = 'uploads/custom-images/' . $image_name;
                     Image::make($image)
                         ->encode('webp', 80)
-                        ->save(public_path().'/'.$image_name);
+                        ->save(public_path() . '/' . $image_name);
 
                     $plan = new PropertyPlan();
                     $plan->property_id = $property->id;
@@ -428,11 +432,12 @@ class PropertyController extends Controller
         }
 
         $notification = trans('user_validation.Created succssfully');
-        $notification = array('messege'=>$notification,'alert-type'=>'success');
+        $notification = array('messege' => $notification, 'alert-type' => 'success');
         return redirect()->route('user.property.index')->with($notification);
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
 
         $setting = Setting::first();
 
@@ -441,7 +446,7 @@ class PropertyController extends Controller
         // mobile app
         $app_visibility = false;
         $homepage = Homepage::first();
-        if($homepage->show_mobile_app == 'enable') $app_visibility = true;
+        if ($homepage->show_mobile_app == 'enable') $app_visibility = true;
         $mobile_app = (object) array(
             'visibility' => $app_visibility,
             'app_bg' => $setting->app_bg,
@@ -475,9 +480,9 @@ class PropertyController extends Controller
         $urgent_property = 'disable';
 
         $agent_id = $user->id;
-        $agent_order = Order::where('agent_id', $agent_id)->orderBy('id','desc')->first();
+        $agent_order = Order::where('agent_id', $agent_id)->orderBy('id', 'desc')->first();
 
-        if($agent_order){
+        if ($agent_order) {
             $is_featured = $agent_order->featured_property;
             $featured_property_qty = $agent_order->featured_property_qty;
 
@@ -488,35 +493,35 @@ class PropertyController extends Controller
             $urgent_property_qty = $agent_order->urgent_property_qty;
 
 
-            if($top_property_qty == -1){
+            if ($top_property_qty == -1) {
                 $top_property = 'enable';
-            }else{
+            } else {
                 $top_property_count = Property::where('agent_id', $agent_id)->where('is_top', 'enable')->count();
-                if($top_property_count < $top_property_qty){
+                if ($top_property_count < $top_property_qty) {
                     $top_property = 'enable';
                 }
             }
 
-            if($urgent_property_qty == -1){
+            if ($urgent_property_qty == -1) {
                 $urgent_property = 'enable';
-            }else{
+            } else {
                 $urgent_property_count = Property::where('agent_id', $agent_id)->where('is_urgent', 'enable')->count();
-                if($urgent_property_count < $urgent_property_qty){
+                if ($urgent_property_count < $urgent_property_qty) {
                     $urgent_property = 'enable';
                 }
             }
 
-            if($featured_property_qty == -1){
+            if ($featured_property_qty == -1) {
                 $featured_property = 'enable';
-            }else{
+            } else {
                 $featured_property_count = Property::where('agent_id', $agent_id)->where('is_featured', 'enable')->count();
-                if($featured_property_count < $featured_property_qty){
+                if ($featured_property_count < $featured_property_qty) {
                     $featured_property = 'enable';
                 }
             }
-        }else{
+        } else {
             $notification = trans('user_validation.Agent does not have any pricing plan');
-            $notification = array('messege'=>$notification,'alert-type'=>'error');
+            $notification = array('messege' => $notification, 'alert-type' => 'error');
             return redirect()->back()->with($notification);
         }
 
@@ -538,28 +543,26 @@ class PropertyController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
 
         $property = Property::find($id);
 
         $rules = [
-            'title'=>'required|unique:properties,title,'.$id,
-            'slug'=>'required|unique:properties,slug,'.$id,
-            'property_type_id'=>'required',
-            'purpose'=> 'required',
-            'rent_period'=> $request->purpose == 'rent' ? 'required' : '',
-            'price'=>'required',
-            'description'=>'required',
-            'city_id'=>'required',
-            'address'=>'required',
-            'address_description'=>'required',
-            'google_map'=>'required',
-            'total_area'=>'required',
-            'total_unit'=>'required',
-            'total_bedroom'=>'required',
-            'total_bathroom'=>'required',
-            'total_garage'=>'required',
-            'total_kitchen'=>'required',
+            'title' => 'required|unique:properties,title,' . $id,
+            'property_type_id' => 'required',
+            'purpose' => 'required',
+            'rent_period' => $request->purpose == 'rent' ? 'required' : '',
+            'price' => 'required',
+            'description' => 'required',
+            'city_id' => 'required',
+            'address' => 'required',
+            'total_area' => 'required',
+            'total_unit' => 'required',
+            'total_bedroom' => 'required',
+            'total_bathroom' => 'required',
+            'total_garage' => 'required',
+            'total_kitchen' => 'required',
         ];
         $customMessages = [
             'title.required' => trans('user_validation.Title is required'),
@@ -583,7 +586,7 @@ class PropertyController extends Controller
             'total_kitchen.required' => trans('user_validation.Total kitchen is required')
         ];
 
-        $this->validate($request, $rules,$customMessages);
+        $this->validate($request, $rules, $customMessages);
 
         $property->title = $request->title;
         $property->slug = $request->slug;
@@ -609,34 +612,34 @@ class PropertyController extends Controller
         $property->video_id = $request->video_id;
         $property->video_description = $request->video_description;
 
-        if($request->thumbnail_image){
+        if ($request->thumbnail_image) {
             $old_thumbnail_image = $property->thumbnail_image;
             $extention = $request->thumbnail_image->getClientOriginalExtension();
-            $image_name = 'property-thumb'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-            $image_name = 'uploads/custom-images/'.$image_name;
+            $image_name = 'property-thumb' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+            $image_name = 'uploads/custom-images/' . $image_name;
             Image::make($request->thumbnail_image)
                 ->encode('webp', 80)
-                ->save(public_path().'/'.$image_name);
+                ->save(public_path() . '/' . $image_name);
             $property->thumbnail_image = $image_name;
             $property->save();
 
-            if($old_thumbnail_image){
-                if(File::exists(public_path().'/'.$old_thumbnail_image))unlink(public_path().'/'.$old_thumbnail_image);
+            if ($old_thumbnail_image) {
+                if (File::exists(public_path() . '/' . $old_thumbnail_image)) unlink(public_path() . '/' . $old_thumbnail_image);
             }
         }
 
-        if($request->video_thumbnail){
+        if ($request->video_thumbnail) {
             $old_video_thumbnail = $property->video_thumbnail;
             $extention = $request->video_thumbnail->getClientOriginalExtension();
-            $image_name = 'video-thumb'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-            $image_name = 'uploads/custom-images/'.$image_name;
+            $image_name = 'video-thumb' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+            $image_name = 'uploads/custom-images/' . $image_name;
             Image::make($request->video_thumbnail)
                 ->encode('webp', 80)
-                ->save(public_path().'/'.$image_name);
+                ->save(public_path() . '/' . $image_name);
             $property->video_thumbnail = $image_name;
 
-            if($old_video_thumbnail){
-                if(File::exists(public_path().'/'.$old_video_thumbnail))unlink(public_path().'/'.$old_video_thumbnail);
+            if ($old_video_thumbnail) {
+                if (File::exists(public_path() . '/' . $old_video_thumbnail)) unlink(public_path() . '/' . $old_video_thumbnail);
             }
         }
 
@@ -650,8 +653,8 @@ class PropertyController extends Controller
 
         PropertyAminity::where('property_id', $id)->delete();
 
-        if($request->aminities){
-            foreach($request->aminities as $aminity){
+        if ($request->aminities) {
+            foreach ($request->aminities as $aminity) {
                 $item = new PropertyAminity();
                 $item->aminity_id = $aminity;
                 $item->property_id = $property->id;
@@ -659,14 +662,14 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->slider_images){
-            foreach($request->slider_images as $index => $image){
+        if ($request->slider_images) {
+            foreach ($request->slider_images as $index => $image) {
                 $extention = $image->getClientOriginalExtension();
-                $image_name = 'Property-slider'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-                $image_name = 'uploads/custom-images/'.$image_name;
+                $image_name = 'Property-slider' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+                $image_name = 'uploads/custom-images/' . $image_name;
                 Image::make($image)
                     ->encode('webp', 80)
-                    ->save(public_path().'/'.$image_name);
+                    ->save(public_path() . '/' . $image_name);
 
                 $slider = new PropertySlider();
                 $slider->property_id = $property->id;
@@ -675,9 +678,9 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->existing_nearest_locations && $request->existing_distances){
-            foreach($request->existing_nearest_locations as $index => $nearest_location){
-                if($request->existing_nearest_locations[$index] != '' && $request->existing_distances[$index] != '' && $request->existing_nearest_ids[$index] != ''){
+        if ($request->existing_nearest_locations && $request->existing_distances) {
+            foreach ($request->existing_nearest_locations as $index => $nearest_location) {
+                if ($request->existing_nearest_locations[$index] != '' && $request->existing_distances[$index] != '' && $request->existing_nearest_ids[$index] != '') {
                     $new_loc = PropertyNearestLocation::find($request->existing_nearest_ids[$index]);
                     $new_loc->nearest_location_id = $request->existing_nearest_locations[$index];
                     $new_loc->distance = $request->existing_distances[$index];
@@ -686,9 +689,9 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->nearest_locations && $request->distances){
-            foreach($request->nearest_locations as $index => $nearest_location){
-                if($request->nearest_locations[$index] != '' && $request->distances[$index] != ''){
+        if ($request->nearest_locations && $request->distances) {
+            foreach ($request->nearest_locations as $index => $nearest_location) {
+                if ($request->nearest_locations[$index] != '' && $request->distances[$index] != '') {
                     $new_loc = new PropertyNearestLocation();
                     $new_loc->property_id = $property->id;
                     $new_loc->nearest_location_id = $request->nearest_locations[$index];
@@ -698,9 +701,9 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->existing_add_keys && $request->existing_add_values){
-            foreach($request->existing_add_keys as $index => $add_key){
-                if($request->existing_add_keys[$index] != '' && $request->existing_add_values[$index] != '' && $request->existing_add_ids[$index] != ''){
+        if ($request->existing_add_keys && $request->existing_add_values) {
+            foreach ($request->existing_add_keys as $index => $add_key) {
+                if ($request->existing_add_keys[$index] != '' && $request->existing_add_values[$index] != '' && $request->existing_add_ids[$index] != '') {
                     $new_loc = AdditionalInformation::find($request->existing_add_ids[$index]);
                     $new_loc->add_key = $request->existing_add_keys[$index];
                     $new_loc->add_value = $request->existing_add_values[$index];
@@ -709,9 +712,9 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->add_keys && $request->add_values){
-            foreach($request->add_keys as $index => $add_key){
-                if($request->add_keys[$index] != '' && $request->add_values[$index] != ''){
+        if ($request->add_keys && $request->add_values) {
+            foreach ($request->add_keys as $index => $add_key) {
+                if ($request->add_keys[$index] != '' && $request->add_values[$index] != '') {
                     $new_loc = new AdditionalInformation();
                     $new_loc->property_id = $property->id;
                     $new_loc->add_key = $request->add_keys[$index];
@@ -721,48 +724,47 @@ class PropertyController extends Controller
             }
         }
 
-        if($request->existing_plan_ids && $request->existing_plan_titles && $request->existing_plan_descriptions){
-            foreach($request->existing_plan_ids as $index => $plan_id){
+        if ($request->existing_plan_ids && $request->existing_plan_titles && $request->existing_plan_descriptions) {
+            foreach ($request->existing_plan_ids as $index => $plan_id) {
 
-                if($request->existing_plan_ids[$index] && $request->existing_plan_titles[$index] && $request->existing_plan_descriptions[$index]){
+                if ($request->existing_plan_ids[$index] && $request->existing_plan_titles[$index] && $request->existing_plan_descriptions[$index]) {
 
                     $plan = PropertyPlan::find($request->existing_plan_ids[$index]);
                     $plan->title = $request->existing_plan_titles[$index];
                     $plan->description = $request->existing_plan_descriptions[$index];
                     $plan->save();
 
-                    $ex_name = 'existing_plan_image_'.$plan_id;
+                    $ex_name = 'existing_plan_image_' . $plan_id;
                     $request_exist_image = $request->$ex_name;
 
-                    if($request_exist_image){
+                    if ($request_exist_image) {
                         $exist_image = $plan->image;
                         $extention = $request_exist_image->getClientOriginalExtension();
-                        $image_name = 'Property-plan'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-                        $image_name = 'uploads/custom-images/'.$image_name;
+                        $image_name = 'Property-plan' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+                        $image_name = 'uploads/custom-images/' . $image_name;
                         Image::make($request_exist_image)
                             ->encode('webp', 80)
-                            ->save(public_path().'/'.$image_name);
+                            ->save(public_path() . '/' . $image_name);
 
                         $plan->image = $image_name;
                         $plan->save();
-                        if($exist_image){
-                            if(File::exists(public_path().'/'.$exist_image))unlink(public_path().'/'.$exist_image);
+                        if ($exist_image) {
+                            if (File::exists(public_path() . '/' . $exist_image)) unlink(public_path() . '/' . $exist_image);
                         }
                     }
-
                 }
             }
         }
 
-        if($request->plan_images && $request->plan_titles && $request->plan_descriptions){
-            foreach($request->plan_images as $index => $image){
-                if($request->plan_images[$index] && $request->plan_titles[$index] && $request->plan_descriptions[$index]){
+        if ($request->plan_images && $request->plan_titles && $request->plan_descriptions) {
+            foreach ($request->plan_images as $index => $image) {
+                if ($request->plan_images[$index] && $request->plan_titles[$index] && $request->plan_descriptions[$index]) {
                     $extention = $image->getClientOriginalExtension();
-                    $image_name = 'Property-plan'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
-                    $image_name = 'uploads/custom-images/'.$image_name;
+                    $image_name = 'Property-plan' . date('-Y-m-d-h-i-s-') . rand(999, 9999) . '.webp';
+                    $image_name = 'uploads/custom-images/' . $image_name;
                     Image::make($image)
                         ->encode('webp', 80)
-                        ->save(public_path().'/'.$image_name);
+                        ->save(public_path() . '/' . $image_name);
 
                     $plan = new PropertyPlan();
                     $plan->property_id = $property->id;
@@ -775,12 +777,12 @@ class PropertyController extends Controller
         }
 
         $notification = trans('user_validation.Update succssfully');
-        $notification = array('messege'=>$notification,'alert-type'=>'success');
+        $notification = array('messege' => $notification, 'alert-type' => 'success');
         return redirect()->route('user.property.index')->with($notification);
-
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
 
         $property = Property::find($id);
 
@@ -792,82 +794,81 @@ class PropertyController extends Controller
 
         $existing_plans = PropertyPlan::where('property_id', $id)->get();
 
-        foreach($existing_plans as $existing_plan){
+        foreach ($existing_plans as $existing_plan) {
             $old_image = $existing_plan->image;
-            if($old_image){
-                if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
+            if ($old_image) {
+                if (File::exists(public_path() . '/' . $old_image)) unlink(public_path() . '/' . $old_image);
             }
             $existing_plan->delete();
         }
 
         $existing_sliders = PropertySlider::where('property_id', $id)->get();
 
-        foreach($existing_sliders as $existing_slider){
+        foreach ($existing_sliders as $existing_slider) {
             $old_slider = $existing_slider->image;
-            if($old_slider){
-                if(File::exists(public_path().'/'.$old_slider))unlink(public_path().'/'.$old_slider);
+            if ($old_slider) {
+                if (File::exists(public_path() . '/' . $old_slider)) unlink(public_path() . '/' . $old_slider);
             }
             $existing_slider->delete();
         }
 
 
         $old_thumbnail_image = $property->thumbnail_image;
-        if($old_thumbnail_image){
-            if(File::exists(public_path().'/'.$old_thumbnail_image))unlink(public_path().'/'.$old_thumbnail_image);
+        if ($old_thumbnail_image) {
+            if (File::exists(public_path() . '/' . $old_thumbnail_image)) unlink(public_path() . '/' . $old_thumbnail_image);
         }
 
         $old_video_thumbnail = $property->video_thumbnail;
-        if($old_video_thumbnail){
-            if(File::exists(public_path().'/'.$old_video_thumbnail))unlink(public_path().'/'.$old_video_thumbnail);
+        if ($old_video_thumbnail) {
+            if (File::exists(public_path() . '/' . $old_video_thumbnail)) unlink(public_path() . '/' . $old_video_thumbnail);
         }
 
         $property->delete();
 
         $notification = trans('user_validation.Deleted successfully');
-        $notification = array('messege'=>$notification,'alert-type'=>'success');
+        $notification = array('messege' => $notification, 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
-    public function remove_nearest_location($id){
+    public function remove_nearest_location($id)
+    {
         PropertyNearestLocation::where('id', $id)->delete();
 
         return response()->json(['message' => 'success']);
     }
 
-    public function remove_add_info($id){
+    public function remove_add_info($id)
+    {
         AdditionalInformation::where('id', $id)->delete();
 
         return response()->json(['message' => 'success']);
     }
 
-    public function remove_plan($id){
+    public function remove_plan($id)
+    {
         $plan = PropertyPlan::where('id', $id)->first();
 
         $old_image = $plan->image;
-        if($old_image){
-            if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
+        if ($old_image) {
+            if (File::exists(public_path() . '/' . $old_image)) unlink(public_path() . '/' . $old_image);
         }
 
         $plan->delete();
 
         return response()->json(['message' => 'success']);
-
     }
 
-    public function remove_property_slider($id){
+    public function remove_property_slider($id)
+    {
         $slider = PropertySlider::where('id', $id)->first();
 
         $old_slider = $slider->image;
-        if($old_slider){
-            if(File::exists(public_path().'/'.$old_slider))unlink(public_path().'/'.$old_slider);
+        if ($old_slider) {
+            if (File::exists(public_path() . '/' . $old_slider)) unlink(public_path() . '/' . $old_slider);
         }
 
         $slider->delete();
 
         return response()->json(['message' => 'success']);
-
     }
-
-
-
 }

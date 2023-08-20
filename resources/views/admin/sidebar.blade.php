@@ -22,9 +22,8 @@ $logedInAdmin = Auth::guard('admin')->user();
 
             <li
                 class="nav-item dropdown  {{ Route::is('admin.pricing-plan.*') || Route::is('admin.assign-pricing-plan') || Route::is('admin.purchase-history') || Route::is('admin.show-purchase-history') || Route::is('admin.pending-payment') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('user.Price
-                        Plan')}}</span></a>
-
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>
+                        {{__('user.Price Plan')}}</span></a>
                 <ul class="dropdown-menu ">
 
                     <li class="{{ Route::is('admin.pricing-plan.*') ? 'active' : '' }} "><a class="nav-link"
@@ -35,8 +34,8 @@ $logedInAdmin = Auth::guard('admin')->user();
 
                     <li
                         class="  {{ Route::is('admin.purchase-history') || Route::is('admin.show-purchase-history')  ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('admin.purchase-history') }}">{{__('admin.Purchase
-                            history')}}</a>
+                        <a class="nav-link" href="{{ route('admin.purchase-history') }}">
+                            {{__('admin.Purchase history')}}</a>
                     </li>
 
                     <li class="{{ Route::is('admin.pending-payment')  ? 'active' : '' }}"><a class="nav-link"
@@ -48,19 +47,21 @@ $logedInAdmin = Auth::guard('admin')->user();
             <li
                 class="nav-item dropdown {{ Route::is('admin.pricing-plan.*') || Route::is('admin.assign-pricing-plan') || Route::is('admin.purchase-history') || Route::is('admin.show-purchase-history') || Route::is('admin.pending-payment') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
-                        class="fas fa-th-large"></i><span>{{__('Section')}}</span></a>
+                        class="fas fa-th-large"></i><span>{{__('user.Section')}}</span></a>
 
                 <ul class="dropdown-menu">
 
                     <li><a class="nav-link" href="/admin/section/create">
-                            {{__('section create')}}</a></li>
+                            {{__('user.Section create')}}</a></li>
                     <li><a class="nav-link" href="/admin/section/list">
-                            {{__('section create')}}</a></li>
+                            {{__('user.Section list')}}</a></li>
+                    <li><a class="nav-link" href="/admin/section/awaitingList">
+                            {{__('user.Section Awaiting')}}</a></li>
                     <li class="{{ Route::is('admin.pricing-plan.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="/admin/cat">{{__('category')}}</a>
+                            href="/admin/cat">{{__('user.Category')}}</a>
                     </li>
                     <li class="{{ Route::is('admin.pricing-plan.*') ? 'active' : '' }}"><a class="nav-link"
-                            href="/admin/subcategory">{{__('subcategory')}}</a></li>
+                            href="/admin/subcategory">{{__('user.Subcategory')}}</a></li>
 
 
 
@@ -159,8 +160,6 @@ $logedInAdmin = Auth::guard('admin')->user();
 
 
 
-            @if ($logedInAdmin->admin_type == 1)
-
 
             <li
                 class="nav-item dropdown {{ Route::is('admin.city.*') || Route::is('admin.city-import-page') || Route::is('admin.assign-homepage-city') ? 'active' : '' }}">
@@ -186,6 +185,8 @@ $logedInAdmin = Auth::guard('admin')->user();
 
                 </ul>
             </li>
+
+            @if ($logedInAdmin->admin_type == 1)
 
 
 
