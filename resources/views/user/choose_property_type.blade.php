@@ -45,10 +45,9 @@
                     <!-- Homec Property Content -->
                     <div class="homec-add-property__content">
                         <h3 class="homec-add-property__title">{{ __("user.Section")}}</h3>
-                        <p class="homec-add-property__text">{{ __("user.sectionReklamdiscriotn") }}</p>
                         <div class="homec-add-property__button">
                             <a href="/section/create"
-                                class="homec-btn"><span>{{ __("user.sectionReklam") }}</span></a>
+                                class="homec-btn"><span>{{ $property_content->sale_btn_text}}</span></a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +63,6 @@
                     <!-- Homec Property Content -->
                     <div class="homec-add-property__content">
                         <h3 class="homec-add-property__title">{{ $property_content->rent_title }}</h3>
-                        <p class="homec-add-property__text">{{ $property_content->rent_description }}</p>
                         <div class="homec-add-property__button">
                             <a href="{{ route('user.property.create',['purpose' => 'rent']) }}"
                                 class="homec-btn"><span>{{ $property_content->rent_btn_text }}</span></a>
@@ -83,7 +81,6 @@
                     <!-- Homec Property Content -->
                     <div class="homec-add-property__content">
                         <h3 class="homec-add-property__title">{{ $property_content->sale_title }}</h3>
-                        <p class="homec-add-property__text">{{ $property_content->sale_description }}</p>
                         <div class="homec-add-property__button">
                             <a href="{{ route('user.property.create',['purpose' => 'sale']) }}"
                                 class="homec-btn"><span>{{ $property_content->sale_btn_text }}</span></a>

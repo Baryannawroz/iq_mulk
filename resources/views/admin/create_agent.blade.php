@@ -1,18 +1,18 @@
-
 @extends('admin.master_layout')
 @section('title')
 <title>{{__('admin.Create Agent')}}</title>
 @endsection
 @section('admin-content')
-      <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-          <div class="section-header">
+<!-- Main Content -->
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
             <h1>{{__('admin.Create Agent')}}</h1>
-          </div>
+        </div>
 
-          <div class="section-body">
-            <a href="{{ route('admin.agent') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Agent List')}}</a>
+        <div class="section-body">
+            <a href="{{ route('admin.agent') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Agent
+                List')}}</a>
 
             <div class="row mt-sm-4">
                 <div class="col-12">
@@ -27,7 +27,7 @@
                                         <input type="text" class="form-control" name="name">
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-6 d-none">
                                         <label>{{__('admin.Desgination')}} <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="designation">
                                     </div>
@@ -55,7 +55,8 @@
 
                                     <div class="form-group col-12">
                                         <label>{{__('admin.About')}} <span class="text-danger">*</span></label>
-                                        <textarea name="about_me" class="form-control text-area-5" id="" cols="30" rows="10"></textarea>
+                                        <textarea name="about_me" class="form-control text-area-5" id="" cols="30"
+                                            rows="10"></textarea>
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -79,7 +80,8 @@
                                     </div>
 
                                     <div class="form-group col-12">
-                                        <label for="">{{__('admin.Assign Plan')}} <span class="text-danger">*</span></label>
+                                        <label for="">{{__('admin.Assign Plan')}} <span
+                                                class="text-danger">*</span></label>
                                         <select name="plan_id" id="plan_id" class="form-control">
                                             @foreach ($items as $item)
                                             <option value="{{ $item->id }}">{{ $item->plan_name }}</option>
@@ -97,9 +99,9 @@
                 </div>
 
             </div>
-          </div>
-        </section>
-      </div>
+        </div>
+    </section>
+</div>
 
 
 @endsection

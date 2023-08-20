@@ -15,7 +15,7 @@
           </div>
 
           @if ($selected_theme == 0 || $selected_theme == 1)
-            <div class="section-body">
+            <div class="section-body d-none">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -89,7 +89,7 @@
           @endif
 
           @if ($selected_theme == 0 || $selected_theme == 2)
-            <div class="section-body">
+            <div class="section-body d-none">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">

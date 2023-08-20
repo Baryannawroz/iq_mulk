@@ -41,7 +41,7 @@
         {{__('user.My Properties')}}
     </a>
 
-    <a href="{{ route('user.orders') }}" class="list-group-item {{ Route::is('user.orders') ? 'active' : '' }}">
+    <a href="{{ route('user.orders') }}" class="list-group-item d-none {{ Route::is('user.orders') ? 'active' : '' }}">
         <div class="homec-dashboard__list--icon">
             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

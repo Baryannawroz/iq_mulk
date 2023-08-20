@@ -102,8 +102,8 @@
                         <input type="file" class="btn-check" name="plan_images[]">
                         <label class="homec-image-video-upload__label plan-video-id">
                             <img src="{{ asset('frontend/img/upload-file.svg') }}" alt="#">
-                            <span class="homec-image-video-upload__title">{{__('user.Please')}} <span
-                                    class="homec-primary-color">{{__('user.Choose File')}}</span>
+                            <span class="homec-image-video-upload__title">{{__('user.Please')}}
+                                <span class="homec-primary-color">{{__('user.Choose File')}}</span>
                                 {{__('user.to upload')}} </span>
                         </label>
                     </div>
@@ -275,8 +275,8 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="mg-top-20">
-                                        <p class="homec-img-video-label mg-btm-10">{{__('user.Thumbnail
-                                            Image')}}*</span></p>
+                                        <p class="homec-img-video-label mg-btm-10">
+                                            {{__('user.Thumbnail Image')}}*</span></p>
                                         <!-- Image Input -->
                                         <div class="homec-image-video-upload homec-border">
                                             <input required type="file" class="btn-check" id="input-video1"
@@ -361,7 +361,8 @@
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.City')}} *</h4>
                                         <div class="form-group homec-form-input">
-                                            <select name="city_id" required class="homec-form-select homec-border select2">
+                                            <select name="city_id" required
+                                                class="homec-form-select homec-border select2">
                                                 <option value="">{{__('user.Select')}}</option>
                                                 @foreach ($cities as $city)
                                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -379,7 +380,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-lg-6 col-md-6 col-12 d-none">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Address Details')}} *</h4>
@@ -388,12 +389,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-lg-6 col-md-6 col-12 d-none">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Google Map')}} *</h4>
                                         <div class="form-group homec-form-input">
-                                            <textarea name="google_map" ></textarea>
+                                            <textarea name="google_map"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +419,7 @@
                         </div>
                     </div> --}}
 
-                 
+
 
                     {{-- <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.Additional Information')}}</h4>
