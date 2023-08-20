@@ -91,7 +91,6 @@ return array(
     'Monthly' => 'مانگانە',
     'Yearly' => 'سالانە',
     'Total Area(m2)' => 'ڕوبەر(m2)',
-    'Total Unit' => 'قاتەکانی خانوو',
     'Total Bedroom' => 'ژوری نووستن',
     'Total Bathroom' => 'کۆی گەرماوەکان',
     'Total Garage' => 'کۆی گەراجەکان',

@@ -626,7 +626,7 @@
                                         </div>
                                     </div>
 
-                                    @if ($property->is_featured == 'enable')
+
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <div class="control-label">{{__('admin.Featured')}}</div>
@@ -637,23 +637,10 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    @else
-                                        @if ($featured_property == 'enable')
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <div class="control-label">{{__('admin.Featured')}}</div>
-                                                    <label class=" mt-2">
-                                                    <input {{ $property->is_featured == 'enable' ? 'checked' : '' }} type="checkbox" name="is_featured" class="custom-switch-input">
-                                                    <span class="custom-switch-indicator"></span>
-                                                    <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    @endif
 
 
-                                    @if ($property->is_top == 'enable')
+
+
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <div class="control-label">{{__('admin.Top Property')}}</div>
@@ -664,26 +651,12 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    @else
-                                        @if ($top_property == 'enable')
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <div class="control-label">{{__('admin.Top Property')}}</div>
-                                                    <label class=" mt-2">
-                                                    <input {{ $property->is_top == 'enable' ? 'checked' : '' }} type="checkbox" name="is_top" class="custom-switch-input">
-                                                    <span class="custom-switch-indicator"></span>
-                                                    <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    @endif
 
 
-                                    @if ($property->is_urgent == 'enable')
+
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <div class="control-label">{{__('admin.Urgent Property')}}</div>
+                                                <div class="control-label">{{__('user.Urgent Property')}}</div>
                                                 <label class=" mt-2">
                                                 <input {{ $property->is_urgent == 'enable' ? 'checked' : '' }} type="checkbox" name="is_urgent" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
@@ -691,20 +664,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    @else
-                                        @if ($urgent_property == 'enable')
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <div class="control-label">{{__('admin.Urgent Property')}}</div>
-                                                    <label class=" mt-2">
-                                                    <input {{ $property->is_urgent == 'enable' ? 'checked' : '' }} type="checkbox" name="is_urgent" class="custom-switch-input">
-                                                    <span class="custom-switch-indicator"></span>
-                                                    <span class="custom-switch-description">{{__('admin.Enable / Disable')}}</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    @endif
+
+
+
 
                                     @if ($property->agent_id != 0)
                                         <div class="col-12">

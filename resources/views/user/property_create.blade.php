@@ -418,41 +418,7 @@
                         </div>
                     </div> --}}
 
-                    <div class="homec-submit-form mg-top-40">
-                        <h4 class="homec-submit-form__title">{{__('user.Nearest Location')}}</h4>
-                        <div class="homec-submit-form__inner" id="nearest-place-box">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Nearest Location')}}</h4>
-                                        <div class="form-group homec-form-input">
-                                            <select name="nearest_locations[]" class="homec-form-select homec-border">
-                                                <option value="">{{__('user.Select')}}</option>
-                                                @foreach ($nearest_locations as $nearest_location)
-                                                <option value="{{ $nearest_location->id }}">{{
-                                                    $nearest_location->location }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Distance(km)')}}</h4>
-                                        <div class="form-group homec-form-input homec-form-add">
-                                            <input type="text" name="distances[]" autocomplete="off">
-                                            <button id="addNearestPlaceRow" type="button"
-                                                class="homec-form-add__button"><img
-                                                    src="{{ asset('frontend/img/plus-icon.svg') }}"></button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 
 
                     {{-- <div class="homec-submit-form mg-top-40">
                         <h4 class="homec-submit-form__title">{{__('user.Additional Information')}}</h4>

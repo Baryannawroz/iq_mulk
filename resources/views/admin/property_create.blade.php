@@ -364,7 +364,7 @@
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card d-none">
                             <div class="card-body">
                                 <h4>{{__('admin.Nearest Location')}}</h4>
                                 <hr>
@@ -400,7 +400,7 @@
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card d-none">
                             <div class="card-body">
                                 <h4>{{__('admin.Additional Information')}}</h4>
                                 <hr>
@@ -430,7 +430,7 @@
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card d-none">
                             <div class="card-body">
                                 <h4>{{__('admin.Property Plan')}}</h4>
                                 <hr>
@@ -514,7 +514,7 @@
 
                                     <div class="col-12" id="urgent_box">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('admin.Urgent Property')}}</div>
+                                            <div class="control-label">{{__('user.Urgent Properties')}}</div>
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_urgent" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
@@ -524,21 +524,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.SEO Title')}} </label>
-                                            <input type="text" name="seo_title" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.SEO Meta Description')}} </label>
-                                            <textarea name="seo_meta_description" class="form-control text-area-5" id=""
-                                                cols="30" rows="10"></textarea>
-                                        </div>
-                                    </div>
-
+                                
                                 </div>
                             </div>
                         </div>

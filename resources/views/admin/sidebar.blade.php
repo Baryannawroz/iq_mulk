@@ -94,7 +94,7 @@ $logedInAdmin = Auth::guard('admin')->user();
                             href="{{ route('admin.agent-reject-property') }}">{{__('admin.Agent Reject Property')}}</a>
                     </li>
 
-                    <li class="  {{ Route::is('admin.assign-slider-property') ? 'active' : '' }}">
+                    <li class="d-none  {{ Route::is('admin.assign-slider-property') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.assign-slider-property') }}">
                             {{__('admin.Assign Slider Property')}}
                         </a>
@@ -104,7 +104,7 @@ $logedInAdmin = Auth::guard('admin')->user();
                     <li class="{{ Route::is('admin.coupon.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.category.index') }}">{{__('admin.Property Type')}}</a></li>
 
-                    <li class="  {{ Route::is('admin.nearest-location.*') ? 'active' : '' }}"><a class="nav-link"
+                    <li class="d-none  {{ Route::is('admin.nearest-location.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.nearest-location.index') }}">{{__('admin.Nearest Location')}}</a></li>
 
                     <li class=" {{ Route::is('admin.aminity.*') ? 'active' : '' }}"><a class="nav-link"

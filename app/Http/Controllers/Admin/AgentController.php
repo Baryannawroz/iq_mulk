@@ -51,7 +51,7 @@ class AgentController extends Controller
             'name'=>'required',
             'email'=>'required|unique:users',
             'phone'=>'required',
-            'designation'=>'required',
+            'designation'=>'',
             'address'=>'required',
             'about_me'=>'required',
             'password'=>'required',
