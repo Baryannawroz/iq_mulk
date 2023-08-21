@@ -134,26 +134,28 @@
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <livewire:cat-sub-select />
+                                    <div class="mg-top-20 ">
+                                        <livewire:cat-sub-select :category="-1" :sub="-1" />
                                     </div>
                                 </div>
+                                <div class="row mg-top-40">
 
-                                <div class="col-lg-8 col-md-8 col-12">
-                                    <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Title')}} *</h4>
-                                        <div class="form-group homec-form-input">
-                                            <input type="text" name="name" id="title" required>
+                                    <div class="col-lg-8 col-md-8 col-12">
+                                        <!-- Single Form Element -->
+                                        <div class="mg-top-20">
+                                            <h4 class="homec-submit-form__heading">{{__('user.Title')}} *</h4>
+                                            <div class="form-group homec-form-input">
+                                                <input type="text" name="name" id="title" required>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <h4 class="homec-submit-form__heading">{{__('user.phone')}} *</h4>
-                                        <div class="form-group homec-form-input">
-                                            <input type="text" max="11" name="phone" id="title" required>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <!-- Single Form Element -->
+                                        <div class="mg-top-20">
+                                            <h4 class="homec-submit-form__heading">{{__('user.phone')}} *</h4>
+                                            <div class="form-group homec-form-input">
+                                                <input type="text" max="11" name="phone" id="title" required>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

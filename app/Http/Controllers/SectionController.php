@@ -233,7 +233,7 @@ class SectionController extends Controller
     {
         $today = carbon::today();
         $sections = Section::where('expired_date', '<', $today)->get();
-        
+
         return view('admin.agent_sections', compact('sections', 'today'));
     }
 
@@ -363,12 +363,14 @@ class SectionController extends Controller
             'description' => 'required',
             'city_id' => 'required',
             'address' => 'required',
+            'cat_id' => 'required',
+            'sub_id' => 'required',
         ];
         $customMessages = [
             'title.required' => trans('user_validation.Title is required'),
             'title.unique' => trans('user_validation.Title already exist'),
-            'slug.required' => trans('user_validation.Slug is required'),
-            'slug.unique' => trans('user_validation.Slug already exist'),
+            'cat_id.required' => trans('user_validation.Slug is required'),
+            'sub_id.unique' => trans('user_validation.Slug already exist'),
             'property_type_id.required' => trans('user_validation.Property type is required'),
             'purpose.required' => trans('user_validation.Purpose is required'),
             'rent_period.required' => trans('user_validation.Rent period is required'),
@@ -391,6 +393,8 @@ class SectionController extends Controller
 
 
         $section->description = $request->description;
+        $section->cat_id = $request->cat_id;
+        $section->sub_id = $request->sub_id;
 
 
 
