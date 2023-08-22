@@ -52,6 +52,7 @@ use App\Mail\SubscriptionVerification;
 use App\Mail\UserRegistration;
 use App\Helpers\MailHelper;
 use App\Models\Cat;
+use App\Models\Sub;
 use Mail;
 use Session;
 use Str;
@@ -517,7 +518,9 @@ class HomeController extends Controller
                 'filter_prices' => $filter_prices,
             ]);
         }elseif($selected_theme == 'theme_three'){
-            return view('index3')->with(['cats' => Cat::all(),
+            return view('index3')->with([
+                'cats' => Cat::where('status',"1")->get(),
+                'subs' => Sub::where('status',"1")->get(),
 
                 'selected_theme' => $selected_theme,
                 'seo_setting' => $seo_setting,

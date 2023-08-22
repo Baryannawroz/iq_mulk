@@ -31,7 +31,7 @@
                 <div class="homec-hero__inner homec-hero__inner--v2">
                     <!-- Hero Content -->
                     <div class="homec-hero__content homec-hero__content--v2">
-                        <h1  class="homec-hero__title homec-hero__title--v2 ">{{ $home3_intro->title }}</h1>
+                        <h1 class="homec-hero__title homec-hero__title--v2 ">{{ $home3_intro->title }}</h1>
                         <ul class="homec-iconic-list homec-iconic-list--v3 list-none mg-top-30">
                             <li><i class="fa-solid fa-check"></i>{{ $home3_intro->list1 }}</li>
                             <li><i class="fa-solid fa-check"></i>{{ $home3_intro->list2 }}</li>
@@ -195,31 +195,34 @@
 @endif
 
 
-<section class="homec-features pd-top-120 pd-btm-120">
+<section class="homec-features pd-top-60 pd-btm-120">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-2 col-md-4 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
                 <!-- Single Feature -->
 
                 <a href="{{ route('properties',['purpose' => 'any']) }}" class="homec-features__single">
-                    <div class="homec-features__icon">
-                        <img src="" alt="icon">
-                    </div>
+                    {{--
+                        <div class="homec-features__icon">
+                            <img src="" alt="icon">
+                        </div>
+                        --}}
                     <div class="homec-features__content">
-                        <h3 class="homec-features__title">{{__('user.Property')}}</h3>
+                        <h6 style="margin: 0; padding: " class="">{{__('user.Property')}}</h6>
                     </div>
                 </a>
                 <!-- End Single Feature -->
             </div>
             @foreach ($cats as $cat)
-            <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-2 col-md-4 col-12 mg-top-10" data-aos="fade-up" data-aos-delay="400">
                 <!-- Single Feature -->
                 <a href="/sections/{{$cat->id}}" class="homec-features__single">
-                    <div class="homec-features__icon">
+                    {{-- <div class="homec-features__icon">
                         {{-- <img src="{{ asset($property_type->icon) }}" alt="icon"> --}}
-                    </div>
+                    {{-- </div> --}}
+
                     <div class="homec-features__content">
-                        <h3 class="homec-features__title">{{ $cat->name }}</h3>
+                        <h6 class="">{{ $cat->name }}</h6>
                         {{-- <p class="homec-features__text">{{ $property_type->totalProperty }}+
                             {{__('user.Property')}}</p> --}}
                     </div>

@@ -100,35 +100,39 @@
                 </div>
             </div>
 
-            <a href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
+            <a  href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
                 {{__('admin.Own Properties')}}</a>
             <form id="property_form" action="{{ route('admin.property.store') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mt-4">
-                    <div class="col-12">
 
-                        <div class="card">
-                            <div class="card-body" data-select2-id="select2-data-46-mub9">
-                                <h4>{{__('admin.Basic Information')}}</h4>
-                                <hr>
 
-                                <div class="form-group">
-                                    <label for="title">{{__('admin.Property Owner')}}<span
-                                            class="text-danger">*</span></label>
-                                    <select required name="owner_id" id="owner_id" class="form-control select2">
-                                        <option value="0">{{__('admin.Own Property')}}</option>
-                                        @foreach ($agents as $agent)
-                                        <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->phone }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    <div class="card col-12">
+                        <div class="card-body" data-select2-id="select2-data-46-mub9">
+                            <h4>{{__('admin.Basic Information')}}</h4>
+                            <hr>
+                            <div>
+                                <div class="row">
 
-                                <div class="form-group">
-                                    <label for="title">{{__('admin.Title')}}<span class="text-danger">*</span></label>
-                                    <input required type="text" name="title" class="form-control" id="title">
+                                    <div class=" form-group col-md-6 col-12">
+                                        <label for="title">{{__('admin.Property Owner')}}<span
+                                                class="text-danger">*</span></label>
+                                        <select required name="owner_id" id="owner_id" class="form-control select2">
+                                            <option value="0">{{__('admin.Own Property')}}</option>
+                                            @foreach ($agents as $agent)
+                                            <option value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->phone }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class=" form-group col-md-6 col-12">
+                                        <label for="title">{{__('admin.Title')}}<span
+                                                class="text-danger">*</span></label>
+                                        <input required type="text" name="title" class="form-control" id="title">
+                                    </div>
                                 </div>
 
                                 <div class="form-group d-none">
@@ -138,7 +142,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Property Type')}} <span
                                                     class="text-danger">*</span></label>
@@ -153,7 +157,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="purpose">{{__('admin.Purpose')}} <span
                                                     class="text-danger">*</span></label>
@@ -176,7 +180,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="price">{{__('admin.Price')}} <span
                                                     class="text-danger">*</span></label>
@@ -184,14 +188,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Area(m2)')}} <span
                                                     class="text-danger">*</span></label>
                                             <input required type="number" name="total_area" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Unit')}} <span
                                                     class="text-danger">*</span></label>
@@ -199,28 +203,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Bedroom')}} <span
                                                     class="text-danger">*</span></label>
                                             <input required type="number" name="total_bedroom" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Bathroom')}} <span
                                                     class="text-danger">*</span></label>
                                             <input required type="number" name="total_bathroom" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Garage')}} <span
                                                     class="text-danger">*</span></label>
                                             <input required type="number" name="total_garage" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Kitchen')}} <span
                                                     class="text-danger">*</span></label>
@@ -232,8 +236,8 @@
                                         <div class="form-group">
                                             <label for="description">{{__('admin.Description')}} <span
                                                     class="text-danger">*</span></label>
-                                            <textarea required name="description" id="description" cols="30" rows="10"
-                                                class="form-control"></textarea>
+                                            <textarea required name="description" id="description" cols="30" rows="5"
+                                                class="col-12"></textarea>
                                         </div>
                                     </div>
 
@@ -269,7 +273,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
+                                    <div class="col-12 d-none">
                                         <div class="form-group">
                                             <label for="address_description">{{__('admin.Address Details')}} <span
                                                     class="text-danger">*</span></label>
@@ -278,7 +282,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
+                                    <div class="col-12 d-none">
                                         <div class="form-group">
                                             <label for="google_map">{{__('admin.Google Map')}} <span
                                                     class="text-danger">*</span></label>
@@ -306,8 +310,8 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}})
+                                                <span class="text-danger">*</span></label>
                                             <input required type="file" name="slider_images[]" multiple
                                                 class="form-control-file">
                                         </div>
@@ -327,7 +331,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
+                                    <div class="col-12 d-none">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Video description')}} </label>
                                             <textarea name="video_description" class="form-control text-area-3" id=""
@@ -352,7 +356,8 @@
                                                 <input value="{{ $aminity->id }}" type="checkbox" name="aminities[]"
                                                     id="aminity{{ $aminity->id }}">
 
-                                                <label class="mx-1" for="aminity{{ $aminity->id }}">{{ $aminity->aminity
+                                                <label class="mx-1" for="aminity{{ $aminity->id }}">{{
+                                                    $aminity->aminity
                                                     }}</label>
                                                 @endforeach
 
@@ -482,8 +487,8 @@
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="status" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">{{__('admin.Enable /
-                                                    Disable')}}</span>
+                                                <span class="custom-switch-description">
+                                                    {{__('admin.Enable / Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -494,8 +499,8 @@
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_featured" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">{{__('admin.Enable /
-                                                    Disable')}}</span>
+                                                <span class="custom-switch-description">
+                                                    {{__('admin.Enable / Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -506,8 +511,8 @@
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_top" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">{{__('admin.Enable /
-                                                    Disable')}}</span>
+                                                <span class="custom-switch-description">
+                                                    {{__('admin.Enable / Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
@@ -518,13 +523,13 @@
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_urgent" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">{{__('admin.Enable /
-                                                    Disable')}}</span>
+                                                <span class="custom-switch-description">
+                                                    {{__('admin.Enable / Disable')}}</span>
                                             </label>
                                         </div>
                                     </div>
 
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -533,7 +538,7 @@
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary save_btn">{{__('admin.Save')}}</button>
                     </div>
-                </div>
+
 
             </form>
         </div>

@@ -118,11 +118,8 @@
                                 <h4>{{__('admin.Basic Information')}}</h4>
                                 <hr>
 
-                                <div class="form-group">
-                                    <label for="title">{{__('admin.Title')}}<span class="text-danger">*</span></label>
-                                    <input type="text" name="title" class="form-control" id="title"
-                                        value="{{ html_decode($property->title) }}">
-                                </div>
+
+
 
                                 <div class="form-group d-none">
                                     <label for="slug">{{__('admin.Slug')}} <span class="text-danger">*</span></label>
@@ -132,7 +129,14 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="form-group col-md-6 col-12">
+                                        <label for="title">{{__('admin.Title')}}<span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" name="title" class="form-control" id="title"
+                                            value="{{ html_decode($property->title) }}">
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Property Type')}} <span
                                                     class="text-danger">*</span></label>
@@ -162,7 +166,7 @@
                                     </div>
 
                                     @if ($property->purpose == 'sale')
-                                    <div class="col-md-6 d-none" id="rend_period_box">
+                                    <div class="col-md-3 col-12 d-none" id="rend_period_box">
                                         <div class="form-group">
                                             <label for="rent_period">{{__('admin.Rent Period')}} <span
                                                     class="text-danger">*</span></label>
@@ -179,7 +183,7 @@
                                     @endif
 
                                     @if ($property->purpose != 'sale')
-                                    <div class="col-md-6" id="rend_period_box">
+                                    <div class="col-md-3 col-12" id="rend_period_box">
                                         <div class="form-group">
                                             <label for="rent_period">{{__('admin.Rent Period')}} <span
                                                     class="text-danger">*</span></label>
@@ -195,7 +199,7 @@
                                     </div>
                                     @endif
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="price">{{__('admin.Price')}} <span
                                                     class="text-danger">*</span></label>
@@ -204,7 +208,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Area(m2)')}} <span
                                                     class="text-danger">*</span></label>
@@ -212,7 +216,7 @@
                                                 value="{{ html_decode($property->total_area) }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Unit')}} <span
                                                     class="text-danger">*</span></label>
@@ -221,7 +225,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Bedroom')}} <span
                                                     class="text-danger">*</span></label>
@@ -229,7 +233,7 @@
                                                 value="{{ $property->total_bedroom }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Bathroom')}} <span
                                                     class="text-danger">*</span></label>
@@ -237,7 +241,7 @@
                                                 value="{{ $property->total_bathroom }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Garage')}} <span
                                                     class="text-danger">*</span></label>
@@ -245,7 +249,7 @@
                                                 value="{{ $property->total_garage }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('admin.Total Kitchen')}} <span
                                                     class="text-danger">*</span></label>

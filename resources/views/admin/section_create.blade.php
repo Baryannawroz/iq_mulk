@@ -19,13 +19,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">{{__('admin.Key')}}</label>
+                                <label for="">{{__('user.Key')}}</label>
                                 <input type="text" class="form-control" name="add_keys[]">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">{{__('admin.Value')}}</label>
+                                <label for="">{{__('user.Value')}}</label>
                                 <input type="text" class="form-control" name="add_values[]">
                             </div>
                         </div>
@@ -44,25 +44,25 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">{{__('admin.Image')}}</label>
+                                <label for="">{{__('user.Image')}}</label>
                                 <input type="file" class="form-control-file" name="plan_images[]">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <button type="button" class="btn btn-danger nearest-row-btn removePlanRow plus_btn"><i
-                                    class="fas fa-trash" aria-hidden="true"></i> {{__('admin.Remove Plan')}}</button>
+                                    class="fas fa-trash" aria-hidden="true"></i> {{__('usre.Remove Plan')}}</button>
                         </div>
 
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="">{{__('admin.Title')}}</label>
+                                <label for="">{{__('user.Title')}}</label>
                                 <input type="text" class="form-control" name="plan_titles[]">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="">{{__('admin.Description')}}</label>
+                                <label for="">{{__('user.Description')}}</label>
                                 <textarea name="plan_descriptions[]" id="" class="form-control text-area-5" cols="30"
                                     rows="10"></textarea>
                             </div>
@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <a href="{{ route('admin.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
+            <a href="{{ route('user.property.index') }}" class="btn btn-primary"><i class="fas fa-list"></i>
                 {{__('admin.Own Properties')}}</a>
             <form id="property_form" action="/admin/section/store" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -81,7 +81,7 @@
 
                         <div class="card">
                             <div class="card-body" data-select2-id="select2-data-46-mub9">
-                                <h4>{{__('admin.Basic Information')}}</h4>
+                                <h4>{{__('user.Basic Information')}}</h4>
                                 <hr>
 
 
@@ -93,7 +93,7 @@
 
                                 <div class="col-12">
                                     @livewireStyles
-                                    <livewire:cat-sub-select />
+                                    <livewire:cat-sub-select :category="-1" :sub="-1"/>
                                     @livewireScripts
                                 </div>
                                 <div class="form-group">
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="">{{__('admin.Description')}}</label>
+                                        <label for="">{{__('user.Description')}}</label>
                                         <textarea name="description" id="" required class="form-control text-area-5"
                                             cols="30" rows="10"></textarea>
                                     </div>
@@ -113,16 +113,16 @@
 
                         <div class="card">
                             <div class="card-body" data-select2-id="select2-data-46-mub9">
-                                <h4>{{__('admin.Location')}}</h4>
+                                <h4>{{__('user.Location')}}</h4>
                                 <hr>
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.City')}} <span
+                                            <label for="">{{__('user.City')}} <span
                                                     class="text-danger">*</span></label>
                                             <select name="city_id" id="city_id" class="form-control select2">
-                                                <option value="">{{__('admin.Select')}}</option>
+                                                <option value="">{{__('user.Select')}}</option>
                                                 @foreach ($cities as $city)
                                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
                                                 @endforeach
@@ -133,7 +133,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="address">{{__('admin.Address')}} <span
+                                            <label for="address">{{__('user.Address')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" name="address" class="form-control">
                                         </div>
@@ -145,13 +145,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body" data-select2-id="select2-data-46-mub9">
-                                <h4>{{__('admin.Offer')}}</h4>
+                                <h4>{{__('user.Offer')}}</h4>
                                 <hr>
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.expire date')}} <span
+                                            <label for="">{{__('user.expire date')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control datepicker"
                                                 placeholder="Select a date" name="expire_date">
@@ -166,12 +166,12 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <h4>{{__('admin.Image and Video')}}</h4>
+                                <h4>{{__('user.images and videos')}}</h4>
                                 <hr>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Thumbnail Image')}} <span
+                                            <label for="">{{__('user.Thumbnail Image')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="file" name="thumbnail_image" class="form-control-file">
                                         </div>
@@ -179,7 +179,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}}) <span
+                                            <label for="">{{__('user.Slider Image')}}  <span
                                                     class="text-danger">*</span></label>
                                             <input type="file" name="slider_images[]" multiple
                                                 class="form-control-file">
@@ -190,7 +190,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">{{__('admin.Youtube video id')}} </label>
+                                            <label for="">{{__('user.Youtube video id')}} </label>
                                             <input type="text" name="video_id" class="form-control">
                                         </div>
                                     </div>

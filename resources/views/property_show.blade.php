@@ -100,6 +100,13 @@
                                                 </div>
                                                 <!-- End Homec Features -->
                                                 @endif
+
+                                                <div class="homec-ptdetails-features mg-top-30">
+                                                    <h4 class="homec-ptdetails-features__title">
+                                                        {{__('user.phone')}}</h4>
+                                                   <a class="btn homec-btn btn-md" href="tel:{{ $property->phone }}">{{ $property->phone }}</a>
+                                                </div>
+
                                             </div>
                                         </div>
                                         <!--  End Property Details -->
@@ -313,7 +320,6 @@
                         <div class="pd-features__icon">
                             <img src="{{ asset('frontend/img/pd-icon-1.svg') }}">
                         </div>
-                        <h4 class="pd-features__title">{{__('user.Area')}}</h4>
                         <p class="pd-features__text">{{ html_decode($property->total_area) }}{{__('user.m2')}}</p>
                     </div>
                     <!-- End Pd Features -->
@@ -322,7 +328,6 @@
                         <div class="pd-features__icon">
                             <img src="{{ asset('frontend/img/pd-icon-2.svg') }}">
                         </div>
-                        <h4 class="pd-features__title">{{__('user.Unit')}}</h4>
                         <p class="pd-features__text">{{ $property->total_unit }} {{__('user.Unit')}}</p>
                     </div>
                     <!-- End Pd Features -->
@@ -331,7 +336,6 @@
                         <div class="pd-features__icon">
                             <img src="{{ asset('frontend/img/pd-icon-3.svg') }}">
                         </div>
-                        <h4 class="pd-features__title">{{__('user.Bedroom')}}</h4>
                         <p class="pd-features__text">{{ $property->total_bedroom }} {{__('user.Bedroom')}}</p>
                     </div>
                     <!-- End Pd Features -->
@@ -340,7 +344,6 @@
                         <div class="pd-features__icon">
                             <img src="{{ asset('frontend/img/pd-icon-4.svg') }}">
                         </div>
-                        <h4 class="pd-features__title">{{__('user.Bath Room')}}</h4>
                         <p class="pd-features__text">{{ $property->total_bathroom }} {{__('user.Bath Room')}}</p>
                     </div>
                     <!-- End Pd Features -->
@@ -349,7 +352,6 @@
                         <div class="pd-features__icon">
                             <img src="{{ asset('frontend/img/pd-icon-5.svg') }}">
                         </div>
-                        <h4 class="pd-features__title">{{__('user.Garage')}}</h4>
                         <p class="pd-features__text">{{ $property->total_garage }} {{__('user.Garage')}}</p>
                     </div>
                     <!-- End Pd Features -->
@@ -358,7 +360,6 @@
                         <div class="pd-features__icon">
                             <img src="{{ asset('frontend/img/pd-icon-6.svg') }}">
                         </div>
-                        <h4 class="pd-features__title">{{__('user.Kitchen')}}</h4>
                         <p class="pd-features__text">{{ $property->total_kitchen }} {{__('user.Kitchen')}}</p>
                     </div>
                     <!-- End Pd Features -->

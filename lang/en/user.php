@@ -69,7 +69,7 @@ return array(
     'For Rent' => 'کرێ',
     'For Sale' => 'فرۆشتن',
     'ratings' => 'هەڵسەنگاندن',
-    'Are you realy want to delete this item ?' => 'Are you realy want to delete this item ?',
+    'Are you realy want to delete this item ?' => 'دڵنیای لە سڕیینەوەی ئەم پۆستە ؟',
     'Yes, Delete It' => 'بەڵێ بیسڕەوە',
     'Cancel' => 'پاشگەز بوونەوە',
     'Create Property' => 'ڕیکلامکردن  ',
