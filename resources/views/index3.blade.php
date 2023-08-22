@@ -272,16 +272,8 @@
                             <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
                             <!-- Top Sticky -->
                             <div class="homec-property__hsticky">
-                                <a href="javascript:;" class="homec-heart add-to-wishlist"
-                                    data-property-id="{{ $featured_property->id }}">
-                                    <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.5745 3.73257L11.1008 4.69447L11.6272 3.73258C11.9704 3.10535 12.5438 2.26267 13.3886 1.60933C14.2595 0.935774 15.2355 0.6 16.3044 0.6C19.29 0.6 21.6017 3.03446 21.6017 6.3966C21.6017 8.18186 20.8932 9.70959 19.5597 11.3187C18.211 12.9462 16.2694 14.6033 13.8617 16.6552L14.2508 17.1119L13.8617 16.6552L13.8611 16.6557C13.0479 17.3487 12.1237 18.1363 11.1625 18.9769L11.1623 18.977C11.1457 18.9916 11.1241 18.9999 11.1008 18.9999C11.0776 18.9999 11.056 18.9916 11.0394 18.9771L11.0391 18.9768C10.0784 18.1367 9.15452 17.3493 8.34203 16.6569L8.34054 16.6556L8.34053 16.6556C5.93251 14.6035 3.99081 12.9463 2.64202 11.3188C1.30844 9.70958 0.6 8.18186 0.6 6.3966C0.6 3.03446 2.91167 0.6 5.89732 0.6C6.96614 0.6 7.94219 0.935773 8.81311 1.60933C9.6579 2.26267 10.2313 3.10532 10.5745 3.73257Z"
-                                            stroke-width="1.2" />
-                                    </svg>
-                                </a>
-                                <span class="homec-property__salebadge">
+
+                                <span class="homec-property__salebadge mx-3">
                                     @if ($featured_property->purpose == 'rent')
                                     {{__('user.For Rent')}}
                                     @else
@@ -296,10 +288,11 @@
                         <div class="homec-property__body">
                             <div class="homec-property__topbar">
                                 <div class="homec-property__price">{{ $currency_icon }}{{
-                                    html_decode(num_format($featured_property->price)) }}
+                                    html_decode(number_format($featured_property->price,0)) }}
                                     @if ($featured_property->purpose == 'rent')
-                                    <span>/{{ $featured_property->rent_period }}</span>
+                                    <span>/{{ __("user.". $featured_property->rent_period )}}</span>
                                     @endif
+
                                 </div>
                             </div>
                             <h3 class="homec-property__title"><a

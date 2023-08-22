@@ -142,7 +142,7 @@
                         <h4 class="homec-submit-form__title">{{__('user.Basic Information')}}</h4>
                         <div class="homec-submit-form__inner">
                             <div class="row">
-                                <div class="col-md-8  col-12">
+                                <div class="col-md-6  col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Title')}} *</h4>
@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4  col-12">
+                                <div class="col-md-3  col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.phone')}} *</h4>
@@ -160,61 +160,43 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20">
-                                            <h4 class="homec-submit-form__heading">{{__('user.City')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <select name="city_id" required
-                                                    class="homec-form-select homec-border select2">
-                                                    <option value="">{{__('user.Select')}}</option>
-                                                    @foreach ($cities as $city)
-                                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20">
-                                            <h4 class="homec-submit-form__heading">{{__('user.Address')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <input type="text" required name="address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12 d-none">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20">
-                                            <h4 class="homec-submit-form__heading">{{__('user.Address Details')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <textarea name="address_description"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12 d-none">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20">
-                                            <h4 class="homec-submit-form__heading">{{__('user.Google Map')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <textarea name="google_map"></textarea>
-                                            </div>
+
+                                <div class="col-md-3 col-12">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Price dollar')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <input required type="number" name="price">
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <!-- Single Form Element -->
-                                    <div class="mg-top-20 d-none">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Slug')}} *</h4>
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Address')}} *</h4>
                                         <div class="form-group homec-form-input">
-                                            <input type="text" name="slug" id="slug">
+                                            <input type="text" required name="address">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+
+                                <div class=" col-md-3 col-12">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.City')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <select name="city_id" required
+                                                class="homec-form-select homec-border select2">
+                                                <option value="">{{__('user.Select')}}</option>
+                                                @foreach ($cities as $city)
+                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Property Type')}} *</h4>
@@ -230,34 +212,57 @@
                                     </div>
                                 </div>
 
+                                <div class=" col-md-3 col-12 d-none">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Address Details')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <textarea name="address_description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-md-3 col-12 d-none">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Google Map')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <textarea name="google_map"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20 d-none">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Slug')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <input type="text" name="slug" id="slug">
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <input type="hidden" name="purpose" value="{{ $request_purpose }}">
 
                                 @if ($request_purpose == 'rent')
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Rent Period')}} *</h4>
                                         <div class="form-group homec-form-input">
                                             <select name="rent_period" class="homec-form-select homec-border">
-                                                <option value="daily">{{__('user.Daily')}}</option>
-                                                <option value="monthly">{{__('user.Monthly')}}</option>
-                                                <option value="yearly">{{__('user.Yearly')}}</option>
+                                                <option value="Daily">{{__('user.Daily')}}</option>
+                                                <option value="Monthly">{{__('user.Monthly')}}</option>
+                                                <option value="Yearly">{{__('user.Yearly')}}</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 @endif
 
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Price dollar')}} *</h4>
-                                        <div class="form-group homec-form-input">
-                                            <input required type="number" name="price">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+
+                                <div class=" col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Area(m2)')}} </h4>
@@ -266,7 +271,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Unit')}} *</h4>
@@ -275,7 +280,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Bedroom')}} *</h4>
@@ -284,7 +289,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class=" col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Bathroom')}} *</h4>
@@ -293,7 +298,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class=" col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Garage')}} *</h4>
@@ -302,7 +307,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class=" col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Kitchen')}} *</h4>
@@ -322,13 +327,13 @@
 
                         </div>
                     </div>
-                    <div class="homec-submit-form mg-top-40 d-none">
+                    <div class="homec-submit-form mg-top-20 d-none">
                         <h4 class="homec-submit-form__title">{{__('user.Property Video')}}</h4>
                         <div class="homec-submit-form__inner">
 
                         </div>
                     </div>
-                    <div class="homec-submit-form mg-top-40">
+                    <div class="homec-submit-form mg-top-20">
                         <h4 class="homec-submit-form__title">{{__('user.Aminities')}}</h4>
                         <div class="homec-submit-form__inner">
                             <div class="form-group homec-form-input--list">
@@ -345,7 +350,7 @@
                         </div>
                     </div>
 
-                    <div class="homec-submit-form mg-top-40">
+                    <div class="homec-submit-form mg-top-20">
                         <h4 class="homec-submit-form__title">{{__('user.images and videos')}}</h4>
                         <div class="homec-submit-form__inner">
                             <div class="row">
@@ -395,8 +400,8 @@
                                                 <label class="homec-image-video-upload__label" for="input-video13">
                                                     <img src="{{ asset('frontend/img/upload-file.svg') }}" alt="#">
                                                     <span class="homec-image-video-upload__title">{{__('user.Please')}}
-                                                        <span class="homec-primary-color">{{__('user.Choose
-                                                            File')}}</span>
+                                                        <span class="homec-primary-color">
+                                                            {{__('user.Choose File')}}</span>
                                                         {{__('user.to upload')}} </span>
                                                 </label>
                                             </div>
@@ -425,7 +430,7 @@
 
 
 
-                    <div class="homec-submit-form mg-top-40 d-none">
+                    <div class="homec-submit-form mg-top-20 d-none">
                         <h4 class="homec-submit-form__title">{{__('user.Property Location')}}</h4>
                         <div class="homec-submit-form__inner">
 
@@ -434,7 +439,7 @@
 
 
 
-                    {{-- <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-20">
                         <h4 class="homec-submit-form__title">{{__('user.Additional Information')}}</h4>
                         <div class="homec-submit-form__inner" id="additional-box">
                             <div class="row">
@@ -464,7 +469,7 @@
                         </div>
                     </div> --}}
 
-                    {{-- <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-20">
                         <h4 class="homec-submit-form__title">{{__('user.Property Plan')}}</h4>
                         <div class="homec-submit-form__inner" id="plan-box">
                             <div class="row">
@@ -506,7 +511,7 @@
                         </div>
                     </div> --}}
 
-                    {{-- <div class="homec-submit-form mg-top-40">
+                    {{-- <div class="homec-submit-form mg-top-20">
                         <h4 class="homec-submit-form__title">{{__('user.SEO Information')}}</h4>
                         <div class="homec-submit-form__inner">
                             <div class="row">
@@ -533,7 +538,7 @@
                     </div> --}}
 
                     <div class="row">
-                        <div class="col-12 d-flex justify-content-end mg-top-40">
+                        <div class="col-12 d-flex justify-content-end mg-top-20">
                             <button type="submit" class="homec-btn homec-btn__second"><span>
                                     {{__('user.Submit Property')}}</span></button>
                         </div>

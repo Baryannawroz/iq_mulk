@@ -42,7 +42,7 @@
                                                 <a target="_blank" href="{{ route('admin.agent-show', $property->agent_id) }}">{{ html_decode($property->agent->name) }}</a>
                                             </td>
 
-                                            <td>{{ $currency_icon }}{{ html_decode(num_format($property->price)) }}</td>
+                                            <td>{{ $currency_icon }}{{ html_decode(num_format($property->price,0)) }}</td>
 
                                             <td>
                                                 @if ($property->purpose == 'rent')

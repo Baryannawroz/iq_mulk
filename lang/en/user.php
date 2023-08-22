@@ -2,7 +2,7 @@
 return array(
     'cats' => 'جۆری تر',
     'Total reklam' => 'تەواوی ڕیکلامەکان',
-    'Change Password' => 'گۆرینی وشەی نهێن',
+    'Change Password' => 'گۆرینی وشەی نهێنی',
     'Home' => 'سەرەکی',
     'Do you want to change your previous password ? please fill out the form below' => 'Do you want to change your previous password ? please fill out the form below',
     'Current Password' => 'وشەی نهێنی ئێستا',
@@ -88,9 +88,13 @@ return array(
     'Slug' => 'Slug',
     'Property Type' => 'جۆرەکانی موڵک',
     'Rent Period' => 'مودەی بە کرێدان',
+    'Agent' => 'بریکار',
     'Daily' => 'ڕۆژانە',
     'Monthly' => 'مانگانە',
     'Yearly' => 'سالانە',
+    'daily' => 'ڕۆژانە',//ama abe dubara betawa maysrnawa
+    'monthly' => 'مانگانە',
+    'yearly' => 'سالانە',
     'Total Area(m2)' => 'ڕوبەر(m2)',
     'Total Bedroom' => 'ژوری نووستن',
     'Total Bathroom' => 'ژمارەی گەرماوەکان',

@@ -138,7 +138,7 @@
                                         <livewire:cat-sub-select :category="-1" :sub="-1" />
                                     </div>
                                 </div>
-                                <div class="row mg-top-40">
+                                <div class="row mg-top-10">
 
                                     <div class="col-lg-8 col-md-8 col-12">
                                         <!-- Single Form Element -->

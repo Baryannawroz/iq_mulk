@@ -302,6 +302,7 @@ class PropertyController extends Controller
         $property = new Property();
         $property->agent_id = $agent_id;
         $property->title = $request->title;
+        $property->phone = $request->phone;
         $property->slug = $property->id . $request->title;
         $property->property_type_id = $request->property_type_id;
         $property->purpose = $request->purpose;
@@ -590,6 +591,7 @@ class PropertyController extends Controller
 
         $property->title = $request->title;
         $property->slug = $request->slug;
+        $property->phone = $request->phone;
         $property->property_type_id = $request->property_type_id;
         $property->purpose = $request->purpose;
         $property->rent_period = $request->purpose == 'rent' ? $request->rent_period : '';

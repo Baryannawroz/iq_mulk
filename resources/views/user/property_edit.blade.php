@@ -146,78 +146,58 @@
                             <div class="row">
 
                                 <!-- Single Form Element -->
-                                <div class="mg-top-20 col-md-8 col-12">
+                                <div class="mg-top-20 col-md-6 col-12">
                                     <h4 class="homec-submit-form__heading">{{__('user.Title')}} *</h4>
                                     <div class="form-group homec-form-input">
                                         <input type="text" name="title" id="title"
                                             value="{{ html_decode($property->title) }}">
                                     </div>
                                 </div>
-                                <div class="mg-top-20 col-md-4 col-12">
+                                <div class="mg-top-20 col-md-3 col-12">
                                     <h4 class="homec-submit-form__heading">{{__('user.phone')}} *</h4>
                                     <div class="form-group homec-form-input">
                                         <input type="text" name="phone" id="title" required
                                             value="{{ html_decode($property->phone) }}">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20">
-                                            <h4 class="homec-submit-form__heading">{{__('user.City')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <select name="city_id" class="homec-form-select homec-border select2">
-                                                    <option value="">{{__('user.Select')}}</option>
-                                                    @foreach ($cities as $city)
-                                                    <option {{ $property->city_id == $city->id ? 'selected' : '' }}
-                                                        value="{{ $city->id }}">{{ $city->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20">
-                                            <h4 class="homec-submit-form__heading">{{__('user.Address')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <input type="text" name="address"
-                                                    value="{{ html_decode($property->address) }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20 d-none">
-                                            <h4 class="homec-submit-form__heading">{{__('user.Address Details')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <textarea
-                                                    name="address_description">{{ html_decode($property->address_description) }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12 d-none">
-                                        <!-- Single Form Element -->
-                                        <div class="mg-top-20 ">
-                                            <h4 class="homec-submit-form__heading">{{__('user.Google Map')}} *</h4>
-                                            <div class="form-group homec-form-input">
-                                                <textarea
-                                                    name="google_map">{{ html_decode($property->google_map) }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
+
+                                <div class=" col-md-3 col-12">
                                     <!-- Single Form Element -->
-                                    <div class="mg-top-20 d-none">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Slug')}} *</h4>
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Price')}} *</h4>
                                         <div class="form-group homec-form-input">
-                                            <input type="text" name="slug" id="slug"
-                                                value="{{ html_decode($property->slug) }}">
+                                            <input type="text" name="price" value="{{ html_decode($property->price) }}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+
+                                <div class=" col-md-6 col-12">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Address')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <input type="text" name="address"
+                                                value="{{ html_decode($property->address) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20">
+                                        <h4 class="homec-submit-form__heading">{{__('user.City')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <select name="city_id" class="homec-form-select homec-border select2">
+                                                <option value="">{{__('user.Select')}}</option>
+                                                @foreach ($cities as $city)
+                                                <option {{ $property->city_id == $city->id ? 'selected' : '' }}
+                                                    value="{{ $city->id }}">{{ $city->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Property Type')}} *</h4>
@@ -235,6 +215,39 @@
 
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <!-- Single Form Element -->
+                                    <div class="mg-top-20 d-none">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Address Details')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <textarea
+                                                name="address_description">{{ html_decode($property->address_description) }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 d-none">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20 ">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Google Map')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <textarea
+                                                name="google_map">{{ html_decode($property->google_map) }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <!-- Single Form Element -->
+                                    <div class="mg-top-20 d-none">
+                                        <h4 class="homec-submit-form__heading">{{__('user.Slug')}} *</h4>
+                                        <div class="form-group homec-form-input">
+                                            <input type="text" name="slug" id="slug"
+                                                value="{{ html_decode($property->slug) }}">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class=" col-md-3 col-12">
+                                    <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Purpose')}} *</h4>
                                         <div class="form-group homec-form-input">
@@ -249,18 +262,18 @@
                                 </div>
 
                                 @if ($property->purpose == 'sale')
-                                <div class="col-lg-6 col-md-6 col-12 d-none" id="rend_period_box">
+                                <div class="col-md-3 col-12 d-none" id="rend_period_box">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Rent Period')}} *</h4>
                                         <div class="form-group homec-form-input">
                                             <select name="rent_period" class="homec-form-select homec-border">
-                                                <option {{ $property->rent_period == 'daily' ? 'selected' : '' }}
-                                                    value="daily">{{__('user.Daily')}}</option>
-                                                <option {{ $property->rent_period == 'monthly' ? 'selected' : '' }}
-                                                    value="monthly">{{__('user.Monthly')}}</option>
-                                                <option {{ $property->rent_period == 'yearly' ? 'selected' : '' }}
-                                                    value="yearly">{{__('user.Yearly')}}</option>
+                                                <option {{ $property->rent_period == 'Daily' ? 'selected' : '' }}
+                                                    value="Daily">{{__('user.Daily')}}</option>
+                                                <option {{ $property->rent_period == 'Monthly' ? 'selected' : '' }}
+                                                    value="Monthly">{{__('user.Monthly')}}</option>
+                                                <option {{ $property->rent_period == 'Yearly' ? 'selected' : '' }}
+                                                    value="Yearly">{{__('user.Yearly')}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -268,7 +281,7 @@
                                 @endif
 
                                 @if ($property->purpose == 'rent')
-                                <div class="col-lg-6 col-md-6 col-12" id="rend_period_box">
+                                <div class="col-md-3 col-12" id="rend_period_box">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Rent Period')}} *</h4>
@@ -286,16 +299,8 @@
                                 </div>
                                 @endif
 
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <!-- Single Form Element -->
-                                    <div class="mg-top-20">
-                                        <h4 class="homec-submit-form__heading">{{__('user.Price')}} *</h4>
-                                        <div class="form-group homec-form-input">
-                                            <input type="text" name="price" value="{{ html_decode($property->price) }}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Area(m2)')}} </h4>
@@ -305,7 +310,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Unit')}} *</h4>
@@ -314,7 +319,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Bedroom')}} *</h4>
@@ -324,7 +329,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Bathroom')}} *</h4>
@@ -334,7 +339,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Garage')}} *</h4>
@@ -344,7 +349,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
+                                <div class="col-md-3 col-12">
                                     <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Total Kitchen')}} *</h4>
@@ -365,34 +370,34 @@
                             </div>
                         </div>
                     </div>
-<div class="homec-submit-form mg-top-20">
-        <h4 class="homec-submit-form__title">{{__('user.Aminities')}}</h4>
-        <div class="homec-submit-form__inner">
-            <div class="form-group homec-form-input--list">
-                @foreach ($aminities as $aminity)
+                    <div class="homec-submit-form mg-top-20">
+                        <h4 class="homec-submit-form__title">{{__('user.Aminities')}}</h4>
+                        <div class="homec-submit-form__inner">
+                            <div class="form-group homec-form-input--list">
+                                @foreach ($aminities as $aminity)
 
-                @php
-                $is_checked=false;
-                @endphp
-                @foreach ($existing_properties as $amnty)
-                @if ($aminity->id == $amnty->aminity_id)
-                @php
-                $is_checked=true;
-                @endphp
-                @endif
-                @endforeach
+                                @php
+                                $is_checked=false;
+                                @endphp
+                                @foreach ($existing_properties as $amnty)
+                                @if ($aminity->id == $amnty->aminity_id)
+                                @php
+                                $is_checked=true;
+                                @endphp
+                                @endif
+                                @endforeach
 
-                <div class="form-group homec-form-checkbox mg-top-15">
-                    <input {{ $is_checked ? 'checked' :'' }} type="checkbox" id="item1-{{ $aminity->id }}"
-                        name="aminities[]" value="{{ $aminity->id }}">
-                    <label class="homec-form-label" for="item1-{{ $aminity->id }}">{{ $aminity->aminity
-                        }}</label>
-                </div>
-                @endforeach
+                                <div class="form-group homec-form-checkbox mg-top-15">
+                                    <input {{ $is_checked ? 'checked' :'' }} type="checkbox"
+                                        id="item1-{{ $aminity->id }}" name="aminities[]" value="{{ $aminity->id }}">
+                                    <label class="homec-form-label" for="item1-{{ $aminity->id }}">{{ $aminity->aminity
+                                        }}</label>
+                                </div>
+                                @endforeach
 
-            </div>
-        </div>
-    </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="homec-submit-form mg-top-20">
                         <h4 class="homec-submit-form__title">{{__('user.Property Image')}}</h4>
