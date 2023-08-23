@@ -245,7 +245,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-12">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label for=""></label>
+                       <input type="file" accept=".pdf"  name="pdf_file">
+                        </div>
+                        <div class=" col-md-6 col-12">
                             <!-- Single Form Element -->
                             <div class="mg-top-20">
                                 <h4 class="homec-submit-form__heading">{{__('user.Youtube video id')}} </h4>

@@ -171,7 +171,13 @@
                                         </div>
                                         <div class="row">
 
-                                            <div class="mt-4 col-12">
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <label for=""></label>
+                                                <input type="file" accept=".pdf" name="pdf_file"
+                                                    value="{{ $section->file }}">
+                                            </div>
+
+                                            <div class="mt-4 col-md-6 col-12">
 
                                                 <!-- Single Form Element -->
                                                 <div class="mg-top-20 ">

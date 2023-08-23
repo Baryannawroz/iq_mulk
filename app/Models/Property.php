@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    protected $dates = ['expired_date'];
 
     public function property_type(){
         return $this->belongsTo(Category::class, 'property_type_id');

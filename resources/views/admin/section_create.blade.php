@@ -185,6 +185,13 @@
                                                 class="form-control-file">
                                         </div>
                                     </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="">{{__('user.file secton')}}  <span
+                                                    class="text-danger">*</span></label>
+                                          <input type="file" accept=".pdf" name="pdf_file">
+                                        </div>
+                                    </div>
 
 
 

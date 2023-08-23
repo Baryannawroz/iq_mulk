@@ -1,6 +1,8 @@
 <?php
 return array(
     'cats' => 'جۆری تر',
+    'section file' => 'فایلی هاوپێج',
+    'expired' => 'بەسەرچوو',
     'expired_date' => 'بەرواری بەسەرچوون',
     'Total reklam' => 'تەواوی ڕیکلامەکان',
     'Change Password' => 'گۆرینی وشەی نهێنی',
@@ -93,7 +95,7 @@ return array(
     'Daily' => 'ڕۆژانە',
     'Monthly' => 'مانگانە',
     'Yearly' => 'سالانە',
-    'daily' => 'ڕۆژانە',//ama abe dubara betawa maysrnawa
+    'daily' => 'ڕۆژانە', //ama abe dubara betawa maysrnawa
     'monthly' => 'مانگانە',
     'yearly' => 'سالانە',
     'Total Area(m2)' => 'ڕوبەر(m2)',

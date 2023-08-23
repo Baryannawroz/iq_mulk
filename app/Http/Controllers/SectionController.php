@@ -13,6 +13,7 @@ use App\Models\SeoSetting;
 use App\Models\Setting;
 use App\Models\Sub;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -93,6 +94,15 @@ class SectionController extends Controller
 
         $validatedData = $validator->validated();
 
+        if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
+            $pdfFile = $request->file('pdf_file');
+            $extension = $pdfFile->getClientOriginalExtension();
+            $uniqueFileName = 'Property-pdf-' . Str::random(10) . '.' . $extension;
+
+            $pdfFile->move(public_path('uploads/section-file'), $uniqueFileName);
+        }
+
+
 
         if ($validatedData['thumbnail_image']) {
             $image = $validatedData['thumbnail_image'];
@@ -105,6 +115,7 @@ class SectionController extends Controller
 
             $section = new Section();
             $section->name = $validatedData['name'];
+            $section->file = "uploads/section-file/" . $uniqueFileName;
             $section->description = $validatedData['description'];
             $section->cat_id = $validatedData['cat_id'];
             $section->sub_id = $validatedData['sub_id'];
@@ -175,8 +186,18 @@ class SectionController extends Controller
                 ->encode('webp', 80)
                 ->save(public_path() . '/' . $image_name);
 
+            if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
+                $pdfFile = $request->file('pdf_file');
+                $extension = $pdfFile->getClientOriginalExtension();
+                $uniqueFileName = 'Property-pdf-' . Str::random(10) . '.' . $extension;
+
+                $pdfFile->move(public_path('uploads/section-file'), $uniqueFileName);
+            }
+
             $section = new Section();
             $section->name = $validatedData['name'];
+            $section->file = $uniqueFileName;
+            $section->file = 'uploads/section-file/'. $uniqueFileName;
             $section->description = $validatedData['description'];
             $section->cat_id = $validatedData['cat_id'];
             $section->sub_id = $validatedData['sub_id'];

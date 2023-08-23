@@ -81,6 +81,14 @@
                                                 <img src="{{ asset('frontend/img/location-icon.svg') }}">
                                                 <p>{{ html_decode($property->address) }}</p>
                                             </div>
+                                            @if ($property->expired_date)
+                                            @if ($property->expired_date->isFuture())
+                                            <p>{{ __('user.expired_date')." " .$property->expired_date->diffForHumans() }}</p>
+                                            @else
+                                            <p>{{ __('user.expired')}}</p>
+
+                                            @endif
+                                            @endif
                                             <div class="homec-dashboard-property__rating">
 
                                                 @php
@@ -193,6 +201,17 @@
                                                 <p>{{ html_decode($section->address) }}</p>
                                             </div>
 
+                                            <div class="homec-property__text">
+                                                @if ($section->expired_date)
+                                                @if ($section->expired_date->isFuture())
+                                                <p>{{ __('user.expired_date')." " .$section->expired_date->diffForHumans() }}</p>
+                                                @else
+                                                <p>{{ __('user.expired')}}</p>
+
+                                                @endif
+                                                @endif
+                                            </div>
+
                                         </div>
                                     </div>
                                     <!-- Property Button -->
@@ -234,6 +253,7 @@
                                         </form>
 
                                     </div>
+
                                 </div>
                                 <!-- End Single Properties -->
                                 @endforeach

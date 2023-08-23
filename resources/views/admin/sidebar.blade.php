@@ -225,8 +225,8 @@ $logedInAdmin = Auth::guard('admin')->user();
 
                     <li class="{{ Route::is('admin.slider.*') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.slider.index') }}">{{__('admin.Intro section')}}</a></li>
-                </ul>
-            </li>
+                {{-- </ul>
+            </li> --}}
             @if ($logedInAdmin->admin_type == 1)
 
             <li class="{{ Route::is('admin.home2-about-us') ? 'active' : '' }}"><a class="nav-link"

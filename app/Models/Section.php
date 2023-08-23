@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Section extends Model
 {
-    protected  $guarded = [];
+
 
     use HasFactory;
+    protected $dates = ['expired_date'];
     public function sub()
     {
         return $this->belongsTo(Sub::class);
