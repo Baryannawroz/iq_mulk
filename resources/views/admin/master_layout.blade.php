@@ -21,8 +21,8 @@ $footer = App\Models\Footer::first();
                 </div>
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown dropdown-list-toggle"><a target="_blank" href="{{ route('home') }}"
-                            class="nav-link nav-link-lg"><i class="fas fa-home"></i> {{__('admin.Visit
-                            Website')}}</i></a>
+                            class="nav-link nav-link-lg"><i class="fas fa-home"></i>
+                            {{__('admin.Visit Website')}}</i></a>
 
                     </li>
 

@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Blog;
 use App\Models\Subscriber;
 use App\Models\Property;
+use App\Models\Section;
 
 class DashboardController extends Controller
 {
@@ -59,17 +60,25 @@ class DashboardController extends Controller
         $total_user = User::orderBy('id','desc')->where('status',1)->count();
 
         $total_own_property = Property::where('agent_id', 0)->count();
+        $total_own_section = Section::where('user_id', 15)->count();
         $total_property = Property::count();
+        $total_section = Section::count();
         $total_publish_property = Property::where('status', 'enable')
                                     ->where('approve_by_admin', 'approved')
                                     ->where(function ($query) {
-                                        $query->where('expired_date', null)
-                                            ->orWhere('expired_date', '>=', date('Y-m-d'));
+                                        $query->Where('expired_date', '>=', date('Y-m-d'));
+                                    })
+                                    ->count();
+        $total_publish_section = Section::where('status', '1')
+                                    ->where(function ($query) {
+                                        $query->Where('expired_date', '>=', date('Y-m-d'));
                                     })
                                     ->count();
 
         $awaiting_property = Property::where('approve_by_admin', 'pending')->count();
+        $awaiting_section = Section::where('expired_date', null )->count();
         $reject_property = Property::where('approve_by_admin', 'reject')->count();
+        $expired_section = Section::where('expired_date', '<',date('Y-m-d'))->count();
 
 
         return view('admin.dashboard')->with([
@@ -93,6 +102,11 @@ class DashboardController extends Controller
             'total_property' => $total_property,
             'total_publish_property' => $total_publish_property,
             'awaiting_property' => $awaiting_property,
+            'total_section' => $total_section,
+            'total_own_section' => $total_own_section,
+            'total_publish_section' => $total_publish_section,
+            'awaiting_section' => $awaiting_section,
+            'expired_section' => $expired_section,
             'reject_property' => $reject_property,
             'total_agent' => $total_agent,
             'total_user' => $total_user,

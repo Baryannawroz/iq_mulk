@@ -22,7 +22,8 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">{{__('admin.SN')}}</th>
-                                        <th width="25%">{{__('user.section')}}</th>
+                                        <th width="15%">{{__('user.section')}}</th>
+                                        <th width="10%">{{__('user.expired_date')}}</th>
                                         <th width="10%">{{__('admin.Status')}}</th>
                                         <th width="15%">{{__('admin.Action')}}</th>
                                       </tr>
@@ -33,6 +34,9 @@
                                             <td>{{ ++$index }}</td>
                                             <td>
                                                 <a target="_blank" href="section/show/{{ $section->id }}">{{ html_decode($section->name) }}</a>
+                                            </td>
+                                            <td>
+                                                <p  class="text-bold text-center">{{ html_decode($section->expired_date) }}</p>
                                             </td>
 
 

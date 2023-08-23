@@ -225,14 +225,14 @@ class SectionController extends Controller
     }
     public function list()
     {
-        $sections = Section::all();
+        $sections = Section::all()->whereNotNull('expired_date');
         $today = carbon::today();
         return view('admin.agent_sections', compact('sections', 'today'));
     }
     public function awaitingList()
     {
         $today = carbon::today();
-        $sections = Section::where('expired_date', '<', $today)->get();
+        $sections = Section::where('expired_date', null)->get();
 
         return view('admin.agent_sections', compact('sections', 'today'));
     }

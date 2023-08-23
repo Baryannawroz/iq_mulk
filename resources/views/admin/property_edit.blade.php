@@ -331,6 +331,48 @@
 
                         </div>
 
+                        <div class="card">
+                            <div class="card-body" data-select2-id="select2-data-46-mub9">
+                                <h4>{{__('user.expired_date')}}</h4>
+                                <hr>
+                                <div class="row">
+
+
+
+
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="address">{{__('admin.expired_date')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="date" required name="expired_date" class="form-control"
+                                                value="{{ html_decode($property->expired_date) }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-none">
+                                        <div class="form-group">
+                                            <label for="address_description">{{__('admin.Address Details')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea name="address_description" class="form-control text-area-5" id=""
+                                                cols="30"
+                                                rows="10">{{ html_decode($property->address_description) }}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-none">
+                                        <div class="form-group">
+                                            <label for="google_map">{{__('admin.Google Map')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea name="google_map" class="form-control text-area-5" id="" cols="30"
+                                                rows="10">{{ html_decode($property->google_map) }}</textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
 
                         <div class="card">
                             <div class="card-body">

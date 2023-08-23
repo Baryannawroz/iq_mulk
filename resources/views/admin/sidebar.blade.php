@@ -318,7 +318,7 @@ $logedInAdmin = Auth::guard('admin')->user();
 
             </ul>
         </li>
-
+        @if ($logedInAdmin->admin_type == 1)
         <li
             class="nav-item dropdown {{ Route::is('admin.blog-category.*') || Route::is('admin.blog.*') || Route::is('admin.popular-blog.*') || Route::is('admin.blog-comment.*') ? 'active' : '' }}">
             <a href="#" class="nav-link has-dropdown"><i
@@ -342,7 +342,7 @@ $logedInAdmin = Auth::guard('admin')->user();
             </ul>
         </li>
 
-        @if ($logedInAdmin->admin_type == 1)
+
         <li
             class="nav-item dropdown {{ Route::is('admin.email-configuration') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'active' : '' }}">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-envelope"></i><span>{{__('admin.Email

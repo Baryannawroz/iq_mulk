@@ -1,6 +1,7 @@
 <?php
 return array(
     'cats' => 'جۆری تر',
+    'expired_date' => 'بەرواری بەسەرچوون',
     'Total reklam' => 'تەواوی ڕیکلامەکان',
     'Change Password' => 'گۆرینی وشەی نهێنی',
     'Home' => 'سەرەکی',

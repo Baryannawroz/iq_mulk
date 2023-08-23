@@ -247,13 +247,9 @@ class PropertyController extends Controller
         $property->is_top = $request->is_top ? 'enable' : 'disable';
         $property->is_urgent = $request->is_urgent ? 'enable' : 'disable';
         $property->approve_by_admin = 'approved';
-        if ($request->owner_id != 0) {
-            if ($agent_order->expiration_date == 'lifetime') {
-                $property->expired_date = null;
-            } else {
-                $property->expired_date = $agent_order->expiration_date;
-            }
-        }
+        $property->expired_date = $request->expired_date;
+
+
         $property->save();
 
         if ($request->aminities) {
@@ -484,6 +480,9 @@ class PropertyController extends Controller
         $property->address_description = $request->address_description;
         $property->google_map = $request->google_map;
 
+        $property->expired_date = $request->expired_date;
+
+        
         $property->video_id = $request->video_id;
         $property->video_description = $request->video_description;
 
