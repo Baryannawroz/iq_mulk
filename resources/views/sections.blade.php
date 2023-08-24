@@ -23,7 +23,7 @@
                     <ul class="breadcrumb__menu list-none">
                         <li><a href="{{ route('home') }}">{{__('user.Home')}}</a></li>
                         <li class="active"><a
-                                href="{{ route('properties',['purpose' => 'any']) }}">{{__('user.Properties')}}</a></li>
+                                href="/sections/1">{{__('user.Section')}}</a></li>
                     </ul>
                     @if (request()->has('top_property'))
                     <h2 class="breadcrumb__title m-0">{{__('user.Top Properties')}}</h2>
@@ -32,7 +32,7 @@
                     @elseif (request()->has('featured_property'))
                     <h2 class="breadcrumb__title m-0">{{__('user.Featured Properties')}}</h2>
                     @else
-                    <h2 class="breadcrumb__title m-0">{{__('user.Properties')}}</h2>
+                    <h2 class="breadcrumb__title m-0">{{__('user.Section')}}</h2>
                     @endif
 
                 </div>

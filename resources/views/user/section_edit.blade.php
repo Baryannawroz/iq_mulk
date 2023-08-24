@@ -147,7 +147,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-12">
+                                        <div class=" col-md-6 col-12">
                                             <div class="mg-top-20">
                                                 <p class="homec-img-video-label mg-btm-10">
                                                     {{__('user.Thumbnail Image')}}</p>
@@ -169,58 +169,84 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
 
-                                            <div class="col-lg-6 col-md-6 col-12">
-                                                <label for=""></label>
-                                                <input type="file" accept=".pdf" name="pdf_file"
-                                                    value="{{ $section->file }}">
-                                            </div>
+                                        <div class="col-md-6 col-12 mg-top-10 ">
+                                            <p class="homec-img-video-label mg-btm-10">
+                                                {{__('user.section file old')}}*</span></p>
+                                            @if ($section->file)
 
-                                            <div class="mt-4 col-md-6 col-12">
+                                                <iframe class="" src="/{{ $section->file }}" frameborder="0"></iframe>
+                                                @endif
 
-                                                <!-- Single Form Element -->
-                                                <div class="mg-top-20 ">
-                                                    <h4 class="homec-submit-form__heading">
-                                                        {{__('user.Youtube video id')}}
-                                                    </h4>
-                                                    <div class="form-group homec-form-input">
-                                                        <input type="text" name="video_id"
-                                                            value="{{ html_decode($section->video_id) }}">
-                                                    </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="mg-top-20">
+                                                <p class="homec-img-video-label mg-btm-10">
+                                                    {{__('user.section file')}}*</span></p>
+                                                <!-- Image Input -->
+                                                <div class="homec-image-video-upload homec-border">
+                                                    <input type="file" class="btn-check" accept=".pdf" name="pdf_file"
+                                                        id="pdf_file">
+                                                    <label class="homec-image-video-upload__label" for="pdf_file">
+                                                        <img src="{{ asset('frontend/img/upload-file.svg') }}" alt="#">
+                                                        <span
+                                                            class="homec-image-video-upload__title">{{__('user.Please')}}
+                                                            <span class="homec-primary-color">
+                                                                {{__('user.Choose File')}}</span>
+                                                            {{__('user.to upload')}} </span>
+                                                    </label>
                                                 </div>
-
                                             </div>
                                         </div>
+
+
+
+
+
+                                        <div class="mt-4 col-md-6 col-12">
+
+
+                                            <div class="mg-top-20 ">
+                                                <h4 class="homec-submit-form__heading">
+                                                    {{__('user.Youtube video id')}}
+                                                </h4>
+                                                <div class="form-group homec-form-input">
+                                                    <input type="text" name="video_id"
+                                                        value="{{ html_decode($section->video_id) }}">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     </div>
-
                                 </div>
+
+                                <div class="homec-submit-form mg-top-40 d-none">
+                                    <h4 class="homec-submit-form__title">{{__('user.Property Video')}}</h4>
+                                    <div class="homec-submit-form__inner">
+
+                                    </div>
+                                </div>
+
+                                <div class="homec-submit-form mg-top-40 d-none">
+                                    <h4 class="homec-submit-form__title">{{__('user.Property Location')}}</h4>
+                                    <div class="homec-submit-form__inner">
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-12 d-flex justify-content-end mg-top-40">
+                                <button type="submit"
+                                    class="homec-btn homec-btn__second"><span>{{__('user.Submit')}}</span></button>
                             </div>
 
-                            <div class="homec-submit-form mg-top-40 d-none">
-                                <h4 class="homec-submit-form__title">{{__('user.Property Video')}}</h4>
-                                <div class="homec-submit-form__inner">
-
-                                </div>
-                            </div>
-
-                            <div class="homec-submit-form mg-top-40 d-none">
-                                <h4 class="homec-submit-form__title">{{__('user.Property Location')}}</h4>
-                                <div class="homec-submit-form__inner">
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12 d-flex justify-content-end mg-top-40">
-                                    <button type="submit"
-                                        class="homec-btn homec-btn__second"><span>{{__('user.Submit')}}</span></button>
-                                </div>
-                            </div>
                 </form>
             </div>
         </div>
-    </div>
 </section>
 
 <!-- Download App -->

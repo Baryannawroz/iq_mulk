@@ -58,17 +58,6 @@
                                 </div>
                                 <div class="col-12">
                                     <!-- Single Form Element -->
-
-
-
-
-
-
-
-
-
-
-                                    <!-- Single Form Element -->
                                     <div class="mg-top-20">
                                         <h4 class="homec-submit-form__heading">{{__('user.Description')}} *</h4>
                                         <div class="form-group homec-form-input">
@@ -153,9 +142,11 @@
 
 
                                             <div class="form-group">
-                                                <label for="">{{__('admin.expire date')}} <span class="text-danger">*</span></label>
-                                                <input type="date" class="form-control datepicker" value="{{ $section->expired_date }}"
-                                                    placeholder="Select a date" name="expire_date">
+                                                <label for="">{{__('admin.expire date')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="date" class="form-control datepicker"
+                                                    value="{{ $section->expired_date }}" placeholder="Select a date"
+                                                    name="expire_date">
                                             </div>
 
                                         </div>
@@ -181,6 +172,8 @@
                                                     </iframe>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
                                             <!-- Single Form Element -->
                                             <div class="mg-top-20">
                                                 <h4 class="homec-submit-form__heading">{{__('user.Youtube video id')}}
@@ -192,6 +185,37 @@
                                             </div>
 
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mg-top-10 ">
+                                            <p class="homec-img-video-label mg-btm-10">
+                                                {{__('user.section file old')}}*</span></p>
+                                            @if ($section->file)
+                                            <iframe class="" src="/{{ $section->file }}" frameborder="0"></iframe>
+                                            @endif
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="mg-top-10">
+                                                <p class="homec-img-video-label mg-btm-10">
+                                                    {{__('user.section file')}}*</span></p>
+                                                <!-- Image Input -->
+                                                <div class="homec-image-video-upload homec-border">
+                                                    <input type="file" class="btn-check" accept=".pdf" name="pdf_file"
+                                                        id="pdf_file">
+                                                    <label class="homec-image-video-upload__label" for="pdf_file">
+                                                        <img src="{{ asset('frontend/img/upload-file.svg') }}" alt="#">
+                                                        <span
+                                                            class="homec-image-video-upload__title">{{__('user.Please')}}
+                                                            <span class="homec-primary-color">
+                                                                {{__('user.Choose File')}}</span>
+                                                            {{__('user.to upload')}} </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
 
                                 </div>

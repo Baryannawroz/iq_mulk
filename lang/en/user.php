@@ -2,6 +2,7 @@
 return array(
     'cats' => 'جۆری تر',
     'section file' => 'فایلی هاوپێج',
+    'section file old' => 'فایلی هاوپێج پێشوو',
     'expired' => 'بەسەرچوو',
     'expired_date' => 'بەرواری بەسەرچوون',
     'Total reklam' => 'تەواوی ڕیکلامەکان',

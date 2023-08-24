@@ -246,8 +246,21 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <label for=""></label>
-                       <input type="file" accept=".pdf"  name="pdf_file">
+                            <div class="mg-top-20">
+                                <p class="homec-img-video-label mg-btm-10">
+                                    {{__('user.section file')}}*</span></p>
+                                <!-- Image Input -->
+                                <div class="homec-image-video-upload homec-border">
+                                    <input type="file" class="btn-check" accept=".pdf" name="pdf_file" id="pdf_file">
+                                    <label class="homec-image-video-upload__label" for="pdf_file">
+                                        <img src="{{ asset('frontend/img/upload-file.svg') }}" alt="#">
+                                        <span class="homec-image-video-upload__title">{{__('user.Please')}}
+                                            <span class="homec-primary-color">
+                                                {{__('user.Choose File')}}</span>
+                                            {{__('user.to upload')}} </span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class=" col-md-6 col-12">
                             <!-- Single Form Element -->

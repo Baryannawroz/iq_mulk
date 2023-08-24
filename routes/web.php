@@ -443,8 +443,8 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
         Route::get('section/create', [SectionController::class, 'create']);
         Route::get('section/list', [SectionController::class, 'list']);
         Route::get('section/awaitingList', [SectionController::class, 'awaitingList']);
-        Route::get('section/edit/{id}', [SectionController::class, 'adminEdit']);
-        Route::post('section/update/{id}', [SectionController::class, 'adminUpdate']);
+        Route::get('section/edit/{id}', [SectionController::class, 'edit']);
+        Route::post('section/update/{id}', [SectionController::class, 'update']);
         Route::post('section/store', [SectionController::class, 'store']);
 
 
@@ -471,8 +471,8 @@ Route::group(['middleware' => ['demo', 'XSS']], function () {
     Route::get('section/{id}', [SectionController::class, 'show']);
     Route::get('/sections-with-ajax', [SectionController::class, 'sections_with_ajax'])->name('sections-with-ajax');
     Route::post('section/{section}/delete', [SectionController::class, 'delete']);
-    Route::post('section/update/{id}', [SectionController::class, 'update']);
-    Route::get('section/edit/{id}', [SectionController::class, 'edit']);
+    Route::post('section/update/{id}', [SectionController::class, 'userUpdate']);
+    Route::get('section/edit/{id}', [SectionController::class, 'userEdit']);
 
 });
 // end admin routes

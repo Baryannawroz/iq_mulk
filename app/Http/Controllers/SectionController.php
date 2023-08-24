@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Image;
 use File;
+use Illuminate\Support\Facades\Storage;
+
 
 class SectionController extends Controller
 {
@@ -196,8 +198,7 @@ class SectionController extends Controller
 
             $section = new Section();
             $section->name = $validatedData['name'];
-            $section->file = $uniqueFileName;
-            $section->file = 'uploads/section-file/'. $uniqueFileName;
+            $section->file = 'uploads/section-file/' . $uniqueFileName;
             $section->description = $validatedData['description'];
             $section->cat_id = $validatedData['cat_id'];
             $section->sub_id = $validatedData['sub_id'];
@@ -264,7 +265,7 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function UserEdit($id)
     {
 
         $setting = Setting::first();
@@ -290,22 +291,12 @@ class SectionController extends Controller
         );
         // mobile app
 
-
         $cities = City::all();
-
-
-
         $section = Section::find($id);
-
+        if ($section->user_id!=Auth::user()->id) {
+            return redirect()->back();
+        }
         $existing_sliders = Section_image::where('section_id', $id)->get();
-
-
-
-
-
-
-
-
 
         return view('user.section_edit')->with([
             'mobile_app' => $mobile_app,
@@ -315,7 +306,7 @@ class SectionController extends Controller
 
         ]);
     }
-    public function adminEdit($id)
+    public function edit($id)
     {
 
         $setting = Setting::first();
@@ -386,6 +377,7 @@ class SectionController extends Controller
             'address' => 'required',
             'cat_id' => 'required',
             'sub_id' => 'required',
+
         ];
         $customMessages = [
             'title.required' => trans('user_validation.Title is required'),
@@ -409,7 +401,24 @@ class SectionController extends Controller
             'total_kitchen.required' => trans('user_validation.Total kitchen is required')
         ];
 
+
+
         $this->validate($request, $rules, $customMessages);
+
+
+        if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
+            if (Storage::exists($section->file)) {
+                Storage::delete($section->file);
+            }
+
+            $pdfFile = $request->file('pdf_file');
+            $extension = $pdfFile->getClientOriginalExtension();
+            $uniqueFileName = 'Property-pdf-' . Str::random(10) . '.' . $extension;
+            $pdfFile->move(public_path('uploads/section-file'), $uniqueFileName);
+
+            $section->file = "uploads/section-file/" . $uniqueFileName;
+        }
+
         $section->name = $request->name;
 
 
@@ -465,7 +474,7 @@ class SectionController extends Controller
         $notification = array('messege' => $notification, 'alert-type' => 'success');
         return redirect()->route('user.property.index')->with($notification);
     }
-    public function adminUpdate(Request $request, $id)
+    public function userUpdate(Request $request, $id)
     {
 
         $section = Section::find($id);
@@ -499,6 +508,19 @@ class SectionController extends Controller
         ];
 
         $this->validate($request, $rules, $customMessages);
+
+        if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
+            if (Storage::exists($section->file)) {
+                Storage::delete($section->file);
+            }
+
+            $pdfFile = $request->file('pdf_file');
+            $extension = $pdfFile->getClientOriginalExtension();
+            $uniqueFileName = 'Property-pdf-' . Str::random(10) . '.' . $extension;
+            $pdfFile->move(public_path('uploads/section-file'), $uniqueFileName);
+
+            $section->file = "uploads/section-file/" . $uniqueFileName;
+        }
         $section->name = $request->name;
 
 
