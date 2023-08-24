@@ -258,55 +258,31 @@
                 <div class="homec-property-slides">
                     <div class="homec-property-main">
                         <div class="flexslider" id="f1">
-                            <ul class="slides">
-                                @foreach($sliders as $index => $slider)
-                                <li>
-                                    <div class="homec-image-gallery">
-                                        <!-- Amount Card -->
-                                        <div class="homec-amount-card homec-amount-card__sticky">
-                                            <h4 class="homec-amount-card__amount">{{ $currency_icon
-                                                }}{{number_format($property->price,0)}}
-                                                @if ($property->purpose == 'rent')
-                                                <span>{{ $property->rent_period }}</span>
-                                                @endif
+                          <div id="carouselExample" class="carousel slide">
+                            <div class="carousel-inner">
 
-                                            </h4>
-                                        </div>
-                                        <!-- End Amount Card -->
-                                        <div class="homec-overlay "></div>
-                                        <img src="{{ asset($slider->image) }}" alt="#" style="max-height: 400px">
-                                        <div class="homec-image-gallery__bottom">
-                                            <div class="homec-image-gallery__content">
-                                                <br>
-                                                <br>
-                                                <h3 class="text-white px-2 fs-6">{{ $property->title }}</h3>
-                                                {{-- <p class="homec-image-gallery__text">
-                                                    <img src="{{ asset('frontend/img/map-icon.svg')}}" alt="#">
-                                                    {{ $property->address }}
-                                                </p> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                @foreach($sliders as $index => $slider)
+                               @if($loop->iteration==1)
+                                <div class="carousel-item active">
+                                    <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @else
+                                <div class="carousel-item">
+                                    <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @endif
                                 @endforeach
 
-                            </ul>
-                        </div>
-                        <div class="homec-property-thumbs--top d-none">
-                            <div class="homec-property-thumbs mg-top-10">
-                                <div class="flexslider carousel" id="f2">
-                                    <ul class="slides">
-                                        @foreach($sliders as $index => $slider)
-                                        <li>
-                                            <div class="single-thumbs">
-                                                <img src="{{ asset($slider->image) }}" alt="thumbs">
-                                            </div>
-                                        </li>
-                                        @endforeach
-
-                                    </ul>
-                                </div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>

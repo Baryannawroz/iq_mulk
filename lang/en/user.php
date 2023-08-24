@@ -239,6 +239,7 @@ return array(
     'Area(m2)' => 'ڕووبه‌ر(m2)',
     'Range' => 'مەودا',
     'Property Details' => 'وردەکارییەکانی موڵک',
+    'Section Details' => 'وردەکارییەکان',
     'Area' => 'ڕووبه‌ر',
     'Unit' => 'یەکە',
     'Bedroom' => 'ژوری نووستن',
