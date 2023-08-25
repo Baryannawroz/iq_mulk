@@ -7,6 +7,7 @@ return array(
     'expired_date' => 'بەرواری بەسەرچوون',
     'Total reklam' => 'تەواوی ڕیکلامەکان',
     'Change Password' => 'گۆرینی وشەی نهێنی',
+    'share it' => 'بڵاوکردنەوە',
     'Home' => 'سەرەکی',
     'Do you want to change your previous password ? please fill out the form below' => 'Do you want to change your previous password ? please fill out the form below',
     'Current Password' => 'وشەی نهێنی ئێستا',

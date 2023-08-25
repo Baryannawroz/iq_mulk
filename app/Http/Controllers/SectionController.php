@@ -425,6 +425,7 @@ class SectionController extends Controller
         $section->description = $request->description;
         $section->cat_id = $request->cat_id;
         $section->sub_id = $request->sub_id;
+        $section->expire_date = $request->expire_date;
 
 
 
