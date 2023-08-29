@@ -2,7 +2,7 @@
 return array(
     'cats' => 'جۆری تر',
     'prozhakan' => 'پڕۆژەکان',
-    'see prozhakan' => 'بینینی پڕۆژەکان',
+    'see prozhakan' => 'بینینی هەموو پڕۆژەکان',
     'section file' => 'فایلی هاوپێج',
     'section file old' => 'فایلی هاوپێج پێشوو',
     'expired' => 'بەسەرچوو',

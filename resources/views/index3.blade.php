@@ -119,8 +119,7 @@
                 <div class="homec-flex homec-flex__section mg-btm-60">
                     <!-- Section TItle -->
                     <div class="homec-section__head m-0 mg-top-30">
-                        <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
-                            data-aos="fade-in" data-aos-delay="300">{{ __('user.prozhakan') }}</span>
+                      
                         <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">
                             {{__('user.prozhakan') }}</h2>
                     </div>
@@ -144,7 +143,7 @@
                     <div class="homec-property">
                         <!-- Property Head-->
                         <div class="homec-property__head">
-                            <a href="{{ route('property', html_decode($featured_property->slug)) }}">kjhj
+                            <a href="{{ route('property', html_decode($featured_property->slug)) }}">
                                 <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
                             </a>
                             <div class="homec-property__hsticky">
