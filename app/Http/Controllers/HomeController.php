@@ -52,6 +52,7 @@ use App\Mail\SubscriptionVerification;
 use App\Mail\UserRegistration;
 use App\Helpers\MailHelper;
 use App\Models\Cat;
+use App\Models\Section;
 use App\Models\Sub;
 use Mail;
 use Session;
@@ -492,6 +493,7 @@ class HomeController extends Controller
             $min_price = $max_price + 1;
         }
 
+        $businessReklame = Section::where("vip", "1")->get();
 
         $selected_theme = Session::get('selected_theme');
 
@@ -544,6 +546,7 @@ class HomeController extends Controller
                 'cats' => Cat::where('status', "1")->get(),
                 'subs' => Sub::where('status', "1")->get(),
                 'top_property' => $top_property,
+                'businessReklames' => $businessReklame,
 
                 'selected_theme' => $selected_theme,
                 'seo_setting' => $seo_setting,

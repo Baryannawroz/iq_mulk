@@ -788,7 +788,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('admin.Top Property')}}</div>
+                                            <div class="control-label">{{__('user.prozhakan')}}</div>
                                             <label class=" mt-2">
                                                 <input {{ $property->is_top == 'enable' ? 'checked' : '' }}
                                                 type="checkbox" name="is_top" class="custom-switch-input">

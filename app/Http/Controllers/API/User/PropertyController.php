@@ -184,7 +184,7 @@ class PropertyController extends Controller
 
         $rules = [
             'title'=>'required|unique:properties',
-            'slug'=>'required|unique:properties',
+            'slug'=>'',
             'property_type_id'=>'required',
             'purpose'=> 'required',
             'rent_period'=> $request->purpose == 'rent' ? 'required' : '',
@@ -230,7 +230,7 @@ class PropertyController extends Controller
         $property = new Property();
         $property->agent_id = $agent_id;
         $property->title = $request->title;
-        $property->slug = $request->slug;
+        $property->slug = $property->id . $request->title;
         $property->property_type_id = $request->property_type_id;
         $property->purpose = $request->purpose;
         $property->rent_period = $request->purpose == 'rent' ? $request->rent_period : '';

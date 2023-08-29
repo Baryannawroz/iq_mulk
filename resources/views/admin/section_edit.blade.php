@@ -45,6 +45,10 @@
                     <div class="homec-submit-form">
                         <h4 class="homec-submit-form__title">{{__('user.Basic Information')}}</h4>
                         <div class="homec-submit-form__inner">
+
+                            @livewireStyles
+                                <livewire:cat-sub-select :category="$section->cat_id" :sub="$section->sub_id" />
+                                @livewireScripts
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Single Form Element -->
@@ -138,17 +142,28 @@
                                 <div class="homec-submit-form__inner">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <!-- Single Form Element -->
-
 
                                             <div class="form-group">
                                                 <label for="">{{__('admin.expire date')}} <span
                                                         class="text-danger">*</span></label>
                                                 <input type="date" class="form-control datepicker"
-                                                    value="{{ $section->expired_date }}" placeholder="Select a date"
+                                                    value="{{  $section->expired_date->format('Y-m-d') }}" placeholder="Select a date"
                                                     name="expire_date">
                                             </div>
 
+                                        </div>
+                                        <div class=" col-md-6 col-12" id="top_box">
+                                            <div class="form-group">
+                                                <div class="control-label">{{__('admin.bussines reklam')}}</div>
+                                                <label class=" mt-2">
+                                                    <input type="checkbox" name="vip" @if ($section->vip)
+                                                    checked
+                                                    @endif class="custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                    <span class="custom-switch-description">
+                                                        {{__('admin.Enable / Disable')}}</span>
+                                                </label>
+                                            </div>
                                         </div>
 
                                     </div>

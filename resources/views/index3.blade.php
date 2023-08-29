@@ -109,6 +109,97 @@
     </div>
 </section>
 
+<section class="pd-top-90">
+    <div class="homec-property-separate homec-bg-primary-color">
+        <div class="homec-bg homec-bg__opacity homec-featured-bg-two"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="homec-flex homec-flex__section mg-btm-60">
+                    <!-- Section TItle -->
+                    <div class="homec-section__head m-0 mg-top-30">
+                        <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
+                            data-aos="fade-in" data-aos-delay="300">{{ __('user.prozhakan') }}</span>
+                        <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">{{
+                            __('user.prozhakan') }}</h2>
+                    </div>
+                    <!-- Button -->
+                    <div class="homec-section__btn mg-top-30" data-aos="fade-right" data-aos-delay="500">
+                        <a href="{{ route('properties',['top_property' => 'enable']) }}"
+                            class="homec-btn homec-btn__second"><span>{{__('user.see prozhakan')}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper mySwiper homec-slider-property pd-btm-30 loading">
+
+            @php
+            $featured_properties = $featured_property->properties;
+            @endphp
+            <div class="swiper-wrapper">
+                @foreach ($featured_properties as $featured_property)
+                <div class="swiper-slide">
+                    <!-- Single property-->
+                    <div class="homec-property">
+                        <!-- Property Head-->
+                        <div class="homec-property__head">
+                            <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
+                            <!-- Top Sticky -->
+                            <div class="homec-property__hsticky">
+
+                                <span class="homec-property__salebadge mx-3">
+                                    @if ($featured_property->purpose == 'rent')
+                                    {{__('user.For Rent')}}
+                                    @else
+                                    {{__('user.For Sale')}}
+                                    @endif
+                                </span>
+
+                            </div>
+                            <!-- End Top Sticky -->
+                        </div>
+                        <!-- Property Body-->
+                        <div class="homec-property__body">
+                            <div class="homec-property__topbar">
+                                <div class="homec-property__price">{{ $currency_icon }}{{
+                                    html_decode(number_format($featured_property->price,0)) }}
+                                    @if ($featured_property->purpose == 'rent')
+                                    <span>/{{ __("user.". $featured_property->rent_period )}}</span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <h3 class="homec-property__title"><a
+                                    href="{{ route('property', html_decode($featured_property->slug)) }}">{{
+                                    html_decode($featured_property->title) }}</a></h3>
+                            <div class="homec-property__text">
+                                <img src="{{ asset('frontend/img/location-icon.svg') }}" alt="address">
+                                <p>{{ html_decode($featured_property->address) }}</p>
+                            </div>
+                            <!-- Property List-->
+                            <ul class="homec-property__list homec-border-top list-none">
+                                <li><img src="{{ asset('frontend/img/room-icon2.svg') }}" alt="total_bedroom">{{
+                                    $featured_property->total_bedroom }} {{__('user.Bed')}}</li>
+                                <li><img src="{{ asset('frontend/img/bath-icon2.svg') }}" alt="total_bathroom">{{
+                                    $featured_property->total_bathroom }} {{__('user.Bath')}}</li>
+                                <li><img src="{{ asset('frontend/img/size-icon2.svg') }}" alt="total_area">{{
+                                    html_decode($featured_property->total_area) }} {{__('user.m2')}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single property-->
+                </div>
+                @endforeach
+
+            </div>
+        </div>
+        <!-- Slider Pagination -->
+        <div class="swiper-pagination swiper-pagination__property mg-top-30"></div>
+    </div>
+</section>
+
+
 {{-- agent --}}
 <section class="homec-bg-third-color homec-bg-cover pd-top-90 pd-btm-120"
     style="background-image: url({{ asset($agent->home2_agent_bg) }});">
@@ -189,10 +280,6 @@
     </div>
 </section>
 {{-- end agent --}}
-
-
-<!-- End homec Hero -->
-@endif
 <section class="pd-top-90">
     <div class="homec-property-separate homec-bg-primary-color">
         <div class="homec-bg homec-bg__opacity homec-featured-bg-two"></div>
@@ -204,72 +291,39 @@
                     <!-- Section TItle -->
                     <div class="homec-section__head m-0 mg-top-30">
                         <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
-                            data-aos="fade-in" data-aos-delay="300">{{ $featured_property->title }}</span>
+                            data-aos="fade-in" data-aos-delay="300">{{ __('user.business reklame') }}</span>
                         <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">{{
-                            $featured_property->description }}</h2>
+                            __('user.See Featured business reklame') }}</h2>
                     </div>
-                    <!-- Button -->
-                    <div class="homec-section__btn mg-top-30" data-aos="fade-right" data-aos-delay="500">
-                        <a href="{{ route('properties',['featured_property' => 'enable']) }}"
-                            class="homec-btn homec-btn__second"><span>{{__('user.See Featured Properties')}}</span></a>
-                    </div>
+
                 </div>
             </div>
         </div>
         <div class="swiper mySwiper homec-slider-property pd-btm-30 loading">
 
-            @php
-            $featured_properties = $featured_property->properties;
-            @endphp
+
             <div class="swiper-wrapper">
-                @foreach ($featured_properties as $featured_property)
+                @foreach ($businessReklames as $businessReklame)
                 <div class="swiper-slide">
                     <!-- Single property-->
                     <div class="homec-property">
                         <!-- Property Head-->
                         <div class="homec-property__head">
-                            <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
-                            <!-- Top Sticky -->
-                            <div class="homec-property__hsticky">
+                            <img src="{{ asset($businessReklame->image) }}" alt="thumbnail_image">
 
-                                <span class="homec-property__salebadge mx-3">
-                                    @if ($featured_property->purpose == 'rent')
-                                    {{__('user.For Rent')}}
-                                    @else
-                                    {{__('user.For Sale')}}
-                                    @endif
-                                </span>
 
-                            </div>
-                            <!-- End Top Sticky -->
                         </div>
-                        <!-- Property Body-->
-                        <div class="homec-property__body">
-                            <div class="homec-property__topbar">
-                                <div class="homec-property__price">{{ $currency_icon }}{{
-                                    html_decode(number_format($featured_property->price,0)) }}
-                                    @if ($featured_property->purpose == 'rent')
-                                    <span>/{{ __("user.". $featured_property->rent_period )}}</span>
-                                    @endif
 
-                                </div>
-                            </div>
-                            <h3 class="homec-property__title"><a
-                                    href="{{ route('property', html_decode($featured_property->slug)) }}">{{
-                                    html_decode($featured_property->title) }}</a></h3>
+                        <div class="homec-property__body">
+
+                            <h3 class="homec-property__title"><a href="section/{{ $businessReklame->id }}">{{
+                                    html_decode($businessReklame->name) }}</a></h3>
                             <div class="homec-property__text">
                                 <img src="{{ asset('frontend/img/location-icon.svg') }}" alt="address">
-                                <p>{{ html_decode($featured_property->address) }}</p>
+                                <p>{{ html_decode($businessReklame->address) }}</p>
                             </div>
                             <!-- Property List-->
-                            <ul class="homec-property__list homec-border-top list-none">
-                                <li><img src="{{ asset('frontend/img/room-icon2.svg') }}" alt="total_bedroom">{{
-                                    $featured_property->total_bedroom }} {{__('user.Bed')}}</li>
-                                <li><img src="{{ asset('frontend/img/bath-icon2.svg') }}" alt="total_bathroom">{{
-                                    $featured_property->total_bathroom }} {{__('user.Bath')}}</li>
-                                <li><img src="{{ asset('frontend/img/size-icon2.svg') }}" alt="total_area">{{
-                                    html_decode($featured_property->total_area) }} {{__('user.m2')}}</li>
-                            </ul>
+
                         </div>
                     </div>
                     <!-- End Single property-->
@@ -283,7 +337,11 @@
     </div>
 </section>
 
-<section class="homec-features pd-top-60 pd-btm-120">
+<!-- End homec Hero -->
+@endif
+
+
+<section class="homec-features pd-top-60 pd-btm-120 d-none">
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-md-4 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
@@ -291,10 +349,10 @@
 
                 <a href="{{ route('properties',['purpose' => 'any']) }}" class="homec-features__single">
                     {{--
-                        <div class="homec-features__icon">
-                            <img src="" alt="icon">
-                        </div>
-                        --}}
+                    <div class="homec-features__icon">
+                        <img src="" alt="icon">
+                    </div>
+                    --}}
                     <div class="homec-features__content">
                         <h6 style="margin: 0; padding: " class="">{{__('user.Property')}}</h6>
                     </div>
@@ -307,7 +365,7 @@
                 <a href="/sections/{{$cat->id}}" class="homec-features__single">
                     {{-- <div class="homec-features__icon">
                         {{-- <img src="{{ asset($property_type->icon) }}" alt="icon"> --}}
-                    {{-- </div> --}}
+                        {{-- </div> --}}
 
                     <div class="homec-features__content">
                         <h6 class="">{{ $cat->name }}</h6>
@@ -576,6 +634,7 @@
 
 <!-- Latest Property -->
 
+
 <section class="pd-top-90">
     <div class="homec-property-separate homec-bg-primary-color">
         <div class="homec-bg homec-bg__opacity homec-featured-bg-two"></div>
@@ -587,9 +646,9 @@
                     <!-- Section TItle -->
                     <div class="homec-section__head m-0 mg-top-30">
                         <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
-                            data-aos="fade-in" data-aos-delay="300">{{ $top_property->title }}</span>
+                            data-aos="fade-in" data-aos-delay="300">{{ __('user.Top') }}</span>
                         <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">{{
-                            $top_property->description }}</h2>
+                            __('user.See Featured Properties') }}</h2>
                     </div>
                     <!-- Button -->
                     <div class="homec-section__btn mg-top-30" data-aos="fade-right" data-aos-delay="500">

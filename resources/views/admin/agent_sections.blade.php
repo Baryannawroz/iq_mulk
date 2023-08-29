@@ -36,7 +36,7 @@
                                                 <a target="_blank" href="section/show/{{ $section->id }}">{{ html_decode($section->name) }}</a>
                                             </td>
                                             <td>
-                                                <p  class="text-bold text-center">{{ html_decode($section->expired_date) }}</p>
+                                                <p  class="text-bold text-center">{{ html_decode( $section->expired_date->format('d/m/Y') ) }}</p>
                                             </td>
 
 

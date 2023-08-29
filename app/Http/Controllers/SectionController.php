@@ -72,6 +72,8 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $rules = [
             'name' => 'required',
             'description' => 'required',
@@ -96,13 +98,7 @@ class SectionController extends Controller
 
         $validatedData = $validator->validated();
 
-        if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
-            $pdfFile = $request->file('pdf_file');
-            $extension = $pdfFile->getClientOriginalExtension();
-            $uniqueFileName = 'Property-pdf-' . Str::random(10) . '.' . $extension;
 
-            $pdfFile->move(public_path('uploads/section-file'), $uniqueFileName);
-        }
 
 
 
@@ -117,7 +113,9 @@ class SectionController extends Controller
 
             $section = new Section();
             $section->name = $validatedData['name'];
-            $section->file = "uploads/section-file/" . $uniqueFileName;
+            if ($request['vip']=='on')
+            $section->vip = 1;
+
             $section->description = $validatedData['description'];
             $section->cat_id = $validatedData['cat_id'];
             $section->sub_id = $validatedData['sub_id'];
@@ -130,6 +128,14 @@ class SectionController extends Controller
             if ($validatedData['expire_date']) {
                 $section->approved_date = Carbon::today();
                 $section->expired_date = $validatedData['expire_date'];
+            }
+            if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
+                $pdfFile = $request->file('pdf_file');
+                $extension = $pdfFile->getClientOriginalExtension();
+                $uniqueFileName = 'Property-pdf-' . Str::random(10) . '.' . $extension;
+
+                $pdfFile->move(public_path('uploads/section-file'), $uniqueFileName);
+                $section->file = "uploads/section-file/" . $uniqueFileName;
             }
 
             $section->save();
@@ -293,7 +299,7 @@ class SectionController extends Controller
 
         $cities = City::all();
         $section = Section::find($id);
-        if ($section->user_id!=Auth::user()->id) {
+        if ($section->user_id != Auth::user()->id) {
             return redirect()->back();
         }
         $existing_sliders = Section_image::where('section_id', $id)->get();
@@ -367,7 +373,6 @@ class SectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $section = Section::find($id);
 
         $rules = [
@@ -376,8 +381,7 @@ class SectionController extends Controller
             'city_id' => 'required',
             'address' => 'required',
             'cat_id' => 'required',
-            'sub_id' => 'required',
-
+            'sub_id' => 'required'
         ];
         $customMessages = [
             'title.required' => trans('user_validation.Title is required'),
@@ -406,6 +410,7 @@ class SectionController extends Controller
         $this->validate($request, $rules, $customMessages);
 
 
+
         if ($request->hasFile('pdf_file') && $request->file('pdf_file')->isValid()) {
             if (Storage::exists($section->file)) {
                 Storage::delete($section->file);
@@ -420,12 +425,15 @@ class SectionController extends Controller
         }
 
         $section->name = $request->name;
-
+        if ($request['vip'] == 'on')
+        $section->vip = 1;else {
+            $section->vip = 0;
+        }
 
         $section->description = $request->description;
         $section->cat_id = $request->cat_id;
         $section->sub_id = $request->sub_id;
-        $section->expire_date = $request->expire_date;
+        $section->expired_date = $request->expire_date;
 
 
 
@@ -473,7 +481,7 @@ class SectionController extends Controller
 
         $notification = trans('user_validation.Update succssfully');
         $notification = array('messege' => $notification, 'alert-type' => 'success');
-        return redirect()->route('user.property.index')->with($notification);
+        return redirect('/admin/section/list');
     }
     public function userUpdate(Request $request, $id)
     {

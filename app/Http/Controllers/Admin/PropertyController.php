@@ -154,7 +154,7 @@ class PropertyController extends Controller
 
         $rules = [
             'title' => 'required|unique:properties',
-            'slug' => 'required|unique:properties',
+            'slug' => '',
             'property_type_id' => 'required',
             'purpose' => 'required',
             'rent_period' => $request->purpose == 'rent' ? 'required' : '',
@@ -482,7 +482,7 @@ class PropertyController extends Controller
 
         $property->expired_date = $request->expired_date;
 
-        
+
         $property->video_id = $request->video_id;
         $property->video_description = $request->video_description;
 

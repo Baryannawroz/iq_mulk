@@ -149,12 +149,23 @@
                                 <hr>
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="">{{__('user.expire date')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control datepicker"
                                                 placeholder="Select a date" name="expire_date">
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6 col-12" id="top_box">
+                                        <div class="form-group">
+                                            <div class="control-label">{{__('admin.bussines reklam')}}</div>
+                                            <label class=" mt-2">
+                                                <input type="checkbox" name="vip" class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">
+                                                    {{__('admin.Enable / Disable')}}</span>
+                                            </label>
                                         </div>
                                     </div>
 
