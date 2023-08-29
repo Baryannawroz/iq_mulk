@@ -57,9 +57,9 @@
   'Blog comment submited successfully' => 'Blog comment submited successfully',
   'Review is required' => 'Review is required',
   'Review submited successfully' => 'Review submited successfully',
-  'Subscription successfully, please verified your email' => 'Subscription successfully, please verified your email',
+  'Subscription successfully, please verified your email' => 'هەژمارەکەت بە سەرکەوتوویی تۆمارکرا. تکایە هەژمارەکات کارا بکە لە ڕێی ئیمەیڵەکەتەو',
   'Email Field is required' => 'Email Field is required',
-  'Email verification successfully' => 'Email verification successfully',
+  'Email verification successfully' => 'بە سەرکەوتوویی ئیمەیلەکەت چالاک کرا',
   'Invalid token' => 'Invalid token',
   'Agent email is required' => 'Agent email is required',
   'Login Successfully' => 'Login Successfully',
@@ -85,4 +85,3 @@
   'Month is required' => 'Month is required',
   'Cvv is required' => 'Cvc is required',
 );
- ?>

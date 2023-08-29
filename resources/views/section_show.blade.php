@@ -134,24 +134,16 @@
                                                     </div>
                                                 </div>
 
-                                                <script>
-                                                    document.getElementById('facebook-share-btn').addEventListener('click', function() {
-        const urlToShare = 'https://www.example.com'; // Replace with the URL you want to share
-        const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlToShare)}`;
 
-        window.open(facebookShareURL, 'Share on Facebook', 'width=600,height=400');
-
-        document.getElementById('instagram-share-btn').addEventListener('click', function() {
-            const urlToShare = 'https://www.example.com'; // Replace with the URL you want to share
-            const instagramShareURL = `https://www.instagram.com/share?url=${encodeURIComponent(urlToShare)}`;
-
-            window.open(instagramShareURL, 'Share on Instagram', 'width=600,height=400');
-            });
-    });
-                                                </script>
 
                                             </div>
+                                            <div class="text-danger">
+                                                <p>{{ __('user.expired_date') }}</p>
+                                                {{ $section->expired_date->diffForHumans() }}
+                                            </div>
                                         </div>
+
+
                                         <div class="tab-pane fade" id="homec-pd-tab3" role="tabpanel">
                                             <div class="homec-pdetails-tab__inner">
 
@@ -300,7 +292,21 @@
 
 
 
+<script>
+    document.getElementById('facebook-share-btn').addEventListener('click', function() {
+            const urlToShare = 'https://www.example.com'; // Replace with the URL you want to share
+            const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlToShare)}`;
 
+            window.open(facebookShareURL, 'Share on Facebook', 'width=600,height=400');
+
+            document.getElementById('instagram-share-btn').addEventListener('click', function() {
+                const urlToShare = 'https://www.example.com'; // Replace with the URL you want to share
+                const instagramShareURL = `https://www.instagram.com/share?url=${encodeURIComponent(urlToShare)}`;
+
+                window.open(instagramShareURL, 'Share on Instagram', 'width=600,height=400');
+                });
+        });
+</script>
 <script>
     (function($) {
             "use strict";

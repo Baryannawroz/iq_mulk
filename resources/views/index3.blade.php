@@ -121,8 +121,8 @@
                     <div class="homec-section__head m-0 mg-top-30">
                         <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
                             data-aos="fade-in" data-aos-delay="300">{{ __('user.prozhakan') }}</span>
-                        <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">{{
-                            __('user.prozhakan') }}</h2>
+                        <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">
+                            {{__('user.prozhakan') }}</h2>
                     </div>
                     <!-- Button -->
                     <div class="homec-section__btn mg-top-30" data-aos="fade-right" data-aos-delay="500">
@@ -144,8 +144,9 @@
                     <div class="homec-property">
                         <!-- Property Head-->
                         <div class="homec-property__head">
-                            <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
-                            <!-- Top Sticky -->
+                            <a href="{{ route('property', html_decode($featured_property->slug)) }}">kjhj
+                                <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
+                            </a>
                             <div class="homec-property__hsticky">
 
                                 <span class="homec-property__salebadge mx-3">
@@ -170,9 +171,10 @@
 
                                 </div>
                             </div>
-                            <h3 class="homec-property__title"><a
-                                    href="{{ route('property', html_decode($featured_property->slug)) }}">{{
-                                    html_decode($featured_property->title) }}</a></h3>
+                            <h3 class="homec-property__title">
+                                <a href="{{ route('property', html_decode($featured_property->slug)) }}">{{
+                                    html_decode($featured_property->title) }}</a>
+                            </h3>
                             <div class="homec-property__text">
                                 <img src="{{ asset('frontend/img/location-icon.svg') }}" alt="address">
                                 <p>{{ html_decode($featured_property->address) }}</p>
@@ -309,15 +311,19 @@
                     <div class="homec-property">
                         <!-- Property Head-->
                         <div class="homec-property__head">
+                            <a href="section/{{ $businessReklame->id }}">
                             <img src="{{ asset($businessReklame->image) }}" alt="thumbnail_image">
-
+                            </a>
 
                         </div>
 
                         <div class="homec-property__body">
 
-                            <h3 class="homec-property__title"><a href="section/{{ $businessReklame->id }}">{{
-                                    html_decode($businessReklame->name) }}</a></h3>
+                            <h3 class="homec-property__title">
+                                <a href="section/{{ $businessReklame->id }}">
+                                    {{html_decode($businessReklame->name) }}
+                                </a>
+                            </h3>
                             <div class="homec-property__text">
                                 <img src="{{ asset('frontend/img/location-icon.svg') }}" alt="address">
                                 <p>{{ html_decode($businessReklame->address) }}</p>
@@ -386,7 +392,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- Section TItle -->
-                <div class="homec-section__head text-center mg-btm-60">
+                <div class="homec-section__head text-center mg-btm-60 d-none">
                     <span class="homec-section__badge homec-primary-color homec-section__badge--small m-0"
                         data-aos="fade-in" data-aos-delay="300">{{ $location->title }}</span>
                     <h2 class="homec-section__title" data-aos="fade-in" data-aos-delay="400">{{ $location->description
@@ -457,28 +463,8 @@
                 <!-- Homec Listing -->
                 <div class="homec-listing mg-top-40">
                     @foreach ($home_locations as $loc_index => $home_location)
-                    @if ($loc_index == 0)
-                    <!-- Homec Single Listing -->
-                    <div class="homec-listing__single">
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__big" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Homec Single Listing -->
-                    @elseif ($loc_index == 1 || $loc_index == 2)
-                    <!-- Homec Single Listing -->
-                    @if ($second_property == false)
-                    <div class="homec-listing__single">
-                        @endif
 
-                        @if ($loc_index == 1)
-                        <div class="homec-listing__inner">
+                        <div class="homec-listing__inner ">
                             <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
                                 <img class="homec-listing__single__small" src="{{ asset($home_location->image) }}"
                                     alt="home_location">
@@ -488,134 +474,7 @@
                             </a>
                         </div>
 
-                        @php
-                        $second_property = true;
-                        @endphp
-                        @endif
 
-                        @if ($loc_index == 2)
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__medium" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-                        @php
-                        $third_property = true;
-                        @endphp
-
-                        @endif
-
-                        @if ($third_property == true)
-                    </div>
-                    @endif
-
-                    <!-- End Homec Single Listing -->
-
-                    @elseif ($loc_index == 3)
-                    <!-- Homec Single Listing -->
-                    <div class="homec-listing__single">
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__big" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Homec Single Listing -->
-
-                    @elseif ($loc_index == 4 || $loc_index == 5)
-                    <!-- Homec Single Listing -->
-                    @if ($four_property == false)
-                    <div class="homec-listing__single">
-                        @endif
-
-                        @if ($loc_index == 4)
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__medium" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-
-                        @php
-                        $four_property = true;
-                        @endphp
-                        @endif
-
-                        @if ($loc_index == 5)
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__small" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-
-                        @php
-                        $five_property = true;
-                        @endphp
-                        @endif
-
-                        @if ($five_property == true)
-                    </div>
-                    @endif
-                    <!-- End Homec Single Listing -->
-                    @elseif ($loc_index == 6 || $loc_index == 7)
-                    <!-- Homec Single Listing -->
-                    @if ($six_property == false)
-                    <div class="homec-listing__single homec-listing__single--last">
-                        @endif
-
-                        @if ($loc_index == 6)
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__small" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-
-                        @php
-                        $six_property = true;
-                        @endphp
-                        @endif
-
-                        @if ($loc_index == 7)
-                        <div class="homec-listing__inner">
-                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__medium" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                            </a>
-                        </div>
-
-                        @php
-                        $seven_property = true;
-                        @endphp
-                        @endif
-
-                        @if ($seven_property == true)
-                    </div>
-                    @endif
-                    <!-- End Homec Single Listing -->
-
-                    @endif
                     @endforeach
 
                 </div>
@@ -670,7 +529,9 @@
                     <div class="homec-property">
                         <!-- Property Head-->
                         <div class="homec-property__head">
+                        <a href="{{ route('property', html_decode($featured_property->slug)) }}">
                             <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
+                        </a>
                             <!-- Top Sticky -->
                             <div class="homec-property__hsticky">
 

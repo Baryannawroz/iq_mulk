@@ -1389,11 +1389,23 @@ class HomeController extends Controller
                 'image' => $agent->image,
             );
         }
+        $featured_properties = Property::with('agent')
+            ->select('id', 'agent_id', 'title', 'slug', 'purpose', 'rent_period', 'price', 'thumbnail_image', 'address', 'total_bedroom', 'total_bathroom', 'total_area', 'status', 'is_featured')
+            ->where('status', 'enable')
+            ->where('is_featured', 'enable')
+            ->where(function ($query) {
+                $query->where('expired_date', null)
+                ->orWhere('expired_date', '>=', date('Y-m-d'));
+            })
+            ->orderBy('id', 'desc')
+            ->where('approve_by_admin', 'approved')
+            ->get();
 
         $recaptcha_setting = GoogleRecaptcha::first();
 
         return view('property_show')->with([
             'property' => $property,
+            'featured_properties' => $featured_properties,
             'sliders' => $sliders,
             'aminities' => $aminities,
             'nearest_locations' => $nearest_locations,

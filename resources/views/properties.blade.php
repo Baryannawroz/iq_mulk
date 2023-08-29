@@ -322,6 +322,7 @@
                 </form>
 			</div>
 		</section>
+        
 		<!-- End Property -->
 
         @php
