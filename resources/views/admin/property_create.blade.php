@@ -529,7 +529,7 @@
 
                                     <div class="col-12" id="featured_box">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('admin.Featured')}}</div>
+                                            <div class="control-label">{{__('user.prozhakan')}}</div>
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_featured" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
@@ -541,7 +541,7 @@
 
                                     <div class="col-12" id="top_box">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('user.prozhakan')}}</div>
+                                            <div class="control-label">{{__('admin.Featured')}}</div>
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_top" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>

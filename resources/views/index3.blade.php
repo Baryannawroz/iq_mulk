@@ -119,7 +119,7 @@
                 <div class="homec-flex homec-flex__section mg-btm-60">
                     <!-- Section TItle -->
                     <div class="homec-section__head m-0 mg-top-30">
-                      
+
                         <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">
                             {{__('user.prozhakan') }}</h2>
                     </div>
@@ -311,7 +311,7 @@
                         <!-- Property Head-->
                         <div class="homec-property__head">
                             <a href="section/{{ $businessReklame->id }}">
-                            <img src="{{ asset($businessReklame->image) }}" alt="thumbnail_image">
+                                <img src="{{ asset($businessReklame->image) }}" alt="thumbnail_image">
                             </a>
 
                         </div>
@@ -447,46 +447,54 @@
         <div class="row">
             @php
             $home_locations = $location->locations;
-
-            $second_property = false;
-            $third_property = false;
-
-            $four_property = false;
-            $five_property = false;
-
-            $six_property = false;
-            $seven_property = false;
             @endphp
 
             <div class="col-12" data-aos="fade-up" data-aos-delay="600">
                 <!-- Homec Listing -->
-                <div class="homec-listing mg-top-40">
-                    @foreach ($home_locations as $loc_index => $home_location)
-
-                        <div class="homec-listing__inner ">
+                <div class="homec mg-top-40">
+                    <div class="row flex-nowrap overflow-auto">
+                        @foreach ($home_locations as $loc_index => $home_location)
+                        <div class="bg-image col-12 col-mg-3" style="max-width: 20rem;">
                             <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                <img class="homec-listing__single__small" src="{{ asset($home_location->image) }}"
-                                    alt="home_location">
-                                <div class="homec-overlay homec-listing__overlay"></div>
-                                <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                        {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
+                                <img src="{{ asset($home_location->image) }}" class="w-100" />
+                                <div class="mask text-light d-flex justify-content-center flex-column text-center"
+                                    style="background-color: rgba(0, 0, 0, 0.5)">
+                                    <h4 class="homec-listing__title">
+                                        <span>{{ $home_location->totalProperty }}+ {{__('user.Property')}}</span>
+                                        {{ $home_location->name }}
+                                    </h4>
+                                </div>
                             </a>
                         </div>
 
+                        <div class="col-12 col-md-3 d-none">
 
-                    @endforeach
+                            <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
+                                <img style="width: 280px;hieght:180px;" class="homec-listing__single__small rounded"
+                                    src="{{ asset($home_location->image) }}" alt="home_location">
+                                <div class="homec-overlay homec-listing__overlay">
 
+                                    <h4 class="homec-listing__title">
+                                        <span>{{ $home_location->totalProperty }}+ {{__('user.Property')}}</span>
+                                        {{ $home_location->name }}
+                                    </h4>
+                                </div>
+                            </a>
+
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
                 <!-- End Homec Listing -->
+                <div class="row">
+                    <div class="col-12  d-flex justify-content-center mg-top-40" data-aos="fade-up"
+                        data-aos-delay="700">
+                        <!-- Section TItle -->
+                        <a href="{{ route('properties') }}" class="homec-btn">
+                            <span>{{__('user.Search Property')}}</span></a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12  d-flex justify-content-center mg-top-40" data-aos="fade-up" data-aos-delay="700">
-                <!-- Section TItle -->
-                <a href="{{ route('properties') }}" class="homec-btn"><span>{{__('user.Search Property')}}</span></a>
-            </div>
-        </div>
-    </div>
 </section>
 
 
@@ -503,8 +511,6 @@
                 <div class="homec-flex homec-flex__section mg-btm-60">
                     <!-- Section TItle -->
                     <div class="homec-section__head m-0 mg-top-30">
-                        <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
-                            data-aos="fade-in" data-aos-delay="300">{{ __('user.Top') }}</span>
                         <h2 class="homec-section__title text-white" data-aos="fade-in" data-aos-delay="400">{{
                             __('user.See Featured Properties') }}</h2>
                     </div>
@@ -528,9 +534,9 @@
                     <div class="homec-property">
                         <!-- Property Head-->
                         <div class="homec-property__head">
-                        <a href="{{ route('property', html_decode($featured_property->slug)) }}">
-                            <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
-                        </a>
+                            <a href="{{ route('property', html_decode($featured_property->slug)) }}">
+                                <img src="{{ asset($featured_property->thumbnail_image) }}" alt="thumbnail_image">
+                            </a>
                             <!-- Top Sticky -->
                             <div class="homec-property__hsticky">
 

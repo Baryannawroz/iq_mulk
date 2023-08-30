@@ -345,7 +345,7 @@
                                             <label for="address">{{__('admin.expired_date')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" required name="expired_date" class="form-control"
-                                                value="{{ html_decode($property->expired_date) }}">
+                                                value="{{ $property->expired_date->format('Y-m-d') }}">
                                         </div>
                                     </div>
 
@@ -772,7 +772,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('admin.Featured')}}</div>
+                                            <div class="control-label">{{__('user.prozhakan')}}</div>
                                             <label class=" mt-2">
                                                 <input {{ $property->is_featured == 'enable' ? 'checked' : '' }}
                                                 type="checkbox" name="is_featured" class="custom-switch-input">
@@ -788,7 +788,7 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('user.prozhakan')}}</div>
+                                            <div class="control-label">{{__('admin.Featured')}}</div>
                                             <label class=" mt-2">
                                                 <input {{ $property->is_top == 'enable' ? 'checked' : '' }}
                                                 type="checkbox" name="is_top" class="custom-switch-input">
