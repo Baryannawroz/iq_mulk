@@ -15,10 +15,13 @@
 <section id="hero" class="homec-hero homec-hero--v3 p-relative">
 
     <div class="homec-hero-group">
-        <img class="homec-hero-group-img homec-hero-group-img__v1"
-            src="{{ asset('frontend/img/hero-shape-group.svg') }}" alt="#">
-        <img class="homec-hero-group-img homec-hero-group-img__v2"
-            src="{{ asset('frontend/img/hero-shape-group-2.svg') }}" alt="#">
+        <!--<img class="homec-hero-group-img homec-hero-group-img__v1"-->
+        <!--    src="{{ asset('frontend/img/hero-shape-group.svg') }}" alt="#">-->
+        <!--<img class="homec-hero-group-img homec-hero-group-img__v2"-->
+        <!--    src="{{ asset('frontend/img/hero-shape-group-2.svg') }}" alt="#">-->
+                <img class="homec-hero-group-img "
+            src="{{ asset('frontend/img/hero.png') }}" alt="#" width="100%">
+        
     </div>
     @php
     $home3_intro = $intro_content->home3_intro;
@@ -31,8 +34,8 @@
                 <div class="homec-hero__inner homec-hero__inner--v2">
                     <!-- Hero Content -->
                     <div class="homec-hero__content homec-hero__content--v2">
-                        <h1 class="homec-hero__title homec-hero__title--v2 ">{{ $home3_intro->title }}</h1>
-                        <ul class="homec-iconic-list homec-iconic-list--v3 list-none mg-top-30">
+                        <h1 class="homec-hero__title homec-hero__title--v2">{{ $home3_intro->title }}</h1>
+                        <ul class="homec-iconic-list homec-iconic-list--v2 list-none mg-top-30">
                             <li><i class="fa-solid fa-check"></i>{{ $home3_intro->list1 }}</li>
                             <li><i class="fa-solid fa-check"></i>{{ $home3_intro->list2 }}</li>
                             <li><i class="fa-solid fa-check"></i>{{ $home3_intro->list3 }}</li>
@@ -41,7 +44,7 @@
                                 }}</span></a>
                     </div>
                     <!-- End Hero Content -->
-                    <div class="homec-slider-property-slider homec-slider-property-slider--v2">
+                    <div class="d-none homec-slider-property-slider homec-slider-property-slider--v2">
                         <img src="{{ asset($home3_intro->image) }}" alt="#">
                     </div>
                 </div>

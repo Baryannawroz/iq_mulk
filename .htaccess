@@ -22,7 +22,6 @@ RewriteRule ^update - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ server.php
 
-
 </IfModule>
 
 Header always unset X-Frame-Options

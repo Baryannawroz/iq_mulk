@@ -337,7 +337,7 @@
                                 <hr>
                                 <div class="row">
 
-
+f
 
 
                                     <div class="col-md-6 col-12">
@@ -345,7 +345,11 @@
                                             <label for="address">{{__('admin.expired_date')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" required name="expired_date" class="form-control"
-                                                value="{{ $property->expired_date->format('Y-m-d') }}">
+                                            @if ($property->expired_date)
+
+                                            value="{{ $property->expired_date->format('Y-m-d') }}"
+                                            @endif
+                                            >
                                         </div>
                                     </div>
 

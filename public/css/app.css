@@ -330,7 +330,7 @@ caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   color: #6c757d;
-  text-align: left;
+  text-align: right;
 }
 
 th {
@@ -3260,7 +3260,7 @@ font-family: "Xendan-Regular";  font-size: var(--bs-btn-font-size);
   margin: 0;
   font-size: var(--bs-dropdown-font-size);
   color: var(--bs-dropdown-color);
-  text-align: left;
+  text-align: right;
   list-style: none;
   background-color: var(--bs-dropdown-bg);
   background-clip: padding-box;
@@ -4374,7 +4374,7 @@ font-family: "Xendan-Regular";  font-size: var(--bs-btn-font-size);
   padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
   font-size: 0.9rem;
   color: var(--bs-accordion-btn-color);
-  text-align: left;
+  text-align: right;
   background-color: var(--bs-accordion-btn-bg);
   border: 0;
   border-radius: 0;
@@ -5556,7 +5556,7 @@ font-family: "Xendan-Regular";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
-  text-align: left;
+  text-align: right;
   text-align: start;
   text-decoration: none;
   text-shadow: none;
@@ -5666,7 +5666,7 @@ font-family: "Xendan-Regular";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
-  text-align: left;
+  text-align: right;
   text-align: start;
   text-decoration: none;
   text-shadow: none;
