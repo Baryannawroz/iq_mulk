@@ -463,10 +463,10 @@
                     <!-- Homec Listing -->
                     <div class="homec-listing mg-top-40">
                         @foreach ($home_locations as $loc_index => $home_location)
-                   
+
                             <div class="homec-listing__inner">
                                 <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                                    <img class="homec-listing__single__small" src="{{ asset($home_location->image) }}"
+                                    <img class="homec-listing__single__small"  src="{{ asset($home_location->image) }}"
                                         alt="home_location">
                                     <div class="homec-overlay homec-listing__overlay"></div>
                                     <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+

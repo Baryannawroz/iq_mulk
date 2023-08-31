@@ -3850,7 +3850,7 @@ blockquote::before {
 }
 
 .homec-listing__inner img {
-    width: 100%;
+    width: 150px;
 }
 
 .homec-listing__single {
@@ -8441,7 +8441,7 @@ div.ck-editor.ck-rounded-corners {
 }
 
 .homec-listing__single__small {
-    height: 220px !important;
+    height: 150px !important;
 }
 
 .homec-listing__single__big {
