@@ -807,7 +807,7 @@ f
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('user.Urgent Property')}}</div>
+                                            <div class="control-label">{{__('user.business reklame')}}</div>
                                             <label class=" mt-2">
                                                 <input {{ $property->is_urgent == 'enable' ? 'checked' : '' }}
                                                 type="checkbox" name="is_urgent" class="custom-switch-input">

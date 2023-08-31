@@ -553,7 +553,7 @@
 
                                     <div class="col-12" id="urgent_box">
                                         <div class="form-group">
-                                            <div class="control-label">{{__('user.Urgent Properties')}}</div>
+                                            <div class="control-label">{{__('user.business reklame')}}</div>
                                             <label class=" mt-2">
                                                 <input type="checkbox" name="is_urgent" class="custom-switch-input">
                                                 <span class="custom-switch-indicator"></span>
