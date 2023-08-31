@@ -152,6 +152,7 @@
                                                     <div class="homec-overlay"></div>
                                                     <img src="{{ asset($section->image) }}">
                                                     <div class="homec-ptdetails-video__video">
+                                                        
                                                         <a data-video-id="{{ $section->video_id }}"
                                                             class="js-video-btn homec-btn homec-btn__second homec-btn__video">
                                                             <div class="homec-btn__inside">
