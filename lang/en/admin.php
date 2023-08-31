@@ -65,7 +65,7 @@
   'Highlight' => 'تایبەتمەندی',
   'Featured' => 'VIP',
   'Top' => 'پڕۆژە',
-  'Urgent' => 'خێرافرۆشتن',
+  'Urgent' => 'ڕیکلامی بازرگانی',
   'Enable' => 'چالاک',
   'Disable' => 'ناچالاک',
   'Reject' => 'ڕەتکردنەوە',
@@ -563,4 +563,3 @@
   'Onboarding screen three' => 'Onboarding screen three',
   'Agent can add property ?' => 'Agent can add property ?',
 );
- ?>

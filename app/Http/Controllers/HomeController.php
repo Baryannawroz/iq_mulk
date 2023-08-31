@@ -243,6 +243,18 @@ class HomeController extends Controller
             ->where('approve_by_admin', 'approved')
             ->take($property_item)
             ->get();
+        $urgent_properties = Property::with('agent')
+            ->select('id', 'agent_id', 'title', 'slug', 'purpose', 'rent_period', 'price', 'thumbnail_image', 'address', 'total_bedroom', 'total_bathroom', 'total_area', 'status', 'is_featured')
+            ->where('status', 'enable')
+            ->where('is_featured', 'enable')
+            ->where(function ($query) {
+                $query->where('expired_date', null)
+                    ->orWhere('expired_date', '>=', date('Y-m-d'));
+            })
+            ->orderBy('id', 'desc')
+            ->where('approve_by_admin', 'approved')
+            ->take($property_item)
+            ->get();
         $top_properties = Property::with('agent')
             ->select('id', 'agent_id', 'title', 'slug', 'purpose', 'rent_period', 'price', 'thumbnail_image', 'address', 'total_bedroom', 'total_bathroom', 'total_area', 'status', 'is_featured')
             ->where('status', 'enable')
@@ -546,6 +558,7 @@ class HomeController extends Controller
                 'cats' => Cat::where('status', "1")->get(),
                 'subs' => Sub::where('status', "1")->get(),
                 'top_property' => $top_property,
+                'urgent_properties' => $urgent_properties,
                 'businessReklames' => $businessReklame,
 
                 'selected_theme' => $selected_theme,
