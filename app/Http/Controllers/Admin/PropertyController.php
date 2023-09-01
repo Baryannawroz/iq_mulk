@@ -170,6 +170,7 @@ class PropertyController extends Controller
             'total_garage' => 'required',
             'total_kitchen' => 'required',
             'thumbnail_image' => 'required',
+            'phone' => 'required',
         ];
         $customMessages = [
             'title.required' => trans('admin_validation.Title is required'),
@@ -196,6 +197,7 @@ class PropertyController extends Controller
         $this->validate($request, $rules, $customMessages);
 
         $property = new Property();
+        $property->phone = $request->phone;
         $property->agent_id = $request->owner_id;
         $property->title = $request->title;
         $property->slug = $property->id . $request->title;
@@ -460,6 +462,7 @@ class PropertyController extends Controller
         $this->validate($request, $rules, $customMessages);
 
         $property->title = $request->title;
+        $property->phone = $request->phone;
         $property->slug = $request->slug;
         $property->property_type_id = $request->property_type_id;
         $property->purpose = $request->purpose;

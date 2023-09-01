@@ -298,12 +298,20 @@
                                     </div>
 
 
-                                    <div class="col-md-6">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="address">{{__('admin.Address')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" name="address" class="form-control"
                                                 value="{{ html_decode($property->address) }}">
+                                        </div>
+                                    </div>
+                                    <div class=" col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="address">{{__('user.phone')}} <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" name="phone" class="form-control"
+                                                value="{{ html_decode($property->phone) }}">
                                         </div>
                                     </div>
 
@@ -337,7 +345,7 @@
                                 <hr>
                                 <div class="row">
 
-f
+                                    f
 
 
                                     <div class="col-md-6 col-12">
@@ -345,8 +353,7 @@ f
                                             <label for="address">{{__('admin.expired_date')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" required name="expired_date" class="form-control"
-                                            @if ($property->expired_date)
-
+                                                @if($property->expired_date)
                                             value="{{ $property->expired_date->format('Y-m-d') }}"
                                             @endif
                                             >

@@ -47,8 +47,8 @@
                         <div class="homec-submit-form__inner">
 
                             @livewireStyles
-                                <livewire:cat-sub-select :category="$section->cat_id" :sub="$section->sub_id" />
-                                @livewireScripts
+                            <livewire:cat-sub-select :category="$section->cat_id" :sub="$section->sub_id" />
+                            @livewireScripts
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Single Form Element -->
@@ -147,8 +147,9 @@
                                                 <label for="">{{__('admin.expire date')}} <span
                                                         class="text-danger">*</span></label>
                                                 <input type="date" class="form-control datepicker"
-                                                    value="{{  $section->expired_date->format('Y-m-d') }}" placeholder="Select a date"
-                                                    name="expire_date">
+                                                    @if($section->expired_date)
+                                                value="{{ $section->expired_date->format('Y-m-d') }}" @endif
+                                                placeholder="Select a date" name="expire_date">
                                             </div>
 
                                         </div>

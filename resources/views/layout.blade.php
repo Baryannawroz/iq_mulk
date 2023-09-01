@@ -443,6 +443,26 @@
                                         </li>
                                         @endforeach
 
+
+                                    </ul>
+                                    <br>
+                                    <ul class="homec-social homec-social__v2">
+
+                                        <li><img height="50px" width="50px" style="border-radius: 50%"
+                                                src="{{ asset('uploads/custom-images/fastpay.png') }}"
+                                                alt="FastPay Logo"></li>
+                                        <li><img height="50px" width="50px" style="border-radius: 50%"
+                                                src="{{ asset('uploads/custom-images/fib.png') }}" alt="FastPay Logo">
+                                        </li>
+                                        <li><img height="50px" width="50px" style="border-radius: 50%"
+                                                src="{{ asset('uploads/custom-images/zainchash.jpg') }}"
+                                                alt="FastPay Logo">
+                                        </li>
+                                        <li><img height="50px" width="50px" style="border-radius: 50%"
+                                                src="{{ asset('uploads/custom-images/asia.png') }}" alt="FastPay Logo">
+                                        </li>
+
+
                                     </ul>
                                     <!-- End Social -->
                                 </div>

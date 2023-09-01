@@ -251,7 +251,7 @@
                                 <hr>
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class=" col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="">{{__('admin.City')}} <span
                                                     class="text-danger">*</span></label>
@@ -265,313 +265,323 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class=" col-12 col-md-6 ">
                                         <div class="form-group">
                                             <label for="address">{{__('admin.Address')}} <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" name="address" class="form-control">
                                         </div>
-                                    </div>
-
-                                    <div class="col-12 d-none">
-                                        <div class="form-group">
-                                            <label for="address_description">{{__('admin.Address Details')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <textarea name="address_description" class="form-control text-area-5" id=""
-                                                cols="30" rows="10"></textarea>
                                         </div>
-                                    </div>
-
-                                    <div class="col-12 d-none">
-                                        <div class="form-group">
-                                            <label for="google_map">{{__('admin.Google Map')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <textarea name="google_map" class="form-control text-area-5" id="" cols="30"
-                                                rows="10"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body" data-select2-id="select2-data-46-mub9">
-                                <h4>{{__('user.expired_date')}}</h4>
-                                <hr>
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="address">{{__('user.expired_date')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="date" required name="expired_date" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 d-none">
-                                        <div class="form-group">
-                                            <label for="address_description">{{__('admin.Address Details')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <textarea name="address_description" class="form-control text-area-5" id=""
-                                                cols="30" rows="10"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 d-none">
-                                        <div class="form-group">
-                                            <label for="google_map">{{__('admin.Google Map')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <textarea name="google_map" class="form-control text-area-5" id="" cols="30"
-                                                rows="10"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>{{__('admin.Image and Video')}}</h4>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.Thumbnail Image')}} <span
-                                                    class="text-danger">*</span></label>
-                                            <input required type="file" name="thumbnail_image"
-                                                class="form-control-file">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}})
-                                                <span class="text-danger">*</span></label>
-                                            <input required type="file" name="slider_images[]" multiple
-                                                class="form-control-file">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.Video Thumbnail Image')}}</label>
-                                            <input type="file" name="video_thumbnail" class="form-control-file">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.Youtube video id')}} </label>
-                                            <input type="text" name="video_id" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 d-none">
-                                        <div class="form-group">
-                                            <label for="">{{__('admin.Video description')}} </label>
-                                            <textarea name="video_description" class="form-control text-area-3" id=""
-                                                cols="30" rows="10"></textarea>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>{{__('admin.Aminities')}}</h4>
-                                <hr>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <div>
-
-                                                @foreach ($aminities as $aminity)
-                                                <input value="{{ $aminity->id }}" type="checkbox" name="aminities[]"
-                                                    id="aminity{{ $aminity->id }}">
-
-                                                <label class="mx-1" for="aminity{{ $aminity->id }}">{{
-                                                    $aminity->aminity
-                                                    }}</label>
-                                                @endforeach
-
+                                        <div class=" col-12 col-md-6 ">
+                                            <div class="form-group">
+                                                <label for="address">{{__('user.phone')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <input required type="text" accept="number" name="phone" class="form-control">
                                             </div>
-
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="card d-none">
-                            <div class="card-body">
-                                <h4>{{__('admin.Nearest Location')}}</h4>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12" id="nearest-place-box">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Nearest Location')}}</label>
-                                                    <select name="nearest_locations[]" id="" class="form-control">
-                                                        <option value="">{{__('admin.Select')}}</option>
-                                                        @foreach ($nearest_locations as $nearest_location)
-                                                        <option value="{{ $nearest_location->id }}">{{
-                                                            $nearest_location->location }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                        <div class="col-12 d-none">
+                                            <div class="form-group">
+                                                <label for="address_description">{{__('admin.Address Details')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <textarea name="address_description" class="form-control text-area-5"
+                                                    id="" cols="30" rows="10"></textarea>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Distance(km)')}}</label>
-                                                    <input type="text" class="form-control" name="distances[]">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button id="addNearestPlaceRow" type="button"
-                                                    class="btn btn-success nearest-row-btn plus_btn"><i
-                                                        class="fas fa-plus" aria-hidden="true"></i></button>
+                                        </div>
+
+                                        <div class="col-12 d-none">
+                                            <div class="form-group">
+                                                <label for="google_map">{{__('admin.Google Map')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <textarea name="google_map" class="form-control text-area-5" id=""
+                                                    cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="card">
+                                <div class="card-body" data-select2-id="select2-data-46-mub9">
+                                    <h4>{{__('user.expired_date')}}</h4>
+                                    <hr>
+                                    <div class="row">
 
-                        <div class="card d-none">
-                            <div class="card-body">
-                                <h4>{{__('admin.Additional Information')}}</h4>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12" id="additional-box">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Key')}}</label>
-                                                    <input type="text" class="form-control" name="add_keys[]">
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="address">{{__('user.expired_date')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="date" required name="expired_date" class="form-control">
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Value')}}</label>
-                                                    <input type="text" class="form-control" name="add_values[]">
-                                                </div>
+                                        </div>
+
+                                        <div class="col-12 d-none">
+                                            <div class="form-group">
+                                                <label for="address_description">{{__('admin.Address Details')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <textarea name="address_description" class="form-control text-area-5"
+                                                    id="" cols="30" rows="10"></textarea>
                                             </div>
-                                            <div class="col-md-2">
-                                                <button id="addAdditionalRow" type="button"
-                                                    class="btn btn-success nearest-row-btn plus_btn"><i
-                                                        class="fas fa-plus" aria-hidden="true"></i></button>
+                                        </div>
+
+                                        <div class="col-12 d-none">
+                                            <div class="form-group">
+                                                <label for="google_map">{{__('admin.Google Map')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <textarea name="google_map" class="form-control text-area-5" id=""
+                                                    cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card d-none">
-                            <div class="card-body">
-                                <h4>{{__('admin.Property Plan')}}</h4>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12" id="plan-box">
-                                        <div class="row">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>{{__('admin.Image and Video')}}</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="">{{__('admin.Thumbnail Image')}} <span
+                                                        class="text-danger">*</span></label>
+                                                <input required type="file" name="thumbnail_image"
+                                                    class="form-control-file">
+                                            </div>
+                                        </div>
 
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Image')}}</label>
-                                                    <input type="file" class="form-control-file" name="plan_images[]">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="">{{__('admin.Slider Image')}} ({{__('admin.Multiple')}})
+                                                    <span class="text-danger">*</span></label>
+                                                <input required type="file" name="slider_images[]" multiple
+                                                    class="form-control-file">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="">{{__('admin.Video Thumbnail Image')}}</label>
+                                                <input type="file" name="video_thumbnail" class="form-control-file">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="">{{__('admin.Youtube video id')}} </label>
+                                                <input type="text" name="video_id" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 d-none">
+                                            <div class="form-group">
+                                                <label for="">{{__('admin.Video description')}} </label>
+                                                <textarea name="video_description" class="form-control text-area-3"
+                                                    id="" cols="30" rows="10"></textarea>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>{{__('admin.Aminities')}}</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div>
+
+                                                    @foreach ($aminities as $aminity)
+                                                    <input value="{{ $aminity->id }}" type="checkbox" name="aminities[]"
+                                                        id="aminity{{ $aminity->id }}">
+
+                                                    <label class="mx-1" for="aminity{{ $aminity->id }}">{{
+                                                        $aminity->aminity
+                                                        }}</label>
+                                                    @endforeach
+
                                                 </div>
-                                            </div>
 
-                                            <div class="col-md-6">
-                                                <button id="addNewPlan" type="button"
-                                                    class="btn btn-success nearest-row-btn plus_btn"><i
-                                                        class="fas fa-plus" aria-hidden="true"></i> {{__('admin.New
-                                                    Plan')}}</button>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Title')}}</label>
-                                                    <input type="text" class="form-control" name="plan_titles[]">
+                            <div class="card d-none">
+                                <div class="card-body">
+                                    <h4>{{__('admin.Nearest Location')}}</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12" id="nearest-place-box">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Nearest Location')}}</label>
+                                                        <select name="nearest_locations[]" id="" class="form-control">
+                                                            <option value="">{{__('admin.Select')}}</option>
+                                                            @foreach ($nearest_locations as $nearest_location)
+                                                            <option value="{{ $nearest_location->id }}">{{
+                                                                $nearest_location->location }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="">{{__('admin.Description')}}</label>
-                                                    <textarea name="plan_descriptions[]" id=""
-                                                        class="form-control text-area-5" cols="30" rows="10"></textarea>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Distance(km)')}}</label>
+                                                        <input type="text" class="form-control" name="distances[]">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button id="addNearestPlaceRow" type="button"
+                                                        class="btn btn-success nearest-row-btn plus_btn"><i
+                                                            class="fas fa-plus" aria-hidden="true"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>{{__('admin.SEO Information and Others')}}</h4>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <div class="control-label">{{__('admin.Status')}}</div>
-                                            <label class=" mt-2">
-                                                <input type="checkbox" name="status" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">
-                                                    {{__('admin.Enable / Disable')}}</span>
-                                            </label>
+                            <div class="card d-none">
+                                <div class="card-body">
+                                    <h4>{{__('admin.Additional Information')}}</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12" id="additional-box">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Key')}}</label>
+                                                        <input type="text" class="form-control" name="add_keys[]">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Value')}}</label>
+                                                        <input type="text" class="form-control" name="add_values[]">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button id="addAdditionalRow" type="button"
+                                                        class="btn btn-success nearest-row-btn plus_btn"><i
+                                                            class="fas fa-plus" aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div class="col-12" id="featured_box">
-                                        <div class="form-group">
-                                            <div class="control-label">{{__('user.prozhakan')}}</div>
-                                            <label class=" mt-2">
-                                                <input type="checkbox" name="is_featured" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">
-                                                    {{__('admin.Enable / Disable')}}</span>
-                                            </label>
+                            <div class="card d-none">
+                                <div class="card-body">
+                                    <h4>{{__('admin.Property Plan')}}</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12" id="plan-box">
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Image')}}</label>
+                                                        <input type="file" class="form-control-file"
+                                                            name="plan_images[]">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <button id="addNewPlan" type="button"
+                                                        class="btn btn-success nearest-row-btn plus_btn"><i
+                                                            class="fas fa-plus" aria-hidden="true"></i> {{__('admin.New
+                                                        Plan')}}</button>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Title')}}</label>
+                                                        <input type="text" class="form-control" name="plan_titles[]">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="">{{__('admin.Description')}}</label>
+                                                        <textarea name="plan_descriptions[]" id=""
+                                                            class="form-control text-area-5" cols="30"
+                                                            rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div class="col-12" id="top_box">
-                                        <div class="form-group">
-                                            <div class="control-label">{{__('admin.Featured')}}</div>
-                                            <label class=" mt-2">
-                                                <input type="checkbox" name="is_top" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">
-                                                    {{__('admin.Enable / Disable')}}</span>
-                                            </label>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>{{__('admin.SEO Information and Others')}}</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="control-label">{{__('admin.Status')}}</div>
+                                                <label class=" mt-2">
+                                                    <input type="checkbox" name="status" class="custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                    <span class="custom-switch-description">
+                                                        {{__('admin.Enable / Disable')}}</span>
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-12" id="urgent_box">
-                                        <div class="form-group">
-                                            <div class="control-label">{{__('user.business reklame')}}</div>
-                                            <label class=" mt-2">
-                                                <input type="checkbox" name="is_urgent" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">
-                                                    {{__('admin.Enable / Disable')}}</span>
-                                            </label>
+                                        <div class="col-12" id="featured_box">
+                                            <div class="form-group">
+                                                <div class="control-label">{{__('user.prozhakan')}}</div>
+                                                <label class=" mt-2">
+                                                    <input type="checkbox" name="is_featured"
+                                                        class="custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                    <span class="custom-switch-description">
+                                                        {{__('admin.Enable / Disable')}}</span>
+                                                </label>
+                                            </div>
                                         </div>
+
+                                        <div class="col-12" id="top_box">
+                                            <div class="form-group">
+                                                <div class="control-label">{{__('admin.Featured')}}</div>
+                                                <label class=" mt-2">
+                                                    <input type="checkbox" name="is_top" class="custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                    <span class="custom-switch-description">
+                                                        {{__('admin.Enable / Disable')}}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12" id="urgent_box">
+                                            <div class="form-group">
+                                                <div class="control-label">{{__('user.business reklame')}}</div>
+                                                <label class=" mt-2">
+                                                    <input type="checkbox" name="is_urgent" class="custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                    <span class="custom-switch-description">
+                                                        {{__('admin.Enable / Disable')}}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary save_btn">{{__('admin.Save')}}</button>
-                    </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary save_btn">{{__('admin.Save')}}</button>
+                        </div>
 
 
             </form>

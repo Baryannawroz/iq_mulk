@@ -358,7 +358,7 @@
   'Yearly' => 'ساڵانە',
   'Lifetime' => 'هەتەهەتای',
   'Number of property' => 'ژمارەی موڵک',
-  'Number of featured property' => 'VIP ژمارەی موڵکە',
+  'Number of featured property' => 'VIP ژمارەی موڵکی',
   'Top Property' => 'پڕۆژەکان',
   'Number of top property' => 'ژمارەی  پڕۆژەکان',
   'Number of urgent property' => 'ژمارەی موڵکە خێرافرۆشەکان',

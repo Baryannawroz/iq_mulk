@@ -195,7 +195,7 @@ return array(
     'Type' => 'جۆر',
     'Locaiton' => 'ناونیشان',
     'Price Range' => 'نرخ',
-    'See Featured Properties' => ' بینینی موڵکی VIP ییکان',
+    'See Featured Properties' => ' بینینی موڵکی VIP ',
     'See Featured business reklame' => ' سەیری ڕیکلامە بازرگانییەکان بکە ',
     'business reklame' => 'ڕیکلامە بازرگانییەکان',
     'Play Video' => 'سەیرکردنی ڤیدیۆ',
