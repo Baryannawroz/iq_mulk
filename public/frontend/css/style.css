@@ -1969,7 +1969,7 @@ input[type="checkbox"]:checked::before {
 
 .homec-hero__inner.homec-hero__inner--v2 {
     justify-content: space-between;
-    padding-top: 290px;
+    padding-top: 190px;
     height: initial;
     min-height: initial;
 }

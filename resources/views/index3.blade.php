@@ -19,8 +19,9 @@
         <!--    src="{{ asset('frontend/img/hero-shape-group.svg') }}" alt="#">-->
         <!--<img class="homec-hero-group-img homec-hero-group-img__v2"-->
         <!--    src="{{ asset('frontend/img/hero-shape-group-2.svg') }}" alt="#">-->
-        <img class="homec-hero-group-img " src="{{ asset('frontend/img/hero.png') }}" alt="#" width="100%">
+        <!--<img class="homec-hero-group-img " src="{{ asset('frontend/img/hero.png') }}" alt="#" width="100%">-->
 
+        <img class="homec-hero-group-img " src="{{ asset('frontend/img/cover33.jpg') }}" alt="#" width="100%">
     </div>
     @php
     $home3_intro = $intro_content->home3_intro;
@@ -32,7 +33,7 @@
             <div class="col-12">
                 <div class="homec-hero__inner homec-hero__inner--v2">
                     <!-- Hero Content -->
-                    <div class="homec-hero__content homec-hero__content--v2">
+                    <div class="homec-hero__content homec-hero__content--v2 text-light">
                         <h1 class="homec-hero__title homec-hero__title--v2">{{ $home3_intro->title }}</h1>
                         <ul class="homec-iconic-list homec-iconic-list--v2 list-none mg-top-30">
                             <li><i class="fa-solid fa-check"></i>{{ $home3_intro->list1 }}</li>
@@ -215,7 +216,7 @@
                     <div class="homec-section__head section-white homec-section__head__half m-0 mg-top-30">
                         <span class="homec-section__badge homec-second-color homec-section__badge--small m-0"
                             data-aos="fade-in" data-aos-delay="300">{{ $agent->title }}</span>
-                        <h2 class="homec-section__title" data-aos="fade-in" data-aos-delay="400">{{ $agent->description
+                        <h2 class="text-dark homec-section__title" data-aos="fade-in" data-aos-delay="400">{{ $agent->description
                             }}</h2>
                     </div>
                     <div class="homec-section__btn mg-top-30" data-aos="fade-right" data-aos-delay="500">
@@ -388,109 +389,6 @@
 </section>
 
 
-<section class="pd-top-120 pd-btm-120">
-    <div class="container homec-listing__container">
-        <div class="row">
-            <div class="col-12">
-                <!-- Section TItle -->
-                <div class="homec-section__head text-center mg-btm-60">
-                    <span class="homec-section__badge homec-primary-color homec-section__badge--small m-0"
-                        data-aos="fade-in" data-aos-delay="300">{{ $location->title }}</span>
-                    <h2 class="homec-section__title" data-aos="fade-in" data-aos-delay="400">{{ $location->description
-                        }}</h2>
-                </div>
-                <!-- Homec Search -->
-                <div class="homec-search-form mg-top-10" data-aos="fade-up" data-aos-delay="500">
-                    <form class="homec-search-form__form homec-search-form__form--city"
-                        action="{{ route('properties') }}">
-                        <div class="homec-search-form__group">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <mask id="mask0_275_829" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0"
-                                    y="0" width="24" height="24">
-                                    <path d="M0 2.9405e-05H24V24H0V2.9405e-05Z" fill="white" />
-                                </mask>
-                                <g mask="url(#mask0_275_829)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12 24C12.2351 24 12.4546 23.8825 12.585 23.6869C13.1198 22.8847 13.7306 22.0293 14.3771 21.124C14.5713 20.852 14.7687 20.5756 14.9682 20.2947C15.8268 19.086 16.717 17.8062 17.5208 16.4992C19.1133 13.9099 20.4375 11.1064 20.4375 8.43752C20.4375 3.78447 16.653 2.9405e-05 12 2.9405e-05C7.34694 2.9405e-05 3.5625 3.78447 3.5625 8.43752C3.5625 11.1064 4.88667 13.9099 6.47921 16.4992C7.28303 17.8062 8.17317 19.086 9.03176 20.2947C9.23131 20.5756 9.42873 20.852 9.62293 21.124C10.2694 22.0293 10.8802 22.8847 11.415 23.6869C11.5454 23.8825 11.7649 24 12 24ZM7.67704 15.7625C6.10551 13.2073 4.96875 10.6905 4.96875 8.43752C4.96875 4.56111 8.12359 1.40628 12 1.40628C15.8764 1.40628 19.0312 4.56111 19.0312 8.43752C19.0312 10.6905 17.8945 13.2073 16.3229 15.7625C15.5447 17.0278 14.6771 18.2763 13.8218 19.4803C13.6277 19.7535 13.4339 20.0249 13.2418 20.2939C12.8133 20.894 12.3936 21.4818 12 22.0486C11.6064 21.4818 11.1867 20.894 10.7582 20.2939C10.5661 20.0249 10.3723 19.7534 10.1782 19.4803C9.32291 18.2763 8.45524 17.0278 7.67704 15.7625Z"
-                                        fill="#7E8BA0" />
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M7.78125 8.4375C7.78125 10.7642 9.67325 12.6562 12 12.6562C14.3267 12.6562 16.2187 10.7642 16.2187 8.4375C16.2187 6.11076 14.3267 4.21876 12 4.21876C9.67325 4.21876 7.78125 6.11076 7.78125 8.4375ZM12 11.25C10.4499 11.25 9.1875 9.9876 9.1875 8.4375C9.1875 6.88741 10.4499 5.62501 12 5.62501C13.5501 5.62501 14.8125 6.88741 14.8125 8.4375C14.8125 9.9876 13.5501 11.25 12 11.25Z"
-                                        fill="#7E8BA0" />
-                                </g>
-                            </svg>
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                <select name="location" class="select2">
-                                    <option value="">{{__('user.Select Location')}}</option>
-                                    @foreach ($location->location_for_filter as $location_for_filter)
-                                    <option value="{{ $location_for_filter->slug }}">{{ $location_for_filter->name }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="homec-btn">
-                            <span class="homec-btn__inside">
-                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8.45185 16.8948C10.3289 16.8949 12.1522 16.2686 13.633 15.1152L19.2197 20.7019C19.637 21.105 20.3021 21.0934 20.7051 20.6761C21.0983 20.269 21.0983 19.6236 20.7051 19.2165L15.1184 13.6298C17.9805 9.9456 17.314 4.63881 13.6298 1.77676C9.94555 -1.08529 4.63881 -0.418815 1.77676 3.26541C-1.08529 6.94964 -0.418815 12.2564 3.26541 15.1185C4.74865 16.2707 6.57361 16.8958 8.45185 16.8948ZM3.96301 3.95978C6.44215 1.48059 10.4616 1.48054 12.9408 3.95969C15.42 6.43883 15.4201 10.4583 12.9409 12.9375C10.4618 15.4167 6.44229 15.4167 3.9631 12.9376C3.96305 12.9376 3.96305 12.9376 3.96301 12.9375C1.48386 10.4764 1.46926 6.47159 3.93034 3.99245C3.94121 3.98153 3.95209 3.97065 3.96301 3.95978Z">
-                                    </path>
-                                </svg>
-                                <span>{{__('user.Search')}}</span>
-                            </span>
-                        </button>
-                    </form>
-                </div>
-                <!-- End Homec Search -->
-            </div>
-        </div>
-        <div class="row">
-            @php
-            $home_locations = $location->locations;
-            $second_property = false;
-            $third_property = false;
-
-            $four_property = false;
-            $five_property = false;
-
-            $six_property = false;
-            $seven_property = false;
-            @endphp
-
-            <div class="col-12 d-none d-sm-block d-sm-none d-md-block" data-aos="fade-up" data-aos-delay="600">
-                <!-- Homec Listing -->
-                <div class="homec-listing mg-top-40">
-                    @foreach ($home_locations as $loc_index => $home_location)
-
-                    <div class="homec-listing__inner">
-                        <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
-                            <img class="" style="width: 150px; height: 150px;" src="{{ asset($home_location->image) }}"
-                                alt="home_location">
-                            <div class="homec-overlay homec-listing__overlay"></div>
-                            <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
-                                    {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
-                        </a>
-                    </div>
-
-
-                    @endforeach
-
-                </div>
-                <!-- End Homec Listing -->
-                          
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12  d-flex justify-content-center mg-top-40" data-aos="fade-up" data-aos-delay="700">
-                <!-- Section TItle -->
-                <a href="{{ route('properties') }}" class="homec-btn"><span>{{__('user.Search Property')}}</span></a>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <!-- Latest Property -->
@@ -610,6 +508,8 @@
     </div>
 </section> --}}
 @endif
+
+
 
 @if ($about_us->visibility)
 @php
@@ -1117,59 +1017,7 @@ $home1_content = $about_us->home1_content;
 @endif
 @endif
 
-@if ($faq->visibility)
-<!-- Faq Area -->
-<section class="homec-bg-cover pd-top-90 pd-btm-120 homec-faq-bg">
-    <div class="container homec-container-medium">
-        <div class="row homec-container-medium__row align-items-center">
-            <div class="col-lg-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
-                <div class="homec-section__head">
-                    <div class="homec-section__shape">
-                        <span
-                            class="homec-section__badge homec-section__badge--shape homec-section__badge--shape--v2">{{
-                            $faq->content->short_title }}</span>
-                    </div>
-                    <h2 class="homec-section__title">{{ $faq->content->long_title }}</h2>
-                </div>
-                <div class="homec-accordion accordion accordion-flush" id="homec-accordion">
 
-                    @foreach ($faq->faqs as $faq_index => $faq_item )
-
-                    <!-- End Single Accordion -->
-                    <div class="accordion-item homec-accordion__single mg-top-30 {{ $faq_index == 0 ? 'active' : '' }}">
-                        <h2 class="accordion-header" id="homect-1-{{ $faq_index }}">
-                            <button class="accordion-button collapsed homec-accordion__heading" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#ac-collapse1-{{ $faq_index }}">{{
-                                $faq_item->question }}</button>
-                        </h2>
-                        <div id="ac-collapse1-{{ $faq_index }}"
-                            class="accordion-collapse collapse {{ $faq_index == 0 ? 'show' : '' }}"
-                            data-bs-parent="#homec-accordion">
-                            <div class="accordion-body homec-accordion__body">{!! nl2br($faq_item->answer) !!}</div>
-                        </div>
-                    </div>
-                    <!-- End Single Accordion -->
-                    @endforeach
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-12 mg-top-30 d-none-tab" data-aos="fade-up" data-aos-delay="600">
-                <!-- Support Img -->
-                <div class="homec-support-img">
-                    <img src="{{ asset($faq->content->support_image) }}" alt="support_image">
-                    <div class="homec-support-img__content">
-                        <img src="{{ asset('frontend/img/support-icon-white.svg') }}" alt="support_image">
-                        <h4 class="homec-support-img__title">{{ $faq->content->support_time }} <span>{{
-                                $faq->content->support_title }}</span>
-                        </h4>
-                    </div>
-                </div>
-                <!-- End Support Img -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Faq Area -->
-@endif
 <section class="pd-top-90">
     <div class="homec-property-separate homec-bg-primary-color">
         <div class="homec-bg homec-bg__opacity homec-featured-bg-two"></div>
@@ -1257,6 +1105,161 @@ $home1_content = $about_us->home1_content;
         </div>
         <!-- Slider Pagination -->
         <div class="swiper-pagination swiper-pagination__property mg-top-30"></div>
+    </div>
+</section>
+@if ($faq->visibility)
+<!-- Faq Area -->
+<section class="homec-bg-cover pd-top-90 pd-btm-120 homec-faq-bg">
+    <div class="container homec-container-medium">
+        <div class="row homec-container-medium__row align-items-center">
+            <div class="col-lg-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="400">
+                <div class="homec-section__head">
+                    <div class="homec-section__shape">
+                        <span
+                            class="homec-section__badge homec-section__badge--shape homec-section__badge--shape--v2">{{
+                            $faq->content->short_title }}</span>
+                    </div>
+                    <h2 class="homec-section__title">{{ $faq->content->long_title }}</h2>
+                </div>
+                <div class="homec-accordion accordion accordion-flush" id="homec-accordion">
+
+                    @foreach ($faq->faqs as $faq_index => $faq_item )
+
+                    <!-- End Single Accordion -->
+                    <div class="accordion-item homec-accordion__single mg-top-30 {{ $faq_index == 0 ? 'active' : '' }}">
+                        <h2 class="accordion-header" id="homect-1-{{ $faq_index }}">
+                            <button class="accordion-button collapsed homec-accordion__heading" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#ac-collapse1-{{ $faq_index }}">{{
+                                $faq_item->question }}</button>
+                        </h2>
+                        <div id="ac-collapse1-{{ $faq_index }}"
+                            class="accordion-collapse collapse {{ $faq_index == 0 ? 'show' : '' }}"
+                            data-bs-parent="#homec-accordion">
+                            <div class="accordion-body homec-accordion__body">{!! nl2br($faq_item->answer) !!}</div>
+                        </div>
+                    </div>
+                    <!-- End Single Accordion -->
+                    @endforeach
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12 mg-top-30 d-none-tab" data-aos="fade-up" data-aos-delay="600">
+                <!-- Support Img -->
+                <div class="homec-support-img">
+                    <img src="{{ asset($faq->content->support_image) }}" alt="support_image">
+                    <div class="homec-support-img__content">
+                        <img src="{{ asset('frontend/img/support-icon-white.svg') }}" alt="support_image">
+                        <h4 class="homec-support-img__title">{{ $faq->content->support_time }} <span>{{
+                                $faq->content->support_title }}</span>
+                        </h4>
+                    </div>
+                </div>
+                <!-- End Support Img -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Faq Area -->
+@endif
+<section class="pd-top-120 pd-btm-120">
+    <div class="container homec-listing__container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section TItle -->
+                <div class="homec-section__head text-center mg-btm-60">
+                    <span class="homec-section__badge homec-primary-color homec-section__badge--small m-0"
+                        data-aos="fade-in" data-aos-delay="300">{{ $location->title }}</span>
+                    <h2 class="homec-section__title" data-aos="fade-in" data-aos-delay="400">{{ $location->description
+                        }}</h2>
+                </div>
+                <!-- Homec Search -->
+                <div class="homec-search-form mg-top-10" data-aos="fade-up" data-aos-delay="500">
+                    <form class="homec-search-form__form homec-search-form__form--city"
+                        action="{{ route('properties') }}">
+                        <div class="homec-search-form__group">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0_275_829" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0"
+                                    y="0" width="24" height="24">
+                                    <path d="M0 2.9405e-05H24V24H0V2.9405e-05Z" fill="white" />
+                                </mask>
+                                <g mask="url(#mask0_275_829)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 24C12.2351 24 12.4546 23.8825 12.585 23.6869C13.1198 22.8847 13.7306 22.0293 14.3771 21.124C14.5713 20.852 14.7687 20.5756 14.9682 20.2947C15.8268 19.086 16.717 17.8062 17.5208 16.4992C19.1133 13.9099 20.4375 11.1064 20.4375 8.43752C20.4375 3.78447 16.653 2.9405e-05 12 2.9405e-05C7.34694 2.9405e-05 3.5625 3.78447 3.5625 8.43752C3.5625 11.1064 4.88667 13.9099 6.47921 16.4992C7.28303 17.8062 8.17317 19.086 9.03176 20.2947C9.23131 20.5756 9.42873 20.852 9.62293 21.124C10.2694 22.0293 10.8802 22.8847 11.415 23.6869C11.5454 23.8825 11.7649 24 12 24ZM7.67704 15.7625C6.10551 13.2073 4.96875 10.6905 4.96875 8.43752C4.96875 4.56111 8.12359 1.40628 12 1.40628C15.8764 1.40628 19.0312 4.56111 19.0312 8.43752C19.0312 10.6905 17.8945 13.2073 16.3229 15.7625C15.5447 17.0278 14.6771 18.2763 13.8218 19.4803C13.6277 19.7535 13.4339 20.0249 13.2418 20.2939C12.8133 20.894 12.3936 21.4818 12 22.0486C11.6064 21.4818 11.1867 20.894 10.7582 20.2939C10.5661 20.0249 10.3723 19.7534 10.1782 19.4803C9.32291 18.2763 8.45524 17.0278 7.67704 15.7625Z"
+                                        fill="#7E8BA0" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.78125 8.4375C7.78125 10.7642 9.67325 12.6562 12 12.6562C14.3267 12.6562 16.2187 10.7642 16.2187 8.4375C16.2187 6.11076 14.3267 4.21876 12 4.21876C9.67325 4.21876 7.78125 6.11076 7.78125 8.4375ZM12 11.25C10.4499 11.25 9.1875 9.9876 9.1875 8.4375C9.1875 6.88741 10.4499 5.62501 12 5.62501C13.5501 5.62501 14.8125 6.88741 14.8125 8.4375C14.8125 9.9876 13.5501 11.25 12 11.25Z"
+                                        fill="#7E8BA0" />
+                                </g>
+                            </svg>
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <select name="location" class="select2">
+                                    <option value="">{{__('user.Select Location')}}</option>
+                                    @foreach ($location->location_for_filter as $location_for_filter)
+                                    <option value="{{ $location_for_filter->slug }}">{{ $location_for_filter->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="homec-btn">
+                            <span class="homec-btn__inside">
+                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8.45185 16.8948C10.3289 16.8949 12.1522 16.2686 13.633 15.1152L19.2197 20.7019C19.637 21.105 20.3021 21.0934 20.7051 20.6761C21.0983 20.269 21.0983 19.6236 20.7051 19.2165L15.1184 13.6298C17.9805 9.9456 17.314 4.63881 13.6298 1.77676C9.94555 -1.08529 4.63881 -0.418815 1.77676 3.26541C-1.08529 6.94964 -0.418815 12.2564 3.26541 15.1185C4.74865 16.2707 6.57361 16.8958 8.45185 16.8948ZM3.96301 3.95978C6.44215 1.48059 10.4616 1.48054 12.9408 3.95969C15.42 6.43883 15.4201 10.4583 12.9409 12.9375C10.4618 15.4167 6.44229 15.4167 3.9631 12.9376C3.96305 12.9376 3.96305 12.9376 3.96301 12.9375C1.48386 10.4764 1.46926 6.47159 3.93034 3.99245C3.94121 3.98153 3.95209 3.97065 3.96301 3.95978Z">
+                                    </path>
+                                </svg>
+                                <span>{{__('user.Search')}}</span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+                <!-- End Homec Search -->
+            </div>
+        </div>
+        <div class="row">
+            @php
+            $home_locations = $location->locations;
+            $second_property = false;
+            $third_property = false;
+
+            $four_property = false;
+            $five_property = false;
+
+            $six_property = false;
+            $seven_property = false;
+            @endphp
+
+            <div class="col-12 d-none d-sm-block d-sm-none d-md-block" data-aos="fade-up" data-aos-delay="600">
+                <!-- Homec Listing -->
+                <div class="homec-listing mg-top-40">
+                    @foreach ($home_locations as $loc_index => $home_location)
+
+                    <div class="homec-listing__inner">
+                        <a href="{{ route('properties', ['location' => $home_location->slug]) }}">
+                            <img class="" style="width: 150px; height: 150px;" src="{{ asset($home_location->image) }}"
+                                alt="home_location">
+                            <div class="homec-overlay homec-listing__overlay"></div>
+                            <h4 class="homec-listing__title"><span>{{ $home_location->totalProperty }}+
+                                    {{__('user.Property')}}</span>{{ $home_location->name }}</h4>
+                        </a>
+                    </div>
+
+
+                    @endforeach
+
+                </div>
+                <!-- End Homec Listing -->
+ 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12  d-flex justify-content-center mg-top-40" data-aos="fade-up" data-aos-delay="700">
+                <!-- Section TItle -->
+                <a href="{{ route('properties') }}" class="homec-btn"><span>{{__('user.Search Property')}}</span></a>
+            </div>
+        </div>
     </div>
 </section>
 
